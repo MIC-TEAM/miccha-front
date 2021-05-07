@@ -4,7 +4,7 @@ import React from 'react'
 export default function Home() {
   return (
     <HomeContainer>
-      <h1>👋 miccha front</h1>
+      <h1>PR 테스트!!</h1>
     </HomeContainer>
   )
 }
