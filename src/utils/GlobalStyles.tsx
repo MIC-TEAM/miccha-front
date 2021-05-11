@@ -61,3 +61,19 @@ export const GlobalStyles = (
     `}
   />
 )
+
+//다크모드 & 라이트모드
+export const lightTheme = {
+  bgColor: '#f8f7f4',
+  textColor: '#31302E',
+}
+
+export const darkTheme = {
+  bgColor: '#1e1e22',
+  textColor: '#ccc',
+}
+
+export const theme = {
+  lightTheme,
+  darkTheme,
+}
