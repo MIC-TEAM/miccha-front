@@ -1,0 +1,26 @@
+/* 메인페이지 인디게이터 스타일 구현*/
+#fp-nav ul li a span {
+  background-color: #fff !important;
+  height: 12px !important;
+  width: 12px !important;
+  margin: -6px 0 0 -6px !important;
+  border-radius: 100%;
+}
+
+#fp-nav ul li a {
+  opacity: 0.5;
+}
+
+#fp-nav ul li a.active {
+  opacity: 1;
+}
+
+#fp-nav ul li {
+  margin: 17px 7px !important;
+}
+
+/* 드래그 */
+*::selection {
+  background: #fad3cd;
+  color: #000;
+}
