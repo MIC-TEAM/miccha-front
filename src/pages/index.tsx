@@ -7,7 +7,7 @@ const Fullpage = () => (
   <>
     <Header />
     <ReactFullpage
-      scrollingSpeed={1000} /* Options here */
+      scrollingSpeed={1000}
       render={() => {
         return (
           <ReactFullpage
