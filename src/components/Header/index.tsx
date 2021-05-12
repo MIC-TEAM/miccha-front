@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import Link from 'next/link'
 
 // 헤더 네비게이션
-export const HeaderWrap = styled.nav`
+const HeaderWrap = styled.nav`
   z-index: 100;
   display: flex;
   justify-content: space-between;
@@ -14,7 +14,7 @@ export const HeaderWrap = styled.nav`
   padding: 0 4em;
 `
 
-export const Logo = styled.button`
+const Logo = styled.button`
   width: 94px;
   height: 72px;
   background: url('/images/logo.svg') no-repeat center center;
@@ -29,7 +29,7 @@ export const Logo = styled.button`
   }
 `
 
-export const Login = styled.button`
+const Login = styled.button`
   background: none;
   border: none;
   a {

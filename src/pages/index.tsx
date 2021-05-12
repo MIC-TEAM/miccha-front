@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactFullpage from '@fullpage/react-fullpage'
-import MainSection from './components/Main'
-import Header from './components/Header'
+import MainSection from '../components/Main'
+import Header from '../components/Header'
 
 const Fullpage = () => (
   <>
     <Header />
     <ReactFullpage
       scrollingSpeed={1000} /* Options here */
-      render={({ state }) => {
+      render={() => {
         return (
           <ReactFullpage
             navigation
