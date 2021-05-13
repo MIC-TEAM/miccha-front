@@ -1,4 +1,5 @@
 import React from 'react'
+// @ts-ignore
 import ReactFullpage from '@fullpage/react-fullpage'
 import MainSection from '../components/Main'
 import Header from '../components/Header'
