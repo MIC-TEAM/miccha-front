@@ -59,7 +59,7 @@ const Fullpage: React.FC = () => {
                     className="section section04"
                   >
                     <DownBtn type="button" className="top" onClick={() => fullpageApi.moveTo(1)}>
-                      <img src="/images/main_down.svg" alt="다음 섹션으로 이동하기" />
+                      <img src="/images/main_down.svg" alt="맨 위로 이동하기" />
                     </DownBtn>
                   </MainSection>
                 </ReactFullpage.Wrapper>
