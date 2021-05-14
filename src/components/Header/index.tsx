@@ -17,7 +17,7 @@ const HeaderWrap = styled.nav`
 const Logo = styled.button`
   width: 94px;
   height: 72px;
-  background: url('/images/logo.svg') no-repeat center center;
+  background: url('/images/common/logo.svg') no-repeat center center;
   background-size: contain;
   border: none;
   a {
@@ -49,7 +49,7 @@ const Header: React.FC = () => {
       </Logo>
 
       <Login type="button">
-        <Link href="/login">로그인</Link>
+        <Link href="/sign_in">로그인</Link>
       </Login>
     </HeaderWrap>
   )
