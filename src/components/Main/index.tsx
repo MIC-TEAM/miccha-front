@@ -23,7 +23,7 @@ const Main = ({ title, desc, background }: Props) => {
       </Link>
 
       <DownBtn type="button">
-        <img src="/images/main_down.svg" alt="다음 섹션으로 이동하기" />
+        <img src="/images/main/main_down.svg" alt="다음 섹션으로 이동하기" />
       </DownBtn>
     </MainSection>
   )
