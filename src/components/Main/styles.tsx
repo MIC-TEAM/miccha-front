@@ -1,4 +1,14 @@
 import styled from '@emotion/styled'
+import facepaint from 'facepaint'
+
+//디바이스 미디어쿼리 (아이폰5부터 아이패드 Pro 해상도)
+const mq = facepaint([
+  '@media(min-width: 320px)',
+  '@media(min-width: 375px)',
+  '@media(min-width: 414px)',
+  '@media(min-width: 768px)',
+  '@media(min-width: 1024px)',
+])
 
 // 로그인 전 메인페이지 (fullPage)
 export const MainSection = styled.section`
@@ -42,18 +52,21 @@ export const StartBtn = styled.button`
 `
 
 export const DownBtn = styled.button`
-  transform: translate(-50%);
+  transform: translateX(-50%) !important;
   left: 50%;
   position: absolute;
-  bottom: 5.208333333333334vw;
+  bottom: 5.2083vw;
   border: none;
   background: none;
-  transform: rotate(-90deg);
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
   border: 1px solid #fff;
+  cursor: pointer;
+  ${mq({
+    width: ['60px', '40px;', '45px;', '45px;', '60px;', '60px;'],
+    height: ['60px;', '40px;', '45px;', '45px;', '60px;', '60px;'],
+  })};
   img {
     width: 70%;
+    transform: rotate(-90deg);
   }
 `
