@@ -1,11 +1,11 @@
 import React from 'react'
-import ReactFullpage from '@fullpage/react-fullpage'
+import ReactFullpage, { fullpageApi } from '@fullpage/react-fullpage'
 import MainSection from '../components/Main'
 import Header from '../components/Header'
 import { DownBtn } from './styles'
 
 type Props = {
-  fullpageApi: any
+  fullpageApi: fullpageApi
 }
 const Fullpage: React.FC = () => {
   return (
