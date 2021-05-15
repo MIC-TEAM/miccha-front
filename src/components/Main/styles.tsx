@@ -39,4 +39,4 @@ export const StartBtn = styled.button`
   cursor: pointer;
   letter-spacing: -0.0486vw;
   font-weight: 700;
-  `
+`

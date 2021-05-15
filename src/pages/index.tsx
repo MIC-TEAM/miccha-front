@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactFullpage, { fullpageApi } from '@fullpage/react-fullpage'
-import MainSection from '../components/Main'
-import Header from '../components/Header'
+import MainSection from '../components/main'
+import Header from '../components/header'
 import { DownBtn } from './styles'
 
 type Props = {
