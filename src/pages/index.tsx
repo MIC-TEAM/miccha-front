@@ -26,7 +26,7 @@ const Fullpage: React.FC = () => {
                     className="section section01"
                   >
                     <DownBtn type="button" onClick={() => fullpageApi.moveSectionDown()}>
-                      <img src="/images/main_down.svg" alt="다음 섹션으로 이동하기" />
+                      <img src="/images/main/main_down.svg" alt="다음 섹션으로 이동하기" />
                     </DownBtn>
                   </MainSection>
 
@@ -37,7 +37,7 @@ const Fullpage: React.FC = () => {
                     className="section section02"
                   >
                     <DownBtn type="button" onClick={() => fullpageApi.moveSectionDown()}>
-                      <img src="/images/main_down.svg" alt="다음 섹션으로 이동하기" />
+                      <img src="/images/main/main_down.svg" alt="다음 섹션으로 이동하기" />
                     </DownBtn>
                   </MainSection>
 
@@ -48,7 +48,7 @@ const Fullpage: React.FC = () => {
                     className="section section03"
                   >
                     <DownBtn type="button" onClick={() => fullpageApi.moveSectionDown()}>
-                      <img src="/images/main_down.svg" alt="다음 섹션으로 이동하기" />
+                      <img src="/images/main/main_down.svg" alt="다음 섹션으로 이동하기" />
                     </DownBtn>
                   </MainSection>
 
@@ -59,7 +59,7 @@ const Fullpage: React.FC = () => {
                     className="section section04"
                   >
                     <DownBtn type="button" className="top" onClick={() => fullpageApi.moveTo(1)}>
-                      <img src="/images/main_down.svg" alt="맨 위로 이동하기" />
+                      <img src="/images/main/main_down.svg" alt="맨 위로 이동하기" />
                     </DownBtn>
                   </MainSection>
                 </ReactFullpage.Wrapper>
