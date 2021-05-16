@@ -27,7 +27,7 @@ export const HeaderWrap = styled.nav`
 export const Logo = styled.button`
   width: 94px;
   height: 72px;
-  background: url('/images/logo.svg') no-repeat center center;
+  background: url('/images/common/logo.svg') no-repeat center center;
   background-size: contain;
   border: none;
   a {

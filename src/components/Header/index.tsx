@@ -10,7 +10,7 @@ const Header: React.FC = () => {
       </Logo>
 
       <Login type="button">
-        <Link href="/login">로그인</Link>
+        <Link href="/sign_in">로그인</Link>
       </Login>
     </HeaderWrap>
   )
