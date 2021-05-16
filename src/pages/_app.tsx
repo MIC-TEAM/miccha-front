@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import { RecoilRoot } from 'recoil'
-import { GlobalStyles } from '../utils/GlobalStyles'
+import { GlobalStyles } from '../utils/global-styles'
 import '../utils/main.css'
 import Head from 'next/head'
 
