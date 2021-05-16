@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import Header from '../components/header'
+import Header from '../components/Header'
 import LoginForm from '../components/sign_in/LoginForm'
 import Oauth from '../components/sign_in/Oauth'
 
