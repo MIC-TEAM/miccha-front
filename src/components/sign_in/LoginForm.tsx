@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import useLoginForm from '../../hooks/useLoginForm'
 
-function LoginForm() {
+const LoginForm: React.FC = () => {
   const { email, password, onChangeEmail, onChangePassword } = useLoginForm()
 
   return (

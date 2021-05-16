@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
-
-function Oauth() {
+const Oauth: React.FC = () => {
   return (
     <OauthContainer>
       <h4>다른 방법으로 로그인하기</h4>

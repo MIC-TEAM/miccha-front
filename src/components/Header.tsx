@@ -1,17 +1,26 @@
+import React from 'react'
+import Link from 'next/link'
 import styled from '@emotion/styled'
-import facepaint from 'facepaint'
+import { mq } from '../utils/media-query'
 
-//디바이스 미디어쿼리 (아이폰5부터 아이패드 Pro 해상도)
-const mq = facepaint([
-  '@media(min-width: 320px)',
-  '@media(min-width: 375px)',
-  '@media(min-width: 414px)',
-  '@media(min-width: 768px)',
-  '@media(min-width: 1024px)',
-])
+const Header: React.FC = () => {
+  return (
+    <HeaderWrap>
+      <Logo type="button">
+        <Link href="/">믹챠</Link>
+      </Logo>
+
+      <Login type="button">
+        <Link href="/sign_in">로그인</Link>
+      </Login>
+    </HeaderWrap>
+  )
+}
+
+export default Header
 
 // 헤더 네비게이션
-export const HeaderWrap = styled.nav`
+const HeaderWrap = styled.nav`
   z-index: 100;
   display: flex;
   justify-content: space-between;
@@ -24,7 +33,7 @@ export const HeaderWrap = styled.nav`
   })};
 `
 
-export const Logo = styled.button`
+const Logo = styled.button`
   width: 94px;
   height: 72px;
   background: url('/images/common/logo.svg') no-repeat center center;
@@ -39,7 +48,7 @@ export const Logo = styled.button`
   }
 `
 
-export const Login = styled.button`
+const Login = styled.button`
   background: none;
   border: none;
   a {
