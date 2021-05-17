@@ -92,13 +92,11 @@ const Submit = styled.button`
   padding: 0px 0px 21px;
   border-bottom: 1px solid rgba(154, 151, 161, 0.2);
   margin: 16px 0px 0px;
-
   background-color: rgb(248, 47, 98);
   color: rgb(255, 255, 255);
   font-weight: 700;
   letter-spacing: -0.1px;
   text-align: center;
-  width: 100%;
   border-radius: 40px;
   border: none;
   font-size: 16px;

@@ -1,23 +1,25 @@
-import styled from '@emotion/styled'
 import Header from '../components/common/Header'
-import LoginForm from '../components/sign_in/LoginForm'
-import Oauth from '../components/sign_in/Oauth'
+import styled from '@emotion/styled'
+import Head from 'next/head'
 
-const SignIn: React.FC = () => {
+const SignUp: React.FC = () => {
   return (
-    <SignInContainer>
-      <Header text="회원가입" link="/sign_up" />
-      <SignInWrapper>
-        <LoginForm />
-        <Oauth />
-      </SignInWrapper>
-    </SignInContainer>
+    <>
+      <Head>
+        <title>믹챠 | 회원가입</title>
+      </Head>
+
+      <SignUpContainer>
+        <Header link="/sign_in" text="로그인" />
+        <SignUpWrapper></SignUpWrapper>
+      </SignUpContainer>
+    </>
   )
 }
 
-export default SignIn
+export default SignUp
 
-const SignInContainer = styled.div`
+const SignUpContainer = styled.div`
   width: 100%;
   height: 100%;
   background: url('https://an2-img.amz.wtchn.net/image/v2/d841ae726ca23a1bdb50453fa945e45d.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSndZWFJvSWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk1UVTVOakV3TnpReE1qYzJOVFV4TXpBaWZRLkJLdjJVSDB1ZFpmdHUyX2pJeUdSTzdxaTJ3MlNENXVMUTFCS3pIS19OSVU')
@@ -34,7 +36,7 @@ const SignInContainer = styled.div`
   }
 `
 
-const SignInWrapper = styled.div`
+const SignUpWrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;

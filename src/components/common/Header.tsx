@@ -1,9 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 import styled from '@emotion/styled'
-import { mq } from '../utils/media-query'
+import { mq } from '../../utils/media-query'
 
-const Header: React.FC = () => {
+type Props = {
+  text: string
+  link: string
+}
+
+const Header = ({ text, link }: Props) => {
   return (
     <HeaderWrap>
       <Logo type="button">
@@ -11,7 +16,7 @@ const Header: React.FC = () => {
       </Logo>
 
       <Login type="button">
-        <Link href="/sign_in">로그인</Link>
+        <Link href={link}>{text}</Link>
       </Login>
     </HeaderWrap>
   )
