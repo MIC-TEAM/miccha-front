@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactFullpage, { fullpageApi } from '@fullpage/react-fullpage'
 import MainSection from '../components/Main'
-import Header from '../components/Header'
+import Header from '../components/common/Header'
 import styled from '@emotion/styled'
 import { mq } from '../utils/media-query'
 
@@ -11,7 +11,7 @@ type Props = {
 const Fullpage: React.FC = () => {
   return (
     <>
-      <Header />
+      <Header text="로그인" link="/sign_in" />
       <ReactFullpage
         scrollingSpeed={1000}
         render={() => {
