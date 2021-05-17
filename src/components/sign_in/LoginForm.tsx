@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import useLoginForm from '../../hooks/useLoginForm'
+import SubmitButton from '../common/SubmitButton'
 
 const LoginForm: React.FC = () => {
   const { email, password, onChangeEmail, onChangePassword } = useLoginForm()
@@ -18,7 +19,7 @@ const LoginForm: React.FC = () => {
         <input type="password" placeholder="비밀번호" onChange={onChangePassword} value={password} />
         <Validation />
       </InputBox>
-      <Submit>로그인</Submit>
+      <SubmitButton>로그인</SubmitButton>
     </form>
   )
 }
@@ -51,7 +52,7 @@ const InputBox = styled.div`
 
   & > input {
     width: 100%;
-    padding: 10px 44px 10px 14px;
+    padding: 12px 44px 12px 14px;
     font-size: 16px;
     font-weight: 400;
     letter-spacing: -0.5px;
@@ -66,9 +67,13 @@ const InputBox = styled.div`
     color: #a7a8af;
   }
 
-  &:last-of-type > input {
+  &:last-of-type {
     position: relative;
     top: -1px;
+    margin-bottom: 16px;
+  }
+
+  &:last-of-type > input {
     border-radius: 0px 0px 4px 4px;
     border-bottom: 1px solid rgba(154, 151, 161, 0.2);
   }
@@ -85,23 +90,4 @@ const Validation = styled.span`
   width: 20px;
   height: 20px;
   margin-top: -10px;
-`
-
-const Submit = styled.button`
-  width: 100%;
-  padding: 0px 0px 21px;
-  border-bottom: 1px solid rgba(154, 151, 161, 0.2);
-  margin: 16px 0px 0px;
-
-  background-color: rgb(248, 47, 98);
-  color: rgb(255, 255, 255);
-  font-weight: 700;
-  letter-spacing: -0.1px;
-  text-align: center;
-  width: 100%;
-  border-radius: 40px;
-  border: none;
-  font-size: 16px;
-  line-height: 47px;
-  height: 48px;
 `

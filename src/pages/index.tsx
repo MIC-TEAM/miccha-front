@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactFullpage, { fullpageApi } from '@fullpage/react-fullpage'
 import MainSection from '../components/Main'
-import Header from '../components/Header'
+import Header from '../components/common/Header'
 import styled from '@emotion/styled'
 import { mq } from '../utils/media-query'
 
