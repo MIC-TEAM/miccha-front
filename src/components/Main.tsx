@@ -20,7 +20,7 @@ const Main = ({ title, desc, background, children }: Props) => {
       <p>{desc}</p>
 
       <Link href="/start">
-        <StartBtn type="button">2주 무료 이용 시작</StartBtn>
+        <StartBtn type="button">MICCHA 시작하기</StartBtn>
       </Link>
       {children}
     </MainSection>

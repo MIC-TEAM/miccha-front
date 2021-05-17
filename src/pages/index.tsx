@@ -11,7 +11,7 @@ type Props = {
 const Fullpage: React.FC = () => {
   return (
     <>
-      <Header />
+      <Header text="로그인" link="/sign_in" />
       <ReactFullpage
         scrollingSpeed={1000}
         render={() => {
