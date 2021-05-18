@@ -11,7 +11,6 @@ export const InputBox = styled.div`
     margin: 16px 0 0;
   }
 `
-
 export const Checker = styled.div`
   font-size: 12px;
   font-weight: 400;
@@ -34,16 +33,16 @@ export const Checker = styled.div`
       border-radius: 50%;
     }
     input[type='checkbox'] {
-      margin-right: 7px;
       width: 14px;
       height: 14px;
       background: rgb(248, 47, 98) no-repeat center center;
       background-size: contain;
       border: 1px solid rgb(248, 47, 98);
+      border-radius: 50%;
       cursor: pointer;
+      margin-right: 7px;
       outline: none;
       appearance: none;
-      border-radius: 50%;
       background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTkuNDEgMTcuMjZhLjc0NC43NDQgMCAwIDEtLjUzLS4yMkw0LjA1IDEyLjIxMmEuNzQ5Ljc0OSAwIDEgMSAxLjA2LTEuMDZsNC4yOTggNC4yOTcgOS40OC05LjQ4QS43NS43NSAwIDEgMSAxOS45NSA3LjAzTDkuOTQgMTcuMDRhLjc0NC43NDQgMCAwIDEtLjUzLjIyIi8+Cjwvc3ZnPgo=);
     }
   }
@@ -53,6 +52,9 @@ export const SignUpForm = styled.form`
   width: 100%;
   button {
     opacity: 0.3;
+    &.success {
+      opacity: 1;
+    }
   }
   .inputBox {
     width: 100%;
@@ -81,16 +83,12 @@ export const SignUpForm = styled.form`
     &.name {
       box-sizing: border-box;
       border-radius: 4px 4px 0 0;
-      input {
-        border-radius: 4px 4px 0 0;
-      }
+      overflow: hidden;
     }
     &.password {
       box-sizing: border-box;
       border-radius: 0 0 4px 4px;
-      input {
-        border-radius: 0 0 4px 4px;
-      }
+      overflow: hidden;
     }
     &.email {
       border: 1px solid rgba(154, 151, 161, 0.2);
@@ -100,10 +98,8 @@ export const SignUpForm = styled.form`
     input {
       border: none;
       width: 100%;
-
       padding: 10px 44px 10px 14px;
       letter-spacing: -0.5px;
-      border: none;
     }
   }
 `
