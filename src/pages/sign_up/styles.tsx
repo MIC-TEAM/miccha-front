@@ -62,6 +62,7 @@ export const SignUpForm = styled.form`
     border: none;
     box-sizing: border-box;
     position: relative;
+    overflow: hidden;
     &::after {
       content: '';
       display: inline-block;
@@ -81,14 +82,10 @@ export const SignUpForm = styled.form`
       }
     }
     &.name {
-      box-sizing: border-box;
       border-radius: 4px 4px 0 0;
-      overflow: hidden;
     }
     &.password {
-      box-sizing: border-box;
       border-radius: 0 0 4px 4px;
-      overflow: hidden;
     }
     &.email {
       border: 1px solid rgba(154, 151, 161, 0.2);
