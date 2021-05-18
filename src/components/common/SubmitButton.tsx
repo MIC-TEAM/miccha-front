@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import React from 'react'
+import React, { memo } from 'react'
 
 interface Props {
   children: React.ReactNode
@@ -9,7 +9,7 @@ const SubmitButton: React.FC<Props> = ({ children }) => {
   return <Button>{children}</Button>
 }
 
-export default SubmitButton
+export default memo(SubmitButton)
 
 const Button = styled.button`
   width: 100%;
