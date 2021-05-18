@@ -44,7 +44,7 @@ const SignUp: React.FC = () => {
               <Checker>
                 <label htmlFor="check01">
                   <span>
-                    <input type="checkbox" name="check01" />
+                    <input type="checkbox" name="user-term" />
                   </span>
                   전체 약관에 동의합니다.
                 </label>
@@ -53,34 +53,34 @@ const SignUp: React.FC = () => {
               <Checker>
                 <label htmlFor="check02">
                   <span>
-                    <input type="checkbox" name="check" id="check03" />
+                    <input type="checkbox" name="user-term" />
                   </span>
                   만 14세 이상입니다.
                 </label>
               </Checker>
 
               <Checker>
-                <label htmlFor="check04">
+                <label htmlFor="check03">
                   <span>
-                    <input type="checkbox" name="check" id="check04" />
+                    <input type="checkbox" name="user-term" />
                   </span>
                   <strong>믹챠 서비스 이용약관</strong>에 동의합니다 (필수)
                 </label>
               </Checker>
 
               <Checker>
-                <label htmlFor="check05">
+                <label htmlFor="check04">
                   <span>
-                    <input type="checkbox" name="check" id="check05" />
+                    <input type="checkbox" name="user-term" />
                   </span>
                   <strong>개인정보 수집 및 이용에 대한 안내</strong>에 동의합니다 (필수)
                 </label>
               </Checker>
 
               <Checker>
-                <label htmlFor="check01">
+                <label htmlFor="check05">
                   <span>
-                    <input type="checkbox" name="check" id="" />
+                    <input type="checkbox" name="user-term" />
                   </span>
                   <strong>신작 알림 이벤트 정보 수신</strong>에 동의합니다 (선택)
                 </label>
