@@ -2,16 +2,23 @@ import styled from '@emotion/styled'
 import Header from '../components/common/Header'
 import LoginForm from '../components/sign_in/LoginForm'
 import Oauth from '../components/sign_in/Oauth'
+import Head from 'next/head'
 
 const SignIn: React.FC = () => {
   return (
-    <SignInContainer>
-      <Header text="회원가입" link="/sign_up" />
-      <SignInWrapper>
-        <LoginForm />
-        <Oauth />
-      </SignInWrapper>
-    </SignInContainer>
+    <>
+      <Head>
+        <title>믹챠 | Login</title>
+      </Head>
+
+      <SignInContainer>
+        <Header text="회원가입" link="/sign_up" />
+        <SignInWrapper>
+          <LoginForm />
+          <Oauth />
+        </SignInWrapper>
+      </SignInContainer>
+    </>
   )
 }
 
