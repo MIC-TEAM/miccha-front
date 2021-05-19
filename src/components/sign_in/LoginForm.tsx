@@ -19,7 +19,7 @@ const LoginForm: React.FC = () => {
         <input type="password" placeholder="비밀번호" onChange={onChangePassword} value={password} />
         <Validation />
       </InputBox>
-      <SubmitButton>로그인</SubmitButton>
+      <SubmitButton type="submit">로그인</SubmitButton>
     </form>
   )
 }
