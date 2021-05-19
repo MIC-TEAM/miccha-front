@@ -6,7 +6,7 @@ interface Props {
   type?: 'submit' | 'reset' | 'button'
 }
 
-const SubmitButton: React.FC<Props> = ({ children, type }) => {
+const SubmitButton: React.FC<Props> = ({ children, type = 'submit' }) => {
   return <Button type={type}>{children}</Button>
 }
 
