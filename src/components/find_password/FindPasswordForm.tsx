@@ -16,7 +16,7 @@ const FindPasswordForm: React.FC = () => {
         <Validation />
       </InputBox>
       <Notice>
-        기존에 가입하신 이메일 주소를 입력해주시면 임시주소가 발송됩니다. 임시주소로 들어오신 뒤 새로운 비밀 번호를
+        기존에 가입하신 이메일 주소를 입력해주시면 임시주소가 발송됩니다. 임시주소로 들어오신 뒤 새로운 비밀번호를
         설정하세요.
       </Notice>
       <SubmitButton>확인</SubmitButton>
