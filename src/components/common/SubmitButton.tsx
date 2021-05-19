@@ -3,10 +3,11 @@ import React, { memo } from 'react'
 
 interface Props {
   children: React.ReactNode
+  type?: 'submit' | 'reset' | 'button'
 }
 
-const SubmitButton: React.FC<Props> = ({ children }) => {
-  return <Button>{children}</Button>
+const SubmitButton: React.FC<Props> = ({ children, type }) => {
+  return <Button type={type}>{children}</Button>
 }
 
 export default memo(SubmitButton)
