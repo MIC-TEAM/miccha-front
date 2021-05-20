@@ -1,15 +1,22 @@
 import styled from '@emotion/styled'
 import Header from '../components/common/Header'
-import FindPasswordForm from '../components/find_password/FindPasswordForm'
+import FindPasswordForm from '../components/FindPasswordForm'
+import Head from 'next/head'
 
 const FindPassword: React.FC = () => {
   return (
-    <FindPasswordContainer>
-      <Header text="로그인" link="/sign_in" />
-      <FindPasswordWrapper>
-        <FindPasswordForm />
-      </FindPasswordWrapper>
-    </FindPasswordContainer>
+    <>
+      <Head>
+        <title>믹챠 | 비밀번호 찾기</title>
+      </Head>
+
+      <FindPasswordContainer>
+        <Header text="로그인" link="/sign_in" />
+        <FindPasswordWrapper>
+          <FindPasswordForm />
+        </FindPasswordWrapper>
+      </FindPasswordContainer>
+    </>
   )
 }
 
