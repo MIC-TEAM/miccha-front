@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Link from 'next/link'
 import styled from '@emotion/styled'
 import { mq } from '../../utils/media-query'
@@ -22,7 +22,7 @@ const Header = ({ text, link }: Props) => {
   )
 }
 
-export default Header
+export default memo(Header)
 
 // 헤더 네비게이션
 const HeaderWrap = styled.nav`
