@@ -4,10 +4,15 @@ import React, { memo } from 'react'
 interface Props {
   children: React.ReactNode
   type?: 'submit' | 'reset' | 'button'
+  disabled?: boolean
 }
 
-const SubmitButton: React.FC<Props> = ({ children, type = 'submit' }) => {
-  return <Button type={type}>{children}</Button>
+const SubmitButton: React.FC<Props> = ({ children, type = 'submit', disabled = true }) => {
+  return (
+    <Button type={type} disabled={disabled}>
+      {children}
+    </Button>
+  )
 }
 
 export default memo(SubmitButton)
@@ -29,4 +34,8 @@ const Button = styled.button`
   height: 48px;
 
   cursor: pointer;
+
+  &:disabled {
+    opacity: 0.3;
+  }
 `

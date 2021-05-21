@@ -1,13 +1,24 @@
 import styled from '@emotion/styled'
 import Link from 'next/link'
-import useLoginForm from '../../hooks/useLoginForm'
+import { FormEvent, useCallback } from 'react'
+import useInput, { InputType, ValidationType } from '../../hooks/useInput'
 import SubmitButton from '../common/SubmitButton'
+import Validation from '../common/Validation'
 
 const LoginForm: React.FC = () => {
-  const { email, password, onChangeEmail, onChangePassword } = useLoginForm()
+  const email = useInput(InputType.EMAIL)
+  const password = useInput(InputType.PASSWORD)
+
+  const onSubmit = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault()
+      console.log(`email: ${email.value}, password: ${password.value}`)
+    },
+    [email.value, password.value]
+  )
 
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <FormHeader>
         <h2>로그인</h2>
         <Link href="/find_password">
@@ -15,14 +26,19 @@ const LoginForm: React.FC = () => {
         </Link>
       </FormHeader>
       <InputBox>
-        <input type="email" placeholder="이메일 (example@gmail.com)" onChange={onChangeEmail} value={email} />
-        <Validation />
+        <input type="email" placeholder="이메일 (example@gmail.com)" {...email} />
+        <Validation state={email.validation} />
       </InputBox>
       <InputBox>
-        <input type="password" placeholder="비밀번호" onChange={onChangePassword} value={password} />
-        <Validation />
+        <input type="password" placeholder="비밀번호" {...password} />
+        <Validation state={password.validation} />
       </InputBox>
-      <SubmitButton type="submit">로그인</SubmitButton>
+      <SubmitButton
+        type="submit"
+        disabled={!(email.validation === ValidationType.SUCCESS && password.validation === ValidationType.SUCCESS)}
+      >
+        로그인
+      </SubmitButton>
     </form>
   )
 }
@@ -81,17 +97,4 @@ const InputBox = styled.div`
     border-radius: 0px 0px 4px 4px;
     border-bottom: 1px solid rgba(154, 151, 161, 0.2);
   }
-`
-
-const Validation = styled.span`
-  display: inline-block;
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU1LjIgKDc4MTgxKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5JY29ucyAvIFNldHRpbmdzIC8gSW52YWxpZDwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJJY29ucy0vLVNldHRpbmdzLS8tSW52YWxpZCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IngtY2lyY2xlLWYiIGZpbGw9IiNEQjQyNDEiIGZpbGwtcnVsZT0ibm9uemVybyI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0xNy4wNzA1NTU2LDE3LjA3IEMxMy4xODE2NjY3LDIwLjk1ODg4ODkgNi44MTgzMzMzMywyMC45NTg4ODg5IDIuOTI5NDQ0NDQsMTcuMDcgQy0wLjk1ODg4ODg4OSwxMy4xODE2NjY3IC0wLjk1ODg4ODg4OSw2LjgxODMzMzMzIDIuOTI5NDQ0NDQsMi45Mjk0NDQ0NCBDNi44MTgzMzMzMywtMC45NTg4ODg4ODkgMTMuMTgxNjY2NywtMC45NTg4ODg4ODkgMTcuMDcsMi45Mjk0NDQ0NCBDMjAuOTU4ODg4OSw2LjgxODMzMzMzIDIwLjk1ODg4ODksMTMuMTgxNjY2NyAxNy4wNzA1NTU2LDE3LjA3IEwxNy4wNzA1NTU2LDE3LjA3IFogTTEzLjg5Mzg4ODksNy42NjM4ODg4OSBMMTIuMzM2MTExMSw2LjEwNjExMTExIEwxMCw4LjQ0Mjc3Nzc4IEw3LjY2Mzg4ODg5LDYuMTA2MTExMTEgTDYuMTA2NjY2NjcsNy42NjM4ODg4OSBMOC40NDI3Nzc3OCwxMCBMNi4xMDY2NjY2NywxMi4zMzYxMTExIEw3LjY2Mzg4ODg5LDEzLjg5Mzg4ODkgTDEwLDExLjU1NzIyMjIgTDEyLjMzNjExMTEsMTMuODkzODg4OSBMMTMuODkzODg4OSwxMi4zMzYxMTExIEwxMS41NTcyMjIyLDEwIEwxMy44OTM4ODg5LDcuNjYzODg4ODkgTDEzLjg5Mzg4ODksNy42NjM4ODg4OSBaIiBpZD0iU2hhcGUiPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==)
-    no-repeat;
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  bottom: auto;
-  width: 20px;
-  height: 20px;
-  margin-top: -10px;
 `

@@ -8,7 +8,7 @@ const SignIn: React.FC = () => {
   return (
     <>
       <Head>
-        <title>믹챠 | Login</title>
+        <title>믹챠 | 로그인</title>
       </Head>
 
       <SignInContainer>

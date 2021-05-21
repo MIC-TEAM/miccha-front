@@ -1,12 +1,9 @@
 import Header from '../../components/common/Header'
 import SubmitButton from '../../components/common/SubmitButton'
-import useLoginForm from '../../hooks/useLoginForm'
 import Head from 'next/head'
 import { InputBox, Checker, SignUpForm, SignUpContainer, SignUpWrapper, SignUpChecker } from './styles'
 
 const SignUp: React.FC = () => {
-  const { name, email, password, onChangeName, onChangeEmail, onChangePassword } = useLoginForm()
-
   return (
     <>
       <Head>
@@ -21,20 +18,15 @@ const SignUp: React.FC = () => {
           <SignUpForm>
             <InputBox>
               <div className="inputBox name success">
-                <input type="text" placeholder="이름 (2자 이상)" value={name} onChange={onChangeName} />
+                <input type="text" placeholder="이름 (2자 이상)" />
               </div>
 
               <div className="inputBox email">
-                <input type="email" placeholder="이메일 (example@gamil.com)" value={email} onChange={onChangeEmail} />
+                <input type="email" placeholder="이메일 (example@gamil.com)" />
               </div>
 
               <div className="inputBox password">
-                <input
-                  type="password"
-                  placeholder="영문, 숫자, 특문 중 2개 조합 10자 이상"
-                  value={password}
-                  onChange={onChangePassword}
-                />
+                <input type="password" placeholder="영문, 숫자, 특문 중 2개 조합 10자 이상" />
               </div>
 
               <strong className="duplication">이미 존재하는 이메일입니다.</strong>
