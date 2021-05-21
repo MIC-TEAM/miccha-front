@@ -1,6 +1,95 @@
+import Header from '../components/common/Header'
+import SubmitButton from '../components/common/SubmitButton'
+import Head from 'next/head'
 import styled from '@emotion/styled'
 
-export const InputBox = styled.div`
+const SignUp: React.FC = () => {
+  return (
+    <>
+      <Head>
+        <title>믹챠 | 회원가입</title>
+      </Head>
+
+      <SignUpContainer>
+        <Header link="/sign_in" text="로그인" />
+        <SignUpWrapper>
+          <h2>회원가입</h2>
+
+          <SignUpForm>
+            <InputBox>
+              <div className="inputBox name success">
+                <input type="text" placeholder="이름 (2자 이상)" />
+              </div>
+
+              <div className="inputBox email">
+                <input type="email" placeholder="이메일 (example@gamil.com)" />
+              </div>
+
+              <div className="inputBox password">
+                <input type="password" placeholder="영문, 숫자, 특문 중 2개 조합 10자 이상" />
+              </div>
+
+              <strong className="duplication">이미 존재하는 이메일입니다.</strong>
+            </InputBox>
+
+            <SignUpChecker>
+              <Checker>
+                <label htmlFor="check01">
+                  <span>
+                    <input type="checkbox" name="user-term" />
+                  </span>
+                  전체 약관에 동의합니다.
+                </label>
+              </Checker>
+
+              <Checker>
+                <label htmlFor="check02">
+                  <span>
+                    <input type="checkbox" name="user-term" />
+                  </span>
+                  만 14세 이상입니다.
+                </label>
+              </Checker>
+
+              <Checker>
+                <label htmlFor="check03">
+                  <span>
+                    <input type="checkbox" name="user-term" />
+                  </span>
+                  <strong>믹챠 서비스 이용약관</strong>에 동의합니다 (필수)
+                </label>
+              </Checker>
+
+              <Checker>
+                <label htmlFor="check04">
+                  <span>
+                    <input type="checkbox" name="user-term" />
+                  </span>
+                  <strong>개인정보 수집 및 이용에 대한 안내</strong>에 동의합니다 (필수)
+                </label>
+              </Checker>
+
+              <Checker>
+                <label htmlFor="check05">
+                  <span>
+                    <input type="checkbox" name="user-term" />
+                  </span>
+                  <strong>신작 알림 이벤트 정보 수신</strong>에 동의합니다 (선택)
+                </label>
+              </Checker>
+            </SignUpChecker>
+
+            <SubmitButton type="submit">계정 생성하기</SubmitButton>
+          </SignUpForm>
+        </SignUpWrapper>
+      </SignUpContainer>
+    </>
+  )
+}
+
+export default SignUp
+
+const InputBox = styled.div`
   strong {
     color: rgb(248, 47, 98);
     text-align: center;
@@ -11,7 +100,7 @@ export const InputBox = styled.div`
     margin: 16px 0 0;
   }
 `
-export const Checker = styled.div`
+const Checker = styled.div`
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
@@ -48,7 +137,7 @@ export const Checker = styled.div`
   }
 `
 
-export const SignUpForm = styled.form`
+const SignUpForm = styled.form`
   width: 100%;
   button {
     opacity: 0.3;
@@ -100,7 +189,7 @@ export const SignUpForm = styled.form`
     }
   }
 `
-export const SignUpContainer = styled.div`
+const SignUpContainer = styled.div`
   width: 100%;
   height: 100%;
   background: url('https://an2-img.amz.wtchn.net/image/v2/d841ae726ca23a1bdb50453fa945e45d.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSndZWFJvSWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk1UVTVOakV3TnpReE1qYzJOVFV4TXpBaWZRLkJLdjJVSDB1ZFpmdHUyX2pJeUdSTzdxaTJ3MlNENXVMUTFCS3pIS19OSVU')
@@ -123,7 +212,7 @@ export const SignUpContainer = styled.div`
   }
 `
 
-export const SignUpWrapper = styled.div`
+const SignUpWrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -132,7 +221,7 @@ export const SignUpWrapper = styled.div`
   color: white;
 `
 
-export const SignUpChecker = styled.div`
+const SignUpChecker = styled.div`
   width: 100%;
   margin: 16px 0 0;
 `
