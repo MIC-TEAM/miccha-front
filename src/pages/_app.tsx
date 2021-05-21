@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import { RecoilRoot } from 'recoil'
-import { GlobalStyles } from '../utils/global-styles'
-import '../utils/main.css'
+import { GlobalStyles } from '../styles/global-styles'
+import '../styles/main.css'
 import Head from 'next/head'
 
 function App({ Component, pageProps }: AppProps) {

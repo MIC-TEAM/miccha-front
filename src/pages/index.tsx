@@ -3,7 +3,7 @@ import ReactFullpage, { fullpageApi } from '@fullpage/react-fullpage'
 import MainSection from '../components/Main'
 import Header from '../components/common/Header'
 import styled from '@emotion/styled'
-import { mq } from '../utils/media-query'
+import { mq } from '../styles/media-query'
 
 type Props = {
   fullpageApi: fullpageApi

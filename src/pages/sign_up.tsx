@@ -1,7 +1,7 @@
-import Header from '../../components/common/Header'
-import SubmitButton from '../../components/common/SubmitButton'
+import Header from '../components/common/Header'
+import SubmitButton from '../components/common/SubmitButton'
 import Head from 'next/head'
-import { InputBox, Checker, SignUpForm, SignUpContainer, SignUpWrapper, SignUpChecker } from './styles'
+import { InputBox, Checker, SignUpForm, SignUpContainer, SignUpWrapper, SignUpChecker } from '../styles/sign_up'
 
 const SignUp: React.FC = () => {
   return (

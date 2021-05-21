@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import Link from 'next/link'
 import styled from '@emotion/styled'
-import { mq } from '../../utils/media-query'
+import { mq } from '../../styles/media-query'
 
 type Props = {
   text: string
