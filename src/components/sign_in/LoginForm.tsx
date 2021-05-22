@@ -63,6 +63,9 @@ const FormHeader = styled.div`
     letter-spacing: -0.4px;
     opacity: 0.5;
     cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `
 
