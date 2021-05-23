@@ -29,7 +29,7 @@ const SignUp: React.FC = () => {
               email: Yup.string().email().required(),
               password: Yup.string()
                 .min(10)
-                .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{10,}$/)
+                .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)
                 .required(),
             })}
             onSubmit={(values, { setSubmitting }) => {
@@ -39,17 +39,17 @@ const SignUp: React.FC = () => {
               }, 400)
             }}
           >
-            {({ isSubmitting }) => (
+            {({ isSubmitting, errors }) => (
               <Form>
                 <InputBox>
                   <div className="inputBox name">
                     <Field type="name" placeholder="이름 (2자 이상)" name="name" className="input" />
-                    <ErrorMessage name="name" component="span" className="error" />
+                    <ErrorMessage name="name" component="span" className={errors.name ? 'error' : 'success'} />
                   </div>
 
                   <div className="inputBox email">
                     <Field type="email" name="email" placeholder="이메일 (example@gamil.com)" className="input" />
-                    <ErrorMessage name="email" component="span" className="error" />
+                    <ErrorMessage name="email" component="span" className={errors.email ? 'error' : 'success'} />
                   </div>
 
                   <div className="inputBox password">
@@ -59,7 +59,7 @@ const SignUp: React.FC = () => {
                       placeholder="영문, 숫자, 특문 중 2개 조합 10자 이상"
                       className="input"
                     />
-                    <ErrorMessage name="password" component="span" className="error" />
+                    <ErrorMessage name="password" component="span" className={errors.password ? 'error' : 'success'} />
                   </div>
 
                   <strong className="duplication">이미 존재하는 이메일입니다.</strong>
