@@ -1,12 +1,12 @@
 import React from 'react'
-import ReactFullpage, { fullpageApi } from '@fullpage/react-fullpage'
+import ReactFullpage, { FullpageApi } from '@fullpage/react-fullpage'
 import MainSection from '../components/Main'
 import Header from '../components/common/Header'
 import styled from '@emotion/styled'
 import { mq } from '../styles/media-query'
 
 type Props = {
-  fullpageApi: fullpageApi
+  fullpageApi: FullpageApi
 }
 const Fullpage: React.FC = () => {
   return (

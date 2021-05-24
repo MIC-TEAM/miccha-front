@@ -1,5 +1,5 @@
 declare module '@fullpage/react-fullpage' {
-  export interface fullpageOptions {
+  export interface FullpageOptions {
     anchors?: string[]
     animateAnchor?: boolean
     autoScrolling?: boolean
@@ -86,7 +86,7 @@ declare module '@fullpage/react-fullpage' {
     /* end key sections */
   }
 
-  export interface fullpageApi {
+  export interface FullpageApi {
     continuousHorizontal: any
     dragAndMove: any
     fadingEffect: any
@@ -129,13 +129,13 @@ declare module '@fullpage/react-fullpage' {
       translate3d: string
       translate3dH: string[]
       setAutoScrolling(e?: any, t?: any): void
-      options: fullpageOptions
+      options: FullpageOptions
     }
   }
 
-  interface FullPageProps extends fullpageOptions {
+  interface FullPageProps extends FullpageOptions {
     licenseKey?: string
-    render: (comp: { state: any; fullpageApi: fullpageApi }) => React.ReactElement | void
+    render: (comp: { state: any; fullpageApi: FullpageApi }) => React.ReactElement | void
     debug?: boolean
     pluginWrapper?: () => void
   }
