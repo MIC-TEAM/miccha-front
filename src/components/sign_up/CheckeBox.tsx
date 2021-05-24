@@ -1,13 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SignUpChecker, Checker } from '../../styles/sign_up'
 
+
 const CheckeBox: React.FC = () => {
+  const [checkItems, setCheckItems] = useState([])
+
+  //체크박스 단일 개체 선택
+  const handleSingleCheck = () => {
+    if () {
+    } else {
+    }
+  }
+
+  //체크박스 전체 선택
+  const handleAllCheck = (checked:any) => {
+    if (checked) {
+    } else {
+      setCheckItems([])
+    }
+  }
+
   return (
     <SignUpChecker>
       <Checker>
         <label htmlFor="check01">
           <span>
-            <input type="checkbox" name="user-term" id="check01" />
+            <input
+              type="checkbox"
+              name="user-term"
+              id="check01"
+              onChange={handleAllCheck}
+            />
           </span>
           전체 약관에 동의합니다.
         </label>
