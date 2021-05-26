@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import { InputBox, SignUpContainer, SignUpWrapper } from '../styles/sign_up'
-import CheckeBox from '../components/sign_up/CheckeBox'
+import CheckBox from '../components/sign_up/CheckBox'
 import { useCallback, useRef } from 'react'
 import Validation from '../components/common/Validation'
 import { ValidationType } from '../hooks/useInput'
@@ -83,7 +83,7 @@ const SignUp: React.FC = () => {
                   <strong className="duplication">이미 존재하는 이메일입니다.</strong>
                 </InputBox>
 
-                <CheckeBox />
+                <CheckBox />
                 <SubmitButton
                   type="submit"
                   active={

@@ -8,7 +8,7 @@ enum CheckboxType {
   SUB_CHECK,
 }
 
-const CheckeBox: React.FC = () => {
+const CheckBox: React.FC = () => {
   const [allCheckItem, setAllCheckItem] = useRecoilState(allCheckItemAtom)
   const [subCheckItems, setSubCheckItems] = useRecoilState(subCheckItemsAtom)
 
@@ -25,16 +25,18 @@ const CheckeBox: React.FC = () => {
   const onChangeCheckbox = useCallback(
     (type: CheckboxType, itemIndex?: number) => () => {
       switch (type) {
-        case CheckboxType.ALL_CHECK:
+        case CheckboxType.ALL_CHECK: {
           const allCheckResult = !allCheckItem
           setAllCheckItem(allCheckResult)
           setSubCheckItems((prevSubCheckItems) => prevSubCheckItems.map(() => allCheckResult))
           break
-        case CheckboxType.SUB_CHECK:
+        }
+        case CheckboxType.SUB_CHECK: {
           setSubCheckItems((prevSubCheckItems) =>
             prevSubCheckItems.map((item, index) => (index === itemIndex ? !item : item))
           )
           break
+        }
       }
     },
     [allCheckItem]
@@ -120,4 +122,4 @@ const CheckeBox: React.FC = () => {
   )
 }
 
-export default memo(CheckeBox)
+export default memo(CheckBox)
