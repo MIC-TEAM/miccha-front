@@ -127,7 +127,7 @@ const Home = ({ title, movieTitle }: Props) => {
         <ContentTitle>{title}</ContentTitle>
         <AllView href="#">
           모두 보기
-          <img src="../../images/common/arr_right.svg" alt="" />
+          <img src="/images/common/arr_right.svg" alt="모두 보기 버튼" />
         </AllView>
       </ContentHead>
 
