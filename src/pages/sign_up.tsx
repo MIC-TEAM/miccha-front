@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import { InputBox, SignUpContainer, SignUpWrapper } from '../styles/sign_up'
-import CheckeBox from '../components/sign_up/CheckeBox'
+import CheckBox from '../components/sign_up/CheckBox'
 import { useCallback, useRef } from 'react'
 import Validation from '../components/common/Validation'
 import { ValidationType } from '../hooks/useInput'
@@ -83,12 +83,21 @@ const SignUp: React.FC = () => {
                   <strong className="duplication">이미 존재하는 이메일입니다.</strong>
                 </InputBox>
 
-                <CheckeBox />
-                <SubmitButton type="submit" active={
-                  (values.name.length > 0 && !errors.name) &&
-                  (values.email.length > 0 && !errors.email) &&
-                  (values.password.length > 0 && !errors.password) && 
-                  subCheckItems[0] && subCheckItems[1] && subCheckItems[2]}>
+                <CheckBox />
+                <SubmitButton
+                  type="submit"
+                  active={
+                    values.name.length > 0 &&
+                    !errors.name &&
+                    values.email.length > 0 &&
+                    !errors.email &&
+                    values.password.length > 0 &&
+                    !errors.password &&
+                    subCheckItems[0] &&
+                    subCheckItems[1] &&
+                    subCheckItems[2]
+                  }
+                >
                   계정 생성하기
                 </SubmitButton>
               </Form>
