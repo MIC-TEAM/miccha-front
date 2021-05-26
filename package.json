@@ -11,6 +11,7 @@
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
     "@fullpage/react-fullpage": "^0.1.19",
+    "@types/react-slick": "^0.23.4",
     "axios": "^0.21.1",
     "emotion-reset": "^3.0.0",
     "facepaint": "^1.2.1",
