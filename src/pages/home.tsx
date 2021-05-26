@@ -2,9 +2,11 @@ import React from 'react'
 import MovieSlider from '../components/home/MovieSlider'
 import styled from '@emotion/styled'
 
-const HomeWrap = styled.body`
+const HomeWrap = styled.main`
   background: rgb(20, 21, 23);
-  color: white;
+  color: #fff;
+  height: 100%;
+  width: 100%;
 `
 
 const Home = () => {

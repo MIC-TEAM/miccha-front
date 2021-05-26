@@ -32,7 +32,7 @@ export const SmallTitle = styled.h4`
 export const AllView = styled.a`
   vertical-align: center;
   justify-content: center;
-  svg {
+  img {
     margin-left: 6px;
   }
 `

@@ -84,11 +84,20 @@ const SignUp: React.FC = () => {
                 </InputBox>
 
                 <CheckeBox />
-                <SubmitButton type="submit" active={
-                  (values.name.length > 0 && !errors.name) &&
-                  (values.email.length > 0 && !errors.email) &&
-                  (values.password.length > 0 && !errors.password) && 
-                  subCheckItems[0] && subCheckItems[1] && subCheckItems[2]}>
+                <SubmitButton
+                  type="submit"
+                  active={
+                    values.name.length > 0 &&
+                    !errors.name &&
+                    values.email.length > 0 &&
+                    !errors.email &&
+                    values.password.length > 0 &&
+                    !errors.password &&
+                    subCheckItems[0] &&
+                    subCheckItems[1] &&
+                    subCheckItems[2]
+                  }
+                >
                   계정 생성하기
                 </SubmitButton>
               </Form>

@@ -1,7 +1,6 @@
 import React from 'react'
 import Slick from 'react-slick'
-import { Image, SlickWrap, ContentHead, ContentTitle, SmallTitle, AllView } from '../../styles/movie'
-
+import { Image, SlickWrap, ContentHead, ContentTitle, SmallTitle, AllView } from '../../styles/home_movie'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
@@ -128,19 +127,7 @@ const Home = ({ title, movieTitle }: Props) => {
         <ContentTitle>{title}</ContentTitle>
         <AllView href="#">
           모두 보기
-          <svg width="8" height="14" viewBox="0 0 8 14" xmlns="http://www.w3.org/2000/svg">
-            <g id="Icons_Arrow_VIew-All" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <g id="Icons-/-Arrow-/-VIew-All">
-                <rect id="Bound" opacity="0.300000012" x="0" y="0" width="8" height="14"></rect>
-                <polygon
-                  id="Combined-Shape"
-                  fill-opacity="0.5"
-                  fill="#FFFFFF"
-                  points="5.31818182 7 1 11.3181818 1.68181818 12 6.34090909 7.34090909 6.68181818 7 1.68181818 2 1 2.68181818"
-                />
-              </g>
-            </g>
-          </svg>
+          <img src="../../images/common/arr_right.svg" alt="" />
         </AllView>
       </ContentHead>
 
