@@ -5,10 +5,10 @@ import { SignUpChecker, Checker } from '../../styles/sign_up'
 
 enum CheckboxType {
   ALL_CHECK,
-  SUB_CHECK
+  SUB_CHECK,
 }
 
-const CheckeBox: React.FC = () => {
+const CheckBox: React.FC = () => {
   const [allCheckItem, setAllCheckItem] = useRecoilState(allCheckItemAtom)
   const [subCheckItems, setSubCheckItems] = useRecoilState(subCheckItemsAtom)
 
@@ -22,18 +22,25 @@ const CheckeBox: React.FC = () => {
     }
   }, [subCheckItems])
 
-  const onChangeCheckbox = useCallback((type: CheckboxType, itemIndex?: number) => () => {
-    switch (type) {
-      case CheckboxType.ALL_CHECK:
-        const allCheckResult = !allCheckItem
-        setAllCheckItem(allCheckResult)
-        setSubCheckItems(prevSubCheckItems => prevSubCheckItems.map(() => allCheckResult))
-        break
-      case CheckboxType.SUB_CHECK:
-        setSubCheckItems(prevSubCheckItems => prevSubCheckItems.map((item, index) => index === itemIndex ? !item : item))
-        break
-    }
-  }, [allCheckItem])
+  const onChangeCheckbox = useCallback(
+    (type: CheckboxType, itemIndex?: number) => () => {
+      switch (type) {
+        case CheckboxType.ALL_CHECK: {
+          const allCheckResult = !allCheckItem
+          setAllCheckItem(allCheckResult)
+          setSubCheckItems((prevSubCheckItems) => prevSubCheckItems.map(() => allCheckResult))
+          break
+        }
+        case CheckboxType.SUB_CHECK: {
+          setSubCheckItems((prevSubCheckItems) =>
+            prevSubCheckItems.map((item, index) => (index === itemIndex ? !item : item))
+          )
+          break
+        }
+      }
+    },
+    [allCheckItem]
+  )
 
   return (
     <SignUpChecker>
@@ -55,7 +62,13 @@ const CheckeBox: React.FC = () => {
       <Checker>
         <label htmlFor="check02">
           <span>
-            <input type="checkbox" name="user-term" id="check02" checked={subCheckItems[0]} onChange={onChangeCheckbox(CheckboxType.SUB_CHECK, 0)} />
+            <input
+              type="checkbox"
+              name="user-term"
+              id="check02"
+              checked={subCheckItems[0]}
+              onChange={onChangeCheckbox(CheckboxType.SUB_CHECK, 0)}
+            />
           </span>
           만 14세 이상입니다.
         </label>
@@ -64,7 +77,13 @@ const CheckeBox: React.FC = () => {
       <Checker>
         <label htmlFor="check03">
           <span>
-            <input type="checkbox" name="user-term" id="check03" checked={subCheckItems[1]} onChange={onChangeCheckbox(CheckboxType.SUB_CHECK, 1)} />
+            <input
+              type="checkbox"
+              name="user-term"
+              id="check03"
+              checked={subCheckItems[1]}
+              onChange={onChangeCheckbox(CheckboxType.SUB_CHECK, 1)}
+            />
           </span>
           <strong>믹챠 서비스 이용약관</strong>에 동의합니다 (필수)
         </label>
@@ -73,7 +92,13 @@ const CheckeBox: React.FC = () => {
       <Checker>
         <label htmlFor="check04">
           <span>
-            <input type="checkbox" name="user-term" id="check04" checked={subCheckItems[2]} onChange={onChangeCheckbox(CheckboxType.SUB_CHECK, 2)} />
+            <input
+              type="checkbox"
+              name="user-term"
+              id="check04"
+              checked={subCheckItems[2]}
+              onChange={onChangeCheckbox(CheckboxType.SUB_CHECK, 2)}
+            />
           </span>
           <strong>개인정보 수집 및 이용에 대한 안내</strong>에 동의합니다 (필수)
         </label>
@@ -82,7 +107,13 @@ const CheckeBox: React.FC = () => {
       <Checker>
         <label htmlFor="check05">
           <span>
-            <input type="checkbox" name="user-term" id="check05" checked={subCheckItems[3]} onChange={onChangeCheckbox(CheckboxType.SUB_CHECK, 3)} />
+            <input
+              type="checkbox"
+              name="user-term"
+              id="check05"
+              checked={subCheckItems[3]}
+              onChange={onChangeCheckbox(CheckboxType.SUB_CHECK, 3)}
+            />
           </span>
           <strong>신작 알림 이벤트 정보 수신</strong>에 동의합니다 (선택)
         </label>
@@ -91,4 +122,4 @@ const CheckeBox: React.FC = () => {
   )
 }
 
-export default memo(CheckeBox)
+export default memo(CheckBox)
