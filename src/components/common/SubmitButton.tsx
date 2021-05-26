@@ -4,12 +4,12 @@ import React, { memo } from 'react'
 interface Props {
   children: React.ReactNode
   type?: 'submit' | 'reset' | 'button'
-  disabled?: boolean
+  active?: boolean
 }
 
-const SubmitButton: React.FC<Props> = ({ children, type = 'submit', disabled = true }) => {
+const SubmitButton: React.FC<Props> = ({ children, type = 'submit', active = false }) => {
   return (
-    <Button type={type} disabled={disabled}>
+    <Button type={type} disabled={!active}>
       {children}
     </Button>
   )

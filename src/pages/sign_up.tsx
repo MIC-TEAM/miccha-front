@@ -8,6 +8,8 @@ import CheckeBox from '../components/sign_up/CheckeBox'
 import { useCallback, useRef } from 'react'
 import Validation from '../components/common/Validation'
 import { ValidationType } from '../hooks/useInput'
+import { useRecoilValue } from 'recoil'
+import { subCheckItemsAtom } from '../recoil/sign_up_check_box/atom'
 
 const getValidationSchema = () => {
   return Yup.object().shape({
@@ -21,6 +23,7 @@ const getValidationSchema = () => {
 }
 
 const SignUp: React.FC = () => {
+  const subCheckItems = useRecoilValue(subCheckItemsAtom)
   const initialInputValues = useRef({
     name: '',
     email: '',
@@ -50,7 +53,7 @@ const SignUp: React.FC = () => {
             validationSchema={getValidationSchema()}
             onSubmit={onSubmit}
           >
-            {({ isSubmitting, errors, values }) => (
+            {({ errors, values }) => (
               <Form>
                 <InputBox>
                   <div className="inputBox name">
@@ -81,8 +84,11 @@ const SignUp: React.FC = () => {
                 </InputBox>
 
                 <CheckeBox />
-
-                <SubmitButton type="submit" disabled={isSubmitting}>
+                <SubmitButton type="submit" active={
+                  (values.name.length > 0 && !errors.name) &&
+                  (values.email.length > 0 && !errors.email) &&
+                  (values.password.length > 0 && !errors.password) && 
+                  subCheckItems[0] && subCheckItems[1] && subCheckItems[2]}>
                   계정 생성하기
                 </SubmitButton>
               </Form>

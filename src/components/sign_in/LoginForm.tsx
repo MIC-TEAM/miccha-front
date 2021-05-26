@@ -35,7 +35,7 @@ const LoginForm: React.FC = () => {
       </InputBox>
       <SubmitButton
         type="submit"
-        disabled={!(email.validation === ValidationType.SUCCESS && password.validation === ValidationType.SUCCESS)}
+        active={email.validation === ValidationType.SUCCESS && password.validation === ValidationType.SUCCESS}
       >
         로그인
       </SubmitButton>
