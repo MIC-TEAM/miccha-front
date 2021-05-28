@@ -1,11 +1,5 @@
 import styled from '@emotion/styled'
 
-export const Image = styled.img`
-  max-width: 100%;
-  max-height: 100%;
-  display: flex;
-  padding: 0.156vw;
-`
 export const SlickWrap = styled.section`
   max-width: 100%;
   max-height: 100%;
@@ -55,12 +49,7 @@ export const ContentTitle = styled.h3`
   font-weight: 700;
   letter-spacing: -0.031vw;
 `
-export const SmallTitle = styled.h4`
-  margin-top: 6px;
-  white-space: pre-wrap;
-  letter-spacing: -0.031vw;
-  margin-left: 4px;
-`
+
 export const AllView = styled.a`
   justify-content: center;
   font-size: 14px;
