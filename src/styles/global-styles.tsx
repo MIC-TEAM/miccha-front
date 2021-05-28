@@ -58,6 +58,9 @@ export const GlobalStyles = (
           outline: none;
         }
       }
+      li {
+        list-style: none;
+      }
     `}
   />
 )

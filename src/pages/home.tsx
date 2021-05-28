@@ -9,7 +9,6 @@ const HomeWrap = styled.main`
   color: #fff;
   height: 100%;
   width: 100%;
-  overflow: hidden;
 `
 
 const Home: React.FC = () => {
