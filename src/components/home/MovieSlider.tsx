@@ -9,7 +9,7 @@ type Props = {
   movieTitle: string
 }
 
-const Home = ({ title, movieTitle }: Props) => {
+const MovieSlider = ({ title, movieTitle }: Props) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -138,4 +138,4 @@ const Home = ({ title, movieTitle }: Props) => {
   )
 }
 
-export default Home
+export default MovieSlider
