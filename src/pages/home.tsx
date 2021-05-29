@@ -7,8 +7,8 @@ import homeMoviesSelector from '../recoil/home_movies/selector'
 const HomeWrap = styled.main`
   background: rgb(20, 21, 23);
   color: #fff;
-  height: 100%;
   width: 100%;
+  min-height: 100%;
 `
 
 const Home: React.FC = () => {
