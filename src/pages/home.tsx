@@ -1,5 +1,6 @@
 import React from 'react'
 import MovieSlider from '../components/home/MovieSlider'
+import Loading from '../components/common/Loading'
 import styled from '@emotion/styled'
 
 const HomeWrap = styled.main`
@@ -13,6 +14,7 @@ const Home = () => {
   return (
     <HomeWrap>
       <MovieSlider title="이어보기" movieTitle="라라랜드" />
+      <Loading />
     </HomeWrap>
   )
 }
