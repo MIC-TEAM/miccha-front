@@ -1,24 +1,34 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import MovieSlider from '../components/home/MovieSlider'
 import Loading from '../components/common/Loading'
 import styled from '@emotion/styled'
+import { useRecoilValueLoadable } from 'recoil'
+import homeMoviesSelector from '../recoil/home_movies/selector'
 
 const HomeWrap = styled.main`
   background: rgb(20, 21, 23);
   color: #fff;
-  height: 100%;
   width: 100%;
-  overflow: hidden;
+  min-height: 100%;
 `
 
-const Home = () => {
-  return (
-    <HomeWrap>
-      <MovieSlider title="이어보기" movieTitle="라라랜드" />
-      <MovieSlider title="최고 인기 시리즈" movieTitle="라라랜드" />
-      <Loading />
-    </HomeWrap>
-  )
+const Home: React.FC = () => {
+  const moviesSelectorLoadable = useRecoilValueLoadable(homeMoviesSelector(1))
+
+  const getMovieInfo = useCallback(() => {
+    switch (moviesSelectorLoadable.state) {
+      case 'loading':
+        return <Loading />
+      case 'hasValue':
+        return moviesSelectorLoadable.contents.map(({ theme, movies }) => (
+          <MovieSlider key={theme} theme={theme} movies={movies} />
+        ))
+      case 'hasError':
+        console.error(moviesSelectorLoadable.contents)
+    }
+  }, [moviesSelectorLoadable])
+
+  return <HomeWrap>{getMovieInfo()}</HomeWrap>
 }
 
 export default Home

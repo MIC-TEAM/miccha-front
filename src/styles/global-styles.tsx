@@ -38,6 +38,7 @@ export const GlobalStyles = (
       }
       body {
         letter-spacing: -0.025em;
+        overflow-x: hidden;
       }
       html,
       body,
@@ -57,6 +58,9 @@ export const GlobalStyles = (
         &:active {
           outline: none;
         }
+      }
+      li {
+        list-style: none;
       }
     `}
   />
