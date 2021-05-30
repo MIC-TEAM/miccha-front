@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react'
 import MovieSlider from '../components/home/MovieSlider'
+import Loading from '../components/common/Loading'
 import styled from '@emotion/styled'
 import { useRecoilValueLoadable } from 'recoil'
 import homeMoviesSelector from '../recoil/home_movies/selector'
@@ -17,7 +18,7 @@ const Home: React.FC = () => {
   const getMovieInfo = useCallback(() => {
     switch (moviesSelectorLoadable.state) {
       case 'loading':
-        return <div>Loading...</div>
+        return <Loading />
       case 'hasValue':
         return moviesSelectorLoadable.contents.map(({ theme, movies }) => (
           <MovieSlider key={theme} theme={theme} movies={movies} />
