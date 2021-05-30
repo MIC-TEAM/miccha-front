@@ -15,12 +15,10 @@ interface HomeMovies {
   movies: Movie[]
 }
 
-const homeMoviesSelector = selectorFamily<HomeMovies[], number>({
+export const homeMoviesSelector = selectorFamily<HomeMovies[], number>({
   key: 'homeMoviesSelector',
   get: (page: number) => async () => {
-    const res = await apiClient.get(`/movies?page=${page}`)
+    const res = await apiClient.get(`/home?page=${page}`)
     return res.data
   },
 })
-
-export default homeMoviesSelector

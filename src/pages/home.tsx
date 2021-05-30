@@ -3,7 +3,7 @@ import MovieSlider from '../components/home/MovieSlider'
 import Loading from '../components/common/Loading'
 import styled from '@emotion/styled'
 import { useRecoilValueLoadable } from 'recoil'
-import homeMoviesSelector from '../recoil/home_movies/selector'
+import { homeMoviesSelector } from '../recoil/home_movies/selector'
 
 const HomeWrap = styled.main`
   background: rgb(20, 21, 23);
