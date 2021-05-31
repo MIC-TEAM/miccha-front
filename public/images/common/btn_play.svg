@@ -1,0 +1,22 @@
+<svg class="SVGInline-svg css-1tsjdl1-StyledPlayIcon-PartyPlayIcon-svg" width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="14.5 12 28.5 19.7948718 14.5 28"></polygon>
+        <filter x="-32.1%" y="-28.1%" width="164.3%" height="156.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.24 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="icon-/-play-/-preview-/-normalnew" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="btn-/-play" transform="translate(2.000000, 2.000000)">
+            <circle id="circleStroke" stroke-opacity="0.28" stroke="#FFFFFF" stroke-width="2" fill-opacity="0.53" fill="#000" cx="20" cy="20" r="21"></circle>
+            <g id="Rectangle-79">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use id="arrow" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>
