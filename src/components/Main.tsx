@@ -16,6 +16,7 @@ const Main: React.FC<Props> = ({ title, desc, background, children }: Props) => 
   return (
     <MainSection className="section">
       <Image src={background} alt="믹챠 메인페이지 배경사진" layout="fill" objectFit="cover" />
+
       <h2>{title}</h2>
       <p>{desc}</p>
 
