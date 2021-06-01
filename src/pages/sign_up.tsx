@@ -30,7 +30,7 @@ const SignUp: React.FC = () => {
     email: '',
     password: '',
   })
-  const { emailError, onSubmit } = useSignUp()
+  const { emailInvalidError, emailDuplicateError, onSubmit } = useSignUp()
 
   return (
     <>
@@ -75,7 +75,8 @@ const SignUp: React.FC = () => {
                     )}
                   </div>
 
-                  {emailError && <strong className="duplication">이미 존재하는 이메일입니다.</strong>}
+                  {emailInvalidError && <strong className="duplication">이메일 형식이 올바르지 않습니다.</strong>}
+                  {emailDuplicateError && <strong className="duplication">이미 존재하는 이메일입니다.</strong>}
                 </InputBox>
 
                 <CheckBox />

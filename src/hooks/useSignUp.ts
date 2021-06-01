@@ -1,3 +1,4 @@
+import { useRouter } from 'next/dist/client/router'
 import { useCallback, useState } from 'react'
 import { apiClient } from '../lib/apiClient'
 
@@ -13,25 +14,41 @@ const signUpPost = async (user: User) => {
 }
 
 const useSignUp = () => {
-  const [emailError, setEmailError] = useState(false)
+  const [emailInvalidError, setEmailInvalidError] = useState(false)
+  const [emailDuplicateError, setEmailDuplicateError] = useState(false)
+  const router = useRouter()
+
+  const initEmailError = useCallback(() => {
+    setEmailInvalidError(false)
+    setEmailDuplicateError(false)
+  }, [])
 
   const onSubmit = useCallback(async (values: User, { setSubmitting }) => {
     try {
-      const errCode = await signUpPost(values)
-      if (errCode === 0) {
+      const { errorCode } = await signUpPost(values)
+      if (errorCode === 0) {
         alert('회원가입 완료되었습니다.')
-      } else {
-        setEmailError(true)
+        router.push('/sign_in')
       }
     } catch (error) {
-      console.error(error)
+      const { errorCode, errorMessage } = error.response.data
+      initEmailError()
+
+      if (errorCode === 7) {
+        setEmailDuplicateError(true)
+      } else if (errorCode === 5) {
+        setEmailInvalidError(true)
+      }
+
+      console.error(errorMessage)
     } finally {
       setSubmitting(false)
     }
   }, [])
 
   return {
-    emailError,
+    emailInvalidError,
+    emailDuplicateError,
     onSubmit,
   }
 }
