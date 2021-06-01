@@ -1,4 +1,4 @@
-import { memo, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { Movie } from '../../recoil/home_movies/selector'
 import { MovieItemView, Image, SmallTitle } from '../../styles/home_movie'
 
@@ -8,8 +8,23 @@ interface Props {
 
 const MovieItem: React.FC<Props> = ({ movie: { thumbnail, title } }) => {
   const [isShow, setIsShow] = useState(false)
+
+  const mouseEvent = useCallback(
+    (type: 'Enter' | 'Leave') => () => {
+      switch (type) {
+        case 'Enter':
+          setIsShow(true)
+          break
+        case 'Leave':
+          setIsShow(false)
+          break
+      }
+    },
+    []
+  )
+
   return (
-    <MovieItemView onMouseEnter={() => setIsShow(true)} onMouseLeave={() => setIsShow(false)}>
+    <MovieItemView onMouseEnter={mouseEvent('Enter')} onMouseLeave={mouseEvent('Leave')}>
       <Image src={thumbnail} alt={`${title} 썸네일 이미지`} />
       {isShow && (
         <div className="itemHover">
