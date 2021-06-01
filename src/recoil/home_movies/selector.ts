@@ -18,7 +18,11 @@ interface HomeMovies {
 export const homeMoviesSelector = selectorFamily<HomeMovies[], number>({
   key: 'homeMoviesSelector',
   get: (page: number) => async () => {
-    const res = await apiClient.get(`/home?page=${page}`)
-    return res.data
+    try {
+      const res = await apiClient.get(`/home?page=${page}`)
+      return res.data
+    } catch (error) {
+      console.error(error)
+    }
   },
 })
