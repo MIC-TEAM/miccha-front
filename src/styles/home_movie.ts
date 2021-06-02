@@ -3,16 +3,19 @@ import styled from '@emotion/styled'
 export const SlickWrap = styled.section`
   max-width: 100%;
   max-height: 100%;
+  position: relative;
   .slick-slider {
     width: 100vw;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    button {
-      height: 100%;
+    .slick-arrow {
+      position: absolute;
+      height: 148px;
       width: 53px;
       background-color: rgba(0, 0, 0, 0.4) !important;
       display: none !important;
+      top: 77px;
     }
     &:hover {
       button {
@@ -69,53 +72,74 @@ export const MovieItemView = styled.li`
   transition: 0.3s;
   width: 100%;
   position: relative;
-  .itemHover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 100;
-    height: 100%;
-    padding-top: 2.5em;
-    &__header {
-      display: grid;
-      grid-template-columns: 1fr 5fr;
-      justify-content: center;
-      align-items: center;
-      padding: 0 1em;
-      button {
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        margin: 0;
-        box-shadow: none;
-        border-radius: 0;
-        background: inherit;
-        margin-right: 0.5em;
+  height: 180px;
+  object-fit: cover;
+  &.notHover {
+    img {
+      height: 155px;
+    }
+  }
+  &.isHover {
+    .movieTit {
+      display: none;
+    }
+    .itemHover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 100;
+      height: 100%;
+      padding-top: 2.5em;
+      &__header {
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1em;
+        .play {
+          margin-right: 0.8em;
+          width: 100%;
+        }
       }
-    }
-    &__title {
-      h3 {
-        font-size: 0.9em;
+      &__title {
+        margin-left: 0.5em;
+        h3 {
+          font-size: 0.9em;
+        }
       }
-    }
-    &__detail {
-      font-size: 0.7em;
-      opacity: 0.8;
-      margin-top: 5px;
-    }
-    &__desc {
-      font-size: 0.8em;
-      line-height: 1.3;
-      padding: 0.3em 1em 0;
+      &__detail {
+        font-size: 0.7em;
+        opacity: 0.8;
+        margin-top: 5px;
+      }
+      &__desc {
+        font-size: 0.8em;
+        line-height: 1.3;
+        padding: 0.5em 1em 0.2em;
+      }
+      &__more {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        button {
+          width: 48px;
+          height: 20px;
+          background-repeat: no-repeat;
+          background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDQ0IDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgb3BhY2l0eT0iLjMyIj4KICAgICAgICA8cGF0aCBkPSJNMCAwaDQ0djIwSDB6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTIyLjAwNCAxNi41OTZsLS4wMDEuMDAyLS4wMDQtLjAwMkw0LjY4MiA2LjU5OCA2LjE4MiA0bDE1LjgyIDkuMTMzTDM3LjgyIDRsMS41IDIuNTk4LTE3LjMxNyA5Ljk5OHoiLz4KICAgIDwvZz4KPC9zdmc+Cg==);
+          &:hover {
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDQ0IDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGg0NHYyMEgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNGODJGNjIiIGQ9Ik0yMi4wMDQgMTYuNTk2bC0uMDAxLjAwMi0uMDA0LS4wMDJMNC42ODIgNi41OTggNi4xODIgNGwxNS44MiA5LjEzM0wzNy44MiA0bDEuNSAyLjU5OC0xNy4zMTcgOS45OTh6Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=);
+          }
+        }
+      }
     }
   }
 `
 
 export const Image = styled.img`
   max-width: 100%;
-  max-height: 180px;
+  max-height: 100%;
   display: flex;
   padding: 0.156vw;
   width: 100%;
