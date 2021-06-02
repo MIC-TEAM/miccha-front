@@ -23,30 +23,22 @@
 | ---------- | ------------------ |
 | 프론트(PM) | 이찬호             |
 | 프론트     | 이현주             |
-| 백엔드(PM)     | 백일섭             |
+| 백엔드(PM) | 백일섭             |
 | 백엔드     | 이다희             |
 
 <br>
 
 ## 💻 Front 기술 스택
 
-<br>
-
-<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/>
-
-<img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>
-
-<img src="https://img.shields.io/badge/Recoil-001add?style=flat-square&logoColor=white"/>
-
-<img src="https://img.shields.io/badge/Next-000000?style=flat-square&logo=Next.js&logoColor=white"/>
-
-<img src="https://img.shields.io/badge/Emotion-DB7093?style=flat-square&logo=Styled-components&logoColor=white"/>
-
-<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=TypeScript&logoColor=white"/>
-
-<img src="https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=Prettier&logoColor=white"/>
-
-<img src="https://img.shields.io/badge/Eslint-4B3263?style=flat-square&logo=Eslint&logoColor=white"/>
+|                   |                                                                                                                                                                                                                 |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 라이브러리        | <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/>                                                                                                             |
+| Mark Up           | <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>                                                                                                              |
+| 스타일            | <img src="https://img.shields.io/badge/Emotion-DB7093?style=flat-square&logo=Styled-components&logoColor=white"/>                                                                                               |
+| 상태관리          | <img src="https://img.shields.io/badge/Recoil-001add?style=flat-square&logoColor=white"/>                                                                                                                       |
+| 서버사이드 렌더링 | <img src="https://img.shields.io/badge/Next-000000?style=flat-square&logo=Next.js&logoColor=white"/>                                                                                                            |
+| 타입 변환         | <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=TypeScript&logoColor=white"/>                                                                                                   |
+| 작업 환경 세팅    | <img src="https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=Prettier&logoColor=white"/> <img src="https://img.shields.io/badge/Eslint-4B3263?style=flat-square&logo=Eslint&logoColor=white"/> |
 
 <br>
 <br>
