@@ -1,6 +1,10 @@
 import styled from '@emotion/styled'
 
-export const SlickWrap = styled.section`
+export const Row = styled.section`
+  position: relative;
+`
+
+export const SlickWrap = styled.div`
   max-width: 100%;
   max-height: 100%;
   position: relative;
@@ -11,16 +15,19 @@ export const SlickWrap = styled.section`
     cursor: pointer;
     .slick-arrow {
       position: absolute;
-      height: 148px;
       width: 53px;
       background-color: rgba(0, 0, 0, 0.4) !important;
       display: none !important;
-      top: 77px;
+      top: 45%;
+      height: 55.2%;
     }
     &:hover {
-      button {
+      .slick-arrow {
         display: block !important;
       }
+    }
+    .slick-list {
+      padding: 45px 0;
     }
     .slick-prev {
       position: absolute;
@@ -38,6 +45,7 @@ export const SlickWrap = styled.section`
     }
   }
 `
+
 export const ContentHead = styled.div`
   display: flex;
   vertical-align: center;
@@ -45,10 +53,13 @@ export const ContentHead = styled.div`
   align-items: center;
   padding: 43px 50px 0;
   margin: 0 0 0.5vw 0;
+  position: absolute;
+  top: -30px;
+  width: 100%;
 `
 
 export const ContentTitle = styled.h3`
-  font-size: 1em;
+  font-size: 1.5em;
   font-weight: 700;
   letter-spacing: -0.031vw;
 `
@@ -70,16 +81,20 @@ export const AllView = styled.a`
 `
 export const MovieItemView = styled.li`
   transition: 0.3s;
-  width: 100%;
   position: relative;
   height: 180px;
   object-fit: cover;
   &.notHover {
+    transform: scale(1);
+    z-index: 1;
+    width: 100%;
     img {
       height: 155px;
     }
   }
   &.isHover {
+    transform: scale(1.4);
+    z-index: 4;
     .movieTit {
       display: none;
     }
@@ -98,6 +113,9 @@ export const MovieItemView = styled.li`
         justify-content: center;
         align-items: center;
         padding: 0 1em;
+        .save {
+          width: 100%;
+        }
         .play {
           margin-right: 0.8em;
           width: 100%;
@@ -119,11 +137,12 @@ export const MovieItemView = styled.li`
         line-height: 1.3;
         padding: 0.5em 1em 0.2em;
       }
+
       &__more {
         width: 100%;
         display: flex;
         justify-content: center;
-        button {
+        &--btn {
           width: 48px;
           height: 20px;
           background-repeat: no-repeat;

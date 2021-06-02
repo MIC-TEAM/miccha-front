@@ -42,7 +42,7 @@ const MovieItem: React.FC<Props> = ({ movie: { thumbnail, title } }) => {
           </p>
 
           <div className="itemHover__more">
-            <button type="button"></button>
+            <button type="button" className="itemHover__more--btn"></button>
           </div>
         </div>
       )}
