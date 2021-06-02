@@ -1,6 +1,7 @@
 import { useRouter } from 'next/dist/client/router'
 import { useCallback, useState } from 'react'
 import { apiClient } from '../lib/apiClient'
+import ErrorCode from '../utils/error-code'
 
 interface User {
   email: string
@@ -26,7 +27,7 @@ const useSignUp = () => {
   const onSubmit = useCallback(async (values: User, { setSubmitting }) => {
     try {
       const { errorCode } = await signUpPost(values)
-      if (errorCode === 0) {
+      if (errorCode === ErrorCode.SUCCESS) {
         alert('회원가입 완료되었습니다.')
         router.push('/sign_in')
       }
@@ -34,9 +35,9 @@ const useSignUp = () => {
       const { errorCode, errorMessage } = error.response.data
       initEmailError()
 
-      if (errorCode === 7) {
+      if (errorCode === ErrorCode.DUPLICATE_EMAIL) {
         setEmailDuplicateError(true)
-      } else if (errorCode === 5) {
+      } else if (errorCode === ErrorCode.INVALID_EMAIL) {
         setEmailInvalidError(true)
       }
 
