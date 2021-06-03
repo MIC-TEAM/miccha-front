@@ -46,15 +46,6 @@ export const Checker = styled.div`
 `
 
 export const InputBox = styled.div`
-  strong {
-    color: rgb(248, 47, 98);
-    text-align: center;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-size: 12px;
-    margin: 16px 0 0;
-  }
   .inputBox {
     width: 100%;
     background-color: #fff;
