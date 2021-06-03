@@ -10,7 +10,7 @@ const retrievePasswordPost = async (email: string) => {
 
 const useFindPasswordForm = () => {
   const email = useInput(InputType.EMAIL)
-  const [emaillMissingError, setEmaillMissingError] = useState(false)
+  const [emailMissingError, setEmailMissingError] = useState(false)
 
   const onSubmit = useCallback(
     async (e: FormEvent<HTMLFormElement>) => {
@@ -26,7 +26,7 @@ const useFindPasswordForm = () => {
         const { errorCode, errorMessage } = error.response.data
 
         if (errorCode === ErrorCode.REQUEST_MISSING_EMAIL) {
-          setEmaillMissingError(true)
+          setEmailMissingError(true)
           console.error(errorMessage)
         }
       }
@@ -34,7 +34,7 @@ const useFindPasswordForm = () => {
     [email.value]
   )
 
-  return { email, emaillMissingError, onSubmit }
+  return { email, emailMissingError, onSubmit }
 }
 
 export default useFindPasswordForm
