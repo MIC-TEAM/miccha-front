@@ -1,20 +1,13 @@
 import styled from '@emotion/styled'
 import Link from 'next/link'
-import { FormEvent, useCallback } from 'react'
-import useInput, { InputType, ValidationType } from '../hooks/useInput'
+import useFindPasswordForm from '../hooks/useFindPasswordForm'
+import { ValidationType } from '../hooks/useInput'
 import SubmitButton from './common/SubmitButton'
 import Validation from './common/Validation'
+import ValidationError from './common/ValidationError'
 
 const FindPasswordForm: React.FC = () => {
-  const email = useInput(InputType.EMAIL)
-
-  const onSubmit = useCallback(
-    (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault()
-      console.log(`email: ${email.value}`)
-    },
-    [email.value]
-  )
+  const { email, emailMissingError, onSubmit } = useFindPasswordForm()
 
   return (
     <form onSubmit={onSubmit}>
@@ -28,6 +21,7 @@ const FindPasswordForm: React.FC = () => {
         <input type="email" placeholder="이메일 (example@gmail.com)" {...email} />
         <Validation state={email.validation} />
       </InputBox>
+      {emailMissingError && <ValidationError>{email.value}은 가입되지 않은 이메일입니다</ValidationError>}
       <Notice>
         기존에 가입하신 이메일 주소를 입력해주시면 임시주소가 발송됩니다. 임시주소로 들어오신 뒤 새로운 비밀번호를
         설정하세요.

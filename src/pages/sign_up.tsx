@@ -11,6 +11,7 @@ import { ValidationType } from '../hooks/useInput'
 import { useRecoilValue } from 'recoil'
 import { subCheckItemsAtom } from '../recoil/sign_up_check_box/atom'
 import useSignUp from '../hooks/useSignUp'
+import ValidationError from '../components/common/ValidationError'
 
 const getValidationSchema = () => {
   return Yup.object().shape({
@@ -75,8 +76,8 @@ const SignUp: React.FC = () => {
                     )}
                   </div>
 
-                  {emailInvalidError && <strong className="duplication">이메일 형식이 올바르지 않습니다.</strong>}
-                  {emailDuplicateError && <strong className="duplication">이미 존재하는 이메일입니다.</strong>}
+                  {emailInvalidError && <ValidationError>이메일 형식이 올바르지 않습니다.</ValidationError>}
+                  {emailDuplicateError && <ValidationError>이미 존재하는 이메일입니다.</ValidationError>}
                 </InputBox>
 
                 <CheckBox />
