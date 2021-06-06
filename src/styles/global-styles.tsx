@@ -59,6 +59,15 @@ export const GlobalStyles = (
           outline: none;
         }
       }
+      button {
+        border: none;
+        cursor: pointer;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+      }
       li {
         list-style: none;
       }

@@ -5,3 +5,5 @@ export const apiClient: AxiosInstance = axios.create({
   // headers: { Authorization: `${TOKEN}` },
   timeout: 1000,
 })
+
+apiClient.defaults.headers.post['Content-Type'] = 'application/json'

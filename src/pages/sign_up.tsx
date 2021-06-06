@@ -5,11 +5,13 @@ import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import { InputBox, SignUpContainer, SignUpWrapper } from '../styles/sign_up'
 import CheckBox from '../components/sign_up/CheckBox'
-import { useCallback, useRef } from 'react'
+import { useRef } from 'react'
 import Validation from '../components/common/Validation'
 import { ValidationType } from '../hooks/useInput'
 import { useRecoilValue } from 'recoil'
 import { subCheckItemsAtom } from '../recoil/sign_up_check_box/atom'
+import useSignUp from '../hooks/useSignUp'
+import ValidationError from '../components/common/ValidationError'
 
 const getValidationSchema = () => {
   return Yup.object().shape({
@@ -29,13 +31,7 @@ const SignUp: React.FC = () => {
     email: '',
     password: '',
   })
-
-  const onSubmit = useCallback((values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2))
-      setSubmitting(false)
-    }, 400)
-  }, [])
+  const { emailInvalidError, emailDuplicateError, onSubmit } = useSignUp()
 
   return (
     <>
@@ -80,7 +76,8 @@ const SignUp: React.FC = () => {
                     )}
                   </div>
 
-                  <strong className="duplication">이미 존재하는 이메일입니다.</strong>
+                  {emailInvalidError && <ValidationError>이메일 형식이 올바르지 않습니다.</ValidationError>}
+                  {emailDuplicateError && <ValidationError>이미 존재하는 이메일입니다.</ValidationError>}
                 </InputBox>
 
                 <CheckBox />
