@@ -1,18 +1,10 @@
 import styled from '@emotion/styled'
-import { FormEvent, memo, useCallback } from 'react'
-import useInput, { InputType } from '../../hooks/useInput'
+import { memo } from 'react'
+import useResetPassword from '../../hooks/useResetPasswordForm'
 import Validation from '../common/Validation'
 
 const ResetPasswordForm: React.FC = () => {
-  const password = useInput(InputType.PASSWORD)
-
-  const onSubmit = useCallback(
-    (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault()
-      console.log(`password: ${password.value}`)
-    },
-    [password.value]
-  )
+  const { password, onSubmit } = useResetPassword()
 
   return (
     <Form onSubmit={onSubmit}>
