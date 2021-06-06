@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
 /* 메인페이지 인디게이터 스타일 구현*/
 #fp-nav ul li a span {
   background-color: #fff !important;

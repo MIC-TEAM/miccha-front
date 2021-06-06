@@ -8,6 +8,7 @@ interface Props {
 
 const MovieItem: React.FC<Props> = ({ movie: { thumbnail, title } }) => {
   const [isShow, setIsShow] = useState(false)
+
   return (
     <MovieItemView onMouseEnter={() => setIsShow(true)} onMouseLeave={() => setIsShow(false)}>
       <Image src={thumbnail} alt={`${title} 썸네일 이미지`} />
