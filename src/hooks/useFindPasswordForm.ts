@@ -1,4 +1,4 @@
-import { FormEvent, useCallback, useState } from 'react'
+import { FormEvent, useCallback, useEffect, useState } from 'react'
 import { apiClient } from '../lib/apiClient'
 import ErrorCode from '../utils/error-code'
 import useInput, { InputType } from './useInput'
@@ -10,7 +10,11 @@ const retrievePasswordPost = async (email: string) => {
 
 const useFindPasswordForm = () => {
   const email = useInput(InputType.EMAIL)
-  const [emailMissingError, setEmailMissingError] = useState(false)
+  const [emailNotFoundError, setEmailNotFoundError] = useState(false)
+
+  useEffect(() => {
+    setEmailNotFoundError(false)
+  }, [email.value])
 
   const onSubmit = useCallback(
     async (e: FormEvent<HTMLFormElement>) => {
@@ -25,8 +29,8 @@ const useFindPasswordForm = () => {
       } catch (error) {
         const { errorCode, errorMessage } = error.response.data
 
-        if (errorCode === ErrorCode.REQUEST_MISSING_EMAIL) {
-          setEmailMissingError(true)
+        if (errorCode === ErrorCode.EMAIL_NOT_FOUND) {
+          setEmailNotFoundError(true)
           console.error(errorMessage)
         }
       }
@@ -34,7 +38,7 @@ const useFindPasswordForm = () => {
     [email.value]
   )
 
-  return { email, emailMissingError, onSubmit }
+  return { email, emailNotFoundError, onSubmit }
 }
 
 export default useFindPasswordForm
