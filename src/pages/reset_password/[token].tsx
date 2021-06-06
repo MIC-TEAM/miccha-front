@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import Link from 'next/link'
-import ResetPasswordForm from '../components/reset_password/Form'
+import ResetPasswordForm from '../../components/reset_password/Form'
 
 const ResetPassword: React.FC = () => {
   return (

@@ -1,18 +1,11 @@
 import styled from '@emotion/styled'
-import { FormEvent, memo, useCallback } from 'react'
-import useInput, { InputType } from '../../hooks/useInput'
+import { memo } from 'react'
+import { ValidationType } from '../../hooks/useInput'
+import useResetPassword from '../../hooks/useResetPasswordForm'
 import Validation from '../common/Validation'
 
 const ResetPasswordForm: React.FC = () => {
-  const password = useInput(InputType.PASSWORD)
-
-  const onSubmit = useCallback(
-    (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault()
-      console.log(`password: ${password.value}`)
-    },
-    [password.value]
-  )
+  const { password, onSubmit } = useResetPassword()
 
   return (
     <Form onSubmit={onSubmit}>
@@ -22,7 +15,9 @@ const ResetPasswordForm: React.FC = () => {
         <Input type="password" placeholder="비밀번호" {...password} />
         <Validation state={password.validation} />
       </InputBox>
-      <SubmitButton type="submit">확인</SubmitButton>
+      <SubmitButton type="submit" disabled={!(password.validation === ValidationType.SUCCESS)}>
+        확인
+      </SubmitButton>
     </Form>
   )
 }
@@ -88,4 +83,8 @@ const SubmitButton = styled.button`
   background-color: #f82f62;
   color: #fff;
   cursor: pointer;
+
+  &:disabled {
+    opacity: 0.3;
+  }
 `
