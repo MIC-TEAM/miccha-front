@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { memo } from 'react'
+import { ValidationType } from '../../hooks/useInput'
 import useResetPassword from '../../hooks/useResetPasswordForm'
 import Validation from '../common/Validation'
 
@@ -14,7 +15,9 @@ const ResetPasswordForm: React.FC = () => {
         <Input type="password" placeholder="비밀번호" {...password} />
         <Validation state={password.validation} />
       </InputBox>
-      <SubmitButton type="submit">확인</SubmitButton>
+      <SubmitButton type="submit" disabled={!(password.validation === ValidationType.SUCCESS)}>
+        확인
+      </SubmitButton>
     </Form>
   )
 }
@@ -80,4 +83,8 @@ const SubmitButton = styled.button`
   background-color: #f82f62;
   color: #fff;
   cursor: pointer;
+
+  &:disabled {
+    opacity: 0.3;
+  }
 `
