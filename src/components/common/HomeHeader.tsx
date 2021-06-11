@@ -4,29 +4,50 @@ import styled from '@emotion/styled'
 import { mq } from '../../styles/media-query'
 
 type Props = {
-  text: string
-  link: string
+  username: string
 }
 
-const Header = ({ text, link }: Props) => {
+const Header = ({ username }: Props) => {
   return (
     <HeaderWrap>
-      <Logo type="button">
-        <Link href="/">믹챠</Link>
-      </Logo>
+      <LeftMenu>
+        <Logo type="button">
+          <Link href="/home">믹챠</Link>
+        </Logo>
+        <Link href="/home">홈</Link>
+        <Link href="#this">탐색하기</Link>
+      </LeftMenu>
 
-      <Login type="button">
-        <Link href={link}>{text}</Link>
-      </Login>
+      <RightMenu>
+        <button type="button">검색</button>
+        <Link href="#this">보고싶어요</Link>
+        <Login type="button">{username}</Login>
+      </RightMenu>
     </HeaderWrap>
   )
 }
 
 export default memo(Header)
 
+const RightMenu = styled.div`
+  height: 72px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+`
+
+const LeftMenu = styled.div`
+  height: 72px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+`
+
 // 헤더 네비게이션
 const HeaderWrap = styled.nav`
   z-index: 80;
+  background: #000;
+  color: #fff;
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -54,10 +75,8 @@ const Logo = styled.button`
 `
 
 const Login = styled.button`
-  background: none;
-  border: none;
+  color: #fff;
   a {
-    background: #fff;
     padding: 0.5em 1em;
     border-radius: 20px;
     font-size: 0.9em;
