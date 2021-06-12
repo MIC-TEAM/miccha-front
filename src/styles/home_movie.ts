@@ -104,7 +104,7 @@ export const MovieItemView = styled.li`
       left: 0;
       width: 100%;
       background-color: rgba(0, 0, 0, 0.6);
-      z-index: 100;
+      z-index: 81;
       height: 100%;
       padding-top: 2.5em;
       &__header {
