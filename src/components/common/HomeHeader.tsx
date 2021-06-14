@@ -21,7 +21,10 @@ const Header = ({ username }: Props) => {
       </LeftMenu>
 
       <RightMenu>
-        <button type="button">검색</button>
+        <button type="button" className="search">
+          <img src="/images/common/search.svg" alt="검색하기" />
+          &nbsp;&nbsp; 검색
+        </button>
         <Link href="#this">보고싶어요</Link>
         <Login type="button">{username}</Login>
       </RightMenu>
@@ -36,6 +39,23 @@ const RightMenu = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
+  a {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  button {
+    color: rgba(255, 255, 255, 0.88);
+    &.search {
+      margin-right: 23px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 `
 
 const LeftMenu = styled.div`
@@ -47,6 +67,13 @@ const LeftMenu = styled.div`
     padding-left: 23px;
     a {
       margin-right: 23px;
+      color: rgba(255, 255, 255, 0.88);
+      &:active {
+        font-weight: 700;
+      }
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 `
@@ -62,6 +89,7 @@ const HeaderWrap = styled.nav`
   top: 0;
   left: 0;
   width: 100%;
+  font-size: 0.9em;
   ${mq({
     padding: ['0 3em', '0 1em', '0 1.5em', '0 1.5em', '0 2.5em', '0 2em 0 3em'],
   })};
