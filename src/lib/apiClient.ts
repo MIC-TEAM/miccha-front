@@ -6,7 +6,7 @@ export const apiClient: AxiosInstance = axios.create({
 })
 
 apiClient.defaults.headers.post['Content-Type'] = 'application/json'
-apiClient.defaults.withCredentials = true
+// apiClient.defaults.withCredentials = true
 
 const responseFulfilled = (response: AxiosResponse<any>) => {
   // 응답 데이터 가공
