@@ -14,8 +14,10 @@ const Header = ({ username }: Props) => {
         <Logo type="button">
           <Link href="/home">믹챠</Link>
         </Logo>
-        <Link href="/home">홈</Link>
-        <Link href="#this">탐색하기</Link>
+        <div className="menu">
+          <Link href="/home">홈</Link>
+          <Link href="#this">탐색하기</Link>
+        </div>
       </LeftMenu>
 
       <RightMenu>
@@ -41,6 +43,12 @@ const LeftMenu = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
+  .menu {
+    padding-left: 23px;
+    a {
+      margin-right: 23px;
+    }
+  }
 `
 
 // 헤더 네비게이션
@@ -62,20 +70,21 @@ const HeaderWrap = styled.nav`
 const Logo = styled.button`
   width: 94px;
   height: 72px;
-  background: url('/images/common/logo.svg') no-repeat center center;
+  background: url('/images/common/logo.svg') no-repeat center 19px;
   background-size: contain;
   border: none;
   a {
     width: 100%;
     height: 100%;
     line-height: 0;
-    padding: 1em 5em;
     opacity: 0;
+    display: block;
   }
 `
 
 const Login = styled.button`
   color: #fff;
+  margin-left: 23px;
   a {
     padding: 0.5em 1em;
     border-radius: 20px;
