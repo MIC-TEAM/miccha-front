@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react'
+import HomeHeader from '../components/common/HomeHeader'
 import MovieSlider from '../components/home/MovieSlider'
 import Loading from '../components/common/Loading'
 import styled from '@emotion/styled'
@@ -28,7 +29,12 @@ const Home: React.FC = () => {
     }
   }, [moviesSelectorLoadable])
 
-  return <HomeWrap>{getMovieInfo()}</HomeWrap>
+  return (
+    <>
+      <HomeHeader username="현주" />
+      <HomeWrap>{getMovieInfo()}</HomeWrap>
+    </>
+  )
 }
 
 export default Home
