@@ -5,6 +5,7 @@ import Loading from '../components/common/Loading'
 import styled from '@emotion/styled'
 import { useRecoilValueLoadable } from 'recoil'
 import { homeMoviesSelector } from '../recoil/home_movies/selector'
+import MovieMain from '../components/home/MovieMain'
 
 const HomeWrap = styled.main`
   background: rgb(20, 21, 23);
@@ -32,6 +33,7 @@ const Home: React.FC = () => {
   return (
     <>
       <HomeHeader username="현주" />
+      <MovieMain />
       <HomeWrap>{getMovieInfo()}</HomeWrap>
     </>
   )
