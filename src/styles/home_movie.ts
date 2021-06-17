@@ -170,3 +170,49 @@ export const SmallTitle = styled.h4`
   letter-spacing: -0.031vw;
   margin-left: 4px;
 `
+
+export const MovieMainWrap = styled.section`
+  position: relative;
+  background: rgb(20, 21, 23);
+  .movieMainSlider {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .swiper-pagination {
+    padding-right: 50px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    span {
+      display: inline-block;
+      background-color: #ffffff;
+      width: 0.78125vw;
+      height: 0.78125vw;
+      border-radius: 50%;
+      margin: 0 0.3125vw;
+      opacity: 0.25;
+      cursor: pointer;
+      &.swiper-pagination-bullet-active {
+        opacity: 1;
+      }
+    }
+  }
+  div[class*='swiper-button'] {
+    --swiper-navigation-size: 25px;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .swiper-button-prev {
+    left: 20px;
+  }
+  .swiper-button-next {
+    right: 20px;
+  }
+`
