@@ -1,11 +1,31 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import HomeHeader from '../components/common/HomeHeader'
 import MovieSlider from '../components/home/MovieSlider'
-import Loading from '../components/common/Loading'
 import styled from '@emotion/styled'
-import { useRecoilValueLoadable } from 'recoil'
-import { homeMoviesSelector } from '../recoil/home_movies/selector'
 import MovieMain from '../components/home/MovieMain'
+import { useHome } from '../hooks/useHome'
+
+const Home: React.FC = () => {
+  const { homeMovies, inViewRef } = useHome()
+
+  return (
+    <>
+      <HomeHeader username="현주" />
+      <MovieMain />
+      <HomeWrap>
+        {homeMovies.map(({ theme, movies }, index) =>
+          index === homeMovies.length - 1 ? (
+            <MovieSlider key={theme} theme={theme} movies={movies} inViewRef={inViewRef} />
+          ) : (
+            <MovieSlider key={theme} theme={theme} movies={movies} />
+          )
+        )}
+      </HomeWrap>
+    </>
+  )
+}
+
+export default Home
 
 const HomeWrap = styled.main`
   background: rgb(20, 21, 23);
@@ -13,30 +33,3 @@ const HomeWrap = styled.main`
   width: 100%;
   min-height: 100%;
 `
-
-const Home: React.FC = () => {
-  const moviesSelectorLoadable = useRecoilValueLoadable(homeMoviesSelector(1))
-
-  const getMovieInfo = useCallback(() => {
-    switch (moviesSelectorLoadable.state) {
-      case 'loading':
-        return <Loading />
-      case 'hasValue':
-        return moviesSelectorLoadable.contents.map(({ theme, movies }) => (
-          <MovieSlider key={theme} theme={theme} movies={movies} />
-        ))
-      case 'hasError':
-        console.error(moviesSelectorLoadable.contents)
-    }
-  }, [moviesSelectorLoadable])
-
-  return (
-    <>
-      <HomeHeader username="현주" />
-      <MovieMain />
-      <HomeWrap>{getMovieInfo()}</HomeWrap>
-    </>
-  )
-}
-
-export default Home

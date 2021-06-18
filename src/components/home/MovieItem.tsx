@@ -1,5 +1,5 @@
 import { memo, useState } from 'react'
-import { Movie } from '../../recoil/home_movies/selector'
+import { Movie } from '../../recoil/home_movies/atom'
 import { MovieItemView, Image, SmallTitle } from '../../styles/home_movie'
 
 interface Props {
