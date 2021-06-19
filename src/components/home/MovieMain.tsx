@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { EffectFade, Navigation, Pagination } from 'swiper/core'
 import { MovieMainWrap } from '../../styles/home_movie'
@@ -51,4 +51,4 @@ const MovieMain: React.FC = () => {
   )
 }
 
-export default MovieMain
+export default memo(MovieMain)

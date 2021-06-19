@@ -5,14 +5,15 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { reactSlickSettings } from '../../utils/react-slick'
 import MovieItem from './MovieItem'
-import { Movie } from '../../recoil/home_movies/selector'
+import { Movie } from '../../recoil/home_movies/atom'
 
 type Props = {
   theme: string
   movies: Movie[]
+  inViewRef?: (node?: Element | null | undefined) => void
 }
 
-const MovieSlider: React.FC<Props> = ({ theme, movies }) => {
+const MovieSlider: React.FC<Props> = ({ theme, movies, inViewRef }) => {
   const settings = useMemo(() => reactSlickSettings, [])
   const itemsList = movies.map((movie) => <MovieItem key={movie.id} movie={movie} />)
 
@@ -27,7 +28,7 @@ const MovieSlider: React.FC<Props> = ({ theme, movies }) => {
           </AllView>
         </ContentHead>
 
-        <SlickWrap style={{ padding: '0 50px' }}>
+        <SlickWrap style={{ padding: '0 50px' }} ref={inViewRef}>
           <Slick {...settings}>{itemsList}</Slick>
         </SlickWrap>
       </Row>

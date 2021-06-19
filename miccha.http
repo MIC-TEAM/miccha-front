@@ -1,2 +1,2 @@
 ### home movie 목록 불러오기
-GET https://router.debiandebian.com/v1/movies HTTP/1.1
+GET https://router.debiandebian.com/api/movies HTTP/1.1
