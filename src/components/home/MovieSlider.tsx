@@ -1,11 +1,13 @@
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+
+import { reactSlickSettings } from '../../utils/react-slick'
 import React, { memo, useMemo } from 'react'
 import Slick from 'react-slick'
 import { SlickWrap, ContentHead, ContentTitle, AllView, Row } from '../../styles/home_movie'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import { reactSlickSettings } from '../../utils/react-slick'
 import MovieItem from './MovieItem'
 import { Movie } from '../../recoil/home_movies/selector'
+import MovieDetail from './MovieDetail'
 
 type Props = {
   theme: string
@@ -30,6 +32,8 @@ const MovieSlider: React.FC<Props> = ({ theme, movies }) => {
         <SlickWrap style={{ padding: '0 50px' }}>
           <Slick {...settings}>{itemsList}</Slick>
         </SlickWrap>
+
+        <MovieDetail />
       </Row>
     </>
   )

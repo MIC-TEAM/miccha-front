@@ -36,10 +36,7 @@ const MovieItem: React.FC<Props> = ({ movie: { thumbnail, title } }) => {
             </button>
           </div>
 
-          <p className="itemHover__desc">
-            엔드게임 이후 피터 파커는 친구들과 유럽 여행을 떠난다. 하지만 이내 닉 퓨리의 요청으로 정체불명의 조력자
-            미스테리오와 함께 세계를 위협하는 엘리멘탈 크리쳐스에 맞서야 하는 상황에 처한다.
-          </p>
+          <p className="itemHover__desc">엔드게임 이후 피터 파커는 친구들과 유럽 여행을 떠난다.</p>
 
           <div className="itemHover__more">
             <button type="button" className="itemHover__more--btn"></button>

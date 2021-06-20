@@ -216,3 +216,24 @@ export const MovieMainWrap = styled.section`
     right: 20px;
   }
 `
+
+export const Detail = styled.div`
+  .title {
+    margin-top: 0.703125vw;
+    font-size: 2.8125vw;
+    font-weight: 700;
+    letter-spacing: -0.117188vw;
+    line-height: 3.28125vw;
+  }
+  .story {
+    color: rgba(255, 255, 255, 0.8);
+    width: 32.8125vw;
+    margin-top: 0.15625vw;
+    font-size: 1.17188vw;
+    font-weight: 400;
+    letter-spacing: -0.03125vw;
+    line-height: 1.875vw;
+  }
+`
+
+export const Desc = styled.div``
