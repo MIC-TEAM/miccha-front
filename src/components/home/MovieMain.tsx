@@ -23,28 +23,46 @@ const MovieMain: React.FC = () => {
         className="movieMainSlider"
       >
         <SwiperSlide>
-          <img
-            src="https://an2-img.amz.wtchn.net/image/v2/6c0ea4bb926c442d53be3c31be98ab84.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSndZWFJvSWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk1qTXpPREE1TVRRd01UZzFOVEEyTkRZaUxDSnhkV0ZzYVhSNUlqbzRNSDAuZzlPajE3SU95dW1KR0ZoUTczUERCWWg4MFBiWjZDMHdFMnU5TWM1SGtBWQ"
-            alt=""
-          />
+          <img src="/images/home/main01.jpeg" alt="애니메이션" />
+          <div className="movieDetail">
+            <h2>힐링되는 애니메이션</h2>
+            <button type="button">목록보기</button>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            src="https://an2-img.amz.wtchn.net/image/v2/7a1c6c1ef9895f5997a927e00e0b0ad2.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSndZWFJvSWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk1qTXpNalEzT0RrMk56WXhPVEF4TURraUxDSnhkV0ZzYVhSNUlqbzRNSDAuU1Y2Vzd0R0I0WHo2SURONUp2M2wtMnBoRUxveTVrTG5rb0tJdXMzV01mUQ"
-            alt=""
-          />
+          <img src="/images/home/main02.jpeg" alt="" />
+          <div className="movieDetail">
+            <h2>심장 쫄깃쫄깃 스릴러</h2>
+            <button type="button">목록보기</button>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            src="https://an2-img.amz.wtchn.net/image/v2/6db34a01ba851cca1d842bc70b4c5500.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSndZWFJvSWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk1qTXpNalV6TlRrd05Ua3hPREU0TXpjaUxDSnhkV0ZzYVhSNUlqbzRNSDAuaF9heWtyazlMb2JyTEthOG5sWjJDU1dFbEM4TjJROXg2VEJ0YTNsYTJ5dw"
-            alt=""
-          />
+          <img src="/images/home/main03.jpeg" alt="" />
+          <div className="movieDetail">
+            <h2>어린이를 위한 키즈물</h2>
+            <button type="button">목록보기</button>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            src="https://an2-img.amz.wtchn.net/image/v2/ee35c54f725d1c4287da4776197418dd.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSndZWFJvSWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFMk1qTTNNelF6T0RrME9USTBNVGN6TWpnaUxDSnhkV0ZzYVhSNUlqbzRNSDAuS2hYNVgySnV4VzZEc3d5ZHRVWmRvR1lIQU1IZGRteGFqRHRxTHlwWlpJWQ"
-            alt=""
-          />
+          <img src="/images/home/main04.jpeg" alt="" />
+          <div className="movieDetail">
+            <h2>싱기방기 화려함 SF</h2>
+            <button type="button">목록보기</button>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="/images/home/main05.jpeg" alt="" />
+          <div className="movieDetail">
+            <h2>누구보다 빠르게 액션</h2>
+            <button type="button">목록보기</button>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="/images/home/main06.jpeg" alt="" />
+          <div className="movieDetail">
+            <h2>대리만족 로맨스</h2>
+            <button type="button">목록보기</button>
+          </div>
         </SwiperSlide>
       </Swiper>
     </MovieMainWrap>
