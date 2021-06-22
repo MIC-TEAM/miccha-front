@@ -19,9 +19,9 @@ export default memo(SubmitButton)
 
 const Button = styled.button`
   width: 100%;
+  margin-top: 16px;
   padding: 0px 0px 21px;
   border-bottom: 1px solid rgba(154, 151, 161, 0.2);
-
   background-color: rgb(248, 47, 98);
   color: rgb(255, 255, 255);
   font-weight: 700;
