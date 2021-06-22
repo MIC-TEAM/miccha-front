@@ -26,7 +26,9 @@ const MovieMain: React.FC = () => {
           <img src="/images/home/main01.jpeg" alt="애니메이션" />
           <div className="movieDetail">
             <h2>힐링되는 애니메이션</h2>
-            <button type="button">목록보기</button>
+            <button type="button">
+              <img src="/images/home/icon_list.svg" alt="" />
+              목록보기</button>
           </div>
         </SwiperSlide>
         <SwiperSlide>

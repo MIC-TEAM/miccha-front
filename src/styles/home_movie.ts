@@ -184,7 +184,7 @@ export const MovieMainWrap = styled.section`
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
-    img {
+    .backgroundImg {
       width: 100%;
       height: 100vh;
       object-fit: cover;
@@ -203,8 +203,12 @@ export const MovieMainWrap = styled.section`
         white-space: pre-wrap;
         margin-left: -0.078125vw;
       }
-      button {
+      button {        
         color: rgb(255, 255, 255);
+        background: #000;
+        padding: 0.5em;
+        display: flex;
+        align-items: center;
       }
     }
   }
