@@ -8,6 +8,7 @@ import 'swiper/swiper.min.css'
 import 'swiper/components/effect-fade/effect-fade.min.css'
 import 'swiper/components/navigation/navigation.min.css'
 import 'swiper/components/pagination/pagination.min.css'
+import MovieDetail from './MovieDetail'
 
 const MovieMain: React.FC = () => {
   return (
@@ -23,48 +24,28 @@ const MovieMain: React.FC = () => {
         className="movieMainSlider"
       >
         <SwiperSlide>
-          <img src="/images/home/main01.jpeg" alt="애니메이션" />
-          <div className="movieDetail">
-            <h2>힐링되는 애니메이션</h2>
-            <button type="button">
-              <img src="/images/home/icon_list.svg" alt="" />
-              목록보기</button>
-          </div>
+          <img src="/images/home/main01.jpeg" alt="" className="backgroundImg" />
+          <MovieDetail title="힐링되는 애니메이션" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/home/main02.jpeg" alt="" />
-          <div className="movieDetail">
-            <h2>심장 쫄깃쫄깃 스릴러</h2>
-            <button type="button">목록보기</button>
-          </div>
+          <img src="/images/home/main02.jpeg" alt="" className="backgroundImg" />
+          <MovieDetail title="심장 쫄깃쫄깃 스릴러" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/home/main03.jpeg" alt="" />
-          <div className="movieDetail">
-            <h2>어린이를 위한 키즈물</h2>
-            <button type="button">목록보기</button>
-          </div>
+          <img src="/images/home/main03.jpeg" alt="" className="backgroundImg" />
+          <MovieDetail title="어린이를 위한 키즈물" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/home/main04.jpeg" alt="" />
-          <div className="movieDetail">
-            <h2>싱기방기 화려함 SF</h2>
-            <button type="button">목록보기</button>
-          </div>
+          <img src="/images/home/main04.jpeg" alt="" className="backgroundImg" />
+          <MovieDetail title="싱기방기 화려함 SF" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/home/main05.jpeg" alt="" />
-          <div className="movieDetail">
-            <h2>누구보다 빠르게 액션</h2>
-            <button type="button">목록보기</button>
-          </div>
+          <img src="/images/home/main05.jpeg" alt="" className="backgroundImg" />
+          <MovieDetail title="누구보다 빠르게 액션" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/home/main06.jpeg" alt="" />
-          <div className="movieDetail">
-            <h2>대리만족 로맨스</h2>
-            <button type="button">목록보기</button>
-          </div>
+          <img src="/images/home/main06.jpeg" alt="" className="backgroundImg" />
+          <MovieDetail title="대리만족 로맨스" />
         </SwiperSlide>
       </Swiper>
     </MovieMainWrap>

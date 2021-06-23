@@ -190,27 +190,6 @@ export const MovieMainWrap = styled.section`
       object-fit: cover;
       position: absolute;
     }
-    .movieDetail {
-      position: absolute;
-      top: 30%;
-      left: 5%;
-      h2 {
-        color: rgb(255, 255, 255);
-        font-size: 2.5rem;
-        font-weight: 700;
-        letter-spacing: -0.210938vw;
-        line-height: 4.60938vw;
-        white-space: pre-wrap;
-        margin-left: -0.078125vw;
-      }
-      button {        
-        color: rgb(255, 255, 255);
-        background: #000;
-        padding: 0.5em;
-        display: flex;
-        align-items: center;
-      }
-    }
   }
   .swiper-pagination {
     padding-right: 50px;
@@ -243,5 +222,40 @@ export const MovieMainWrap = styled.section`
   }
   .swiper-button-next {
     right: 20px;
+  }
+`
+
+export const MovieDetailTit = styled.div`
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  h2 {
+    color: rgb(255, 255, 255);
+    font-size: 4vw;
+    font-weight: 700;
+    letter-spacing: -0.25vw;
+    line-height: 4.60938vw;
+    white-space: pre-wrap;
+    margin-left: -0.078125vw;
+  }
+  button {
+    color: #fff;
+    background: rgb(255, 255, 255, 0.1);
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    font-size: 1.6vw;
+    margin-top: 1em;
+    &:hover {
+      background: rgb(255, 255, 255);
+      color: #000;
+      path {
+        fill: #000;
+      }
+    }
+    svg {
+      margin-right: 4px;
+      width: 1.4em;
+    }
   }
 `
