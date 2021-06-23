@@ -18,8 +18,8 @@ export const SlickWrap = styled.div`
       width: 53px;
       background-color: rgba(0, 0, 0, 0.4) !important;
       display: none !important;
-      top: 46%;
-      height: 54.2%;
+      top: 44.2%;
+      height: 57.6%;
     }
     &:hover {
       .slick-arrow {
@@ -59,7 +59,7 @@ export const ContentHead = styled.div`
 `
 
 export const ContentTitle = styled.h3`
-  font-size: 1.2em;
+  font-size: 1.5vw;
   font-weight: 700;
   letter-spacing: -0.031vw;
 `
@@ -79,7 +79,7 @@ export const AllView = styled.a`
     height: 100%;
   }
 `
-export const MovieItemView = styled.li`
+export const MovieItemView = styled.div`
   transition: 0.3s;
   position: relative;
   object-fit: cover;
@@ -89,8 +89,8 @@ export const MovieItemView = styled.li`
     width: 100%;
   }
   &.isHover {
-    transform: scale(1.7);
-    z-index: 4;
+    transform: scale(1.6);
+    z-index: 10;
     .movieTit {
       display: none;
     }
@@ -212,6 +212,7 @@ export const MovieMainWrap = styled.section`
   }
   div[class*='swiper-button'] {
     --swiper-navigation-size: 25px;
+    color: #ffffff;
     opacity: 0.5;
     &:hover {
       opacity: 1;
@@ -227,7 +228,7 @@ export const MovieMainWrap = styled.section`
 
 export const MovieDetailTit = styled.div`
   position: absolute;
-  top: 30%;
+  top: 36vh;
   left: 5%;
   h2 {
     color: rgb(255, 255, 255);
@@ -261,6 +262,44 @@ export const MovieDetailTit = styled.div`
     svg {
       margin-right: 4px;
       width: 1.4em;
+    }
+  }
+`
+
+// 화살표 클릭 시 영화 정보 View 컴포넌트
+export const MovieShowBox = styled.div`
+  width: 100%;
+  height: 35.15vw;
+  opacity: 1;
+  .movie {
+    &__title {
+      margin-top: 0.703125vw;
+      font-size: 2.8125vw;
+      font-weight: 700;
+      letter-spacing: -0.117188vw;
+      line-height: 3.28125vw;
+      color: rgba(255, 255, 255);
+    }
+    &__detail {
+      font-size: 1.25vw;
+    }
+    &__story {
+      color: rgba(255, 255, 255, 0.8);
+      width: 32.8125vw;
+      margin-top: 0.15625vw;
+      font-size: 1.17188vw;
+      font-weight: 400;
+      letter-spacing: -0.03125vw;
+      line-height: 1.875vw;
+    }
+    &__genre {
+      font-weight: 700;
+      margin-right: 0.78125vw;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 1.01562vw;
+    }
+    &__want {
+      color: rgba(255, 255, 255, 0.5);
     }
   }
 `

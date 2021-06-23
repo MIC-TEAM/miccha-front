@@ -29,7 +29,7 @@ const MovieMain: React.FC = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img src="/images/home/main02.jpg" alt="" className="backgroundImg" />
-          <MovieDetail title="심장 쫄깃쫄깃 스릴러" desc="더울 땐? 오싹한 차가운 맛 영화들" />
+          <MovieDetail title="심장이 쫄깃쫄깃 스릴러" desc="더울 땐? 오싹한 차가운 맛 영화들" />
         </SwiperSlide>
         <SwiperSlide>
           <img src="/images/home/main03.jpg" alt="" className="backgroundImg" />

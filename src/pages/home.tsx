@@ -32,4 +32,5 @@ const HomeWrap = styled.main`
   color: #fff;
   width: 100%;
   min-height: 100%;
+  padding-top: 1.25vw;
 `

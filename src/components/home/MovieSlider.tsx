@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import { reactSlickSettings } from '../../utils/react-slick'
 import MovieItem from './MovieItem'
 import { Movie } from '../../recoil/home_movies/atom'
+import MovieShow from './MovieShow'
 
 type Props = {
   theme: string
@@ -30,6 +31,7 @@ const MovieSlider: React.FC<Props> = ({ theme, movies, inViewRef }) => {
 
         <SlickWrap style={{ padding: '0 50px' }} ref={inViewRef}>
           <Slick {...settings}>{itemsList}</Slick>
+          <MovieShow />
         </SlickWrap>
       </Row>
     </>
