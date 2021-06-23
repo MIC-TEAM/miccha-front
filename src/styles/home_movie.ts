@@ -18,8 +18,8 @@ export const SlickWrap = styled.div`
       width: 53px;
       background-color: rgba(0, 0, 0, 0.4) !important;
       display: none !important;
-      top: 45%;
-      height: 55.2%;
+      top: 44.2%;
+      height: 57.6%;
     }
     &:hover {
       .slick-arrow {
@@ -59,7 +59,7 @@ export const ContentHead = styled.div`
 `
 
 export const ContentTitle = styled.h3`
-  font-size: 1.5em;
+  font-size: 1.5vw;
   font-weight: 700;
   letter-spacing: -0.031vw;
 `
@@ -79,22 +79,18 @@ export const AllView = styled.a`
     height: 100%;
   }
 `
-export const MovieItemView = styled.li`
+export const MovieItemView = styled.div`
   transition: 0.3s;
   position: relative;
-  height: 180px;
   object-fit: cover;
   &.notHover {
     transform: scale(1);
     z-index: 1;
     width: 100%;
-    img {
-      height: 155px;
-    }
   }
   &.isHover {
-    transform: scale(1.4);
-    z-index: 4;
+    transform: scale(1.6);
+    z-index: 10;
     .movieTit {
       display: none;
     }
@@ -104,9 +100,11 @@ export const MovieItemView = styled.li`
       left: 0;
       width: 100%;
       background-color: rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      box-sizing: border-box;
       z-index: 81;
       height: 100%;
-      padding-top: 2.5em;
+      padding-top: 1.5em;
       &__header {
         display: grid;
         grid-template-columns: 1fr 5fr 1fr;
@@ -124,28 +122,32 @@ export const MovieItemView = styled.li`
       &__title {
         margin-left: 0.5em;
         h3 {
-          font-size: 0.9em;
+          font-size: 0.9rem;
         }
       }
       &__detail {
-        font-size: 0.7em;
+        font-size: 0.6rem;
         opacity: 0.8;
         margin-top: 5px;
       }
+
       &__desc {
-        font-size: 0.8em;
+        font-size: 0.6rem;
         line-height: 1.3;
-        padding: 0.5em 1em 0.2em;
+        margin: 0.5em 1em 0.2em;
       }
 
       &__more {
         width: 100%;
         display: flex;
         justify-content: center;
+        position: absolute;
+        bottom: 5%;
         &--btn {
-          width: 48px;
-          height: 20px;
+          width: 1.875em;
+          height: 1.25em;
           background-repeat: no-repeat;
+          background-size: contain;
           background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDQ0IDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgb3BhY2l0eT0iLjMyIj4KICAgICAgICA8cGF0aCBkPSJNMCAwaDQ0djIwSDB6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTIyLjAwNCAxNi41OTZsLS4wMDEuMDAyLS4wMDQtLjAwMkw0LjY4MiA2LjU5OCA2LjE4MiA0bDE1LjgyIDkuMTMzTDM3LjgyIDRsMS41IDIuNTk4LTE3LjMxNyA5Ljk5OHoiLz4KICAgIDwvZz4KPC9zdmc+Cg==);
           &:hover {
             background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDQ0IDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGg0NHYyMEgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNGODJGNjIiIGQ9Ik0yMi4wMDQgMTYuNTk2bC0uMDAxLjAwMi0uMDA0LS4wMDJMNC42ODIgNi41OTggNi4xODIgNGwxNS44MiA5LjEzM0wzNy44MiA0bDEuNSAyLjU5OC0xNy4zMTcgOS45OTh6Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=);
@@ -174,13 +176,19 @@ export const SmallTitle = styled.h4`
 export const MovieMainWrap = styled.section`
   position: relative;
   background: rgb(20, 21, 23);
+  .swiper-wrapper {
+    height: 100vh;
+    position: relative;
+  }
   .movieMainSlider {
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
-    img {
+    .backgroundImg {
       width: 100%;
+      height: 100vh;
       object-fit: cover;
+      position: absolute;
     }
   }
   .swiper-pagination {
@@ -204,6 +212,7 @@ export const MovieMainWrap = styled.section`
   }
   div[class*='swiper-button'] {
     --swiper-navigation-size: 25px;
+    color: #ffffff;
     opacity: 0.5;
     &:hover {
       opacity: 1;
@@ -214,5 +223,83 @@ export const MovieMainWrap = styled.section`
   }
   .swiper-button-next {
     right: 20px;
+  }
+`
+
+export const MovieDetailTit = styled.div`
+  position: absolute;
+  top: 36vh;
+  left: 5%;
+  h2 {
+    color: rgb(255, 255, 255);
+    font-size: 4vw;
+    font-weight: 700;
+    letter-spacing: -0.25vw;
+    line-height: 4.60938vw;
+    white-space: pre-wrap;
+    margin-left: -0.078125vw;
+  }
+  p {
+    color: rgb(255, 255, 255);
+    font-size: 1.33vw;
+    margin-top: 0.8vw;
+  }
+  button {
+    color: #fff;
+    background: rgb(255, 255, 255, 0.1);
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    font-size: 1.6vw;
+    margin-top: 2.578125vw;
+    &:hover {
+      background: rgb(255, 255, 255);
+      color: #000;
+      path {
+        fill: #000;
+      }
+    }
+    svg {
+      margin-right: 4px;
+      width: 1.4em;
+    }
+  }
+`
+
+// 화살표 클릭 시 영화 정보 View 컴포넌트
+export const MovieShowBox = styled.div`
+  width: 100%;
+  height: 35.15vw;
+  opacity: 1;
+  .movie {
+    &__title {
+      margin-top: 0.703125vw;
+      font-size: 2.8125vw;
+      font-weight: 700;
+      letter-spacing: -0.117188vw;
+      line-height: 3.28125vw;
+      color: rgba(255, 255, 255);
+    }
+    &__detail {
+      font-size: 1.25vw;
+    }
+    &__story {
+      color: rgba(255, 255, 255, 0.8);
+      width: 32.8125vw;
+      margin-top: 0.15625vw;
+      font-size: 1.17188vw;
+      font-weight: 400;
+      letter-spacing: -0.03125vw;
+      line-height: 1.875vw;
+    }
+    &__genre {
+      font-weight: 700;
+      margin-right: 0.78125vw;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 1.01562vw;
+    }
+    &__want {
+      color: rgba(255, 255, 255, 0.5);
+    }
   }
 `
