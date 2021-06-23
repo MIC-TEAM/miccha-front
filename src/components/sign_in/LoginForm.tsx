@@ -1,21 +1,13 @@
 import styled from '@emotion/styled'
 import Link from 'next/link'
-import { FormEvent, useCallback } from 'react'
-import useInput, { InputType, ValidationType } from '../../hooks/useInput'
+import { ValidationType } from '../../hooks/useInput'
+import useLoginForm from '../../hooks/useLoginForm'
 import SubmitButton from '../common/SubmitButton'
 import Validation from '../common/Validation'
+import ValidationError from '../common/ValidationError'
 
 const LoginForm: React.FC = () => {
-  const email = useInput(InputType.EMAIL)
-  const password = useInput(InputType.PASSWORD)
-
-  const onSubmit = useCallback(
-    (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault()
-      console.log(`email: ${email.value}, password: ${password.value}`)
-    },
-    [email.value, password.value]
-  )
+  const { email, password, onSubmit, loginError } = useLoginForm()
 
   return (
     <form onSubmit={onSubmit}>
@@ -33,6 +25,7 @@ const LoginForm: React.FC = () => {
         <input type="password" placeholder="비밀번호" {...password} />
         <Validation state={password.validation} />
       </InputBox>
+      {loginError && <ValidationError>입력하신 이메일 주소 혹은 비밀번호를 다시 확인해주세요</ValidationError>}
       <SubmitButton
         type="submit"
         active={email.validation === ValidationType.SUCCESS && password.validation === ValidationType.SUCCESS}
@@ -93,7 +86,6 @@ const InputBox = styled.div`
   &:last-of-type {
     position: relative;
     top: -1px;
-    margin-bottom: 16px;
   }
 
   &:last-of-type > input {

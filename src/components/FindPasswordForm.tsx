@@ -98,6 +98,5 @@ const Notice = styled.p`
   letter-spacing: -0.3px;
   text-align: left;
   padding: 10px 14px 0px;
-  margin-bottom: 15px;
   line-height: normal;
 `
