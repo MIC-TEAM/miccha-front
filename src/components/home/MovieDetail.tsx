@@ -3,11 +3,13 @@ import { MovieDetailTit } from '../../styles/home_movie'
 
 type Props = {
   title: string
+  desc: string
 }
-const MovieDetail = ({ title }: Props) => {
+const MovieDetail = ({ title, desc }: Props) => {
   return (
     <MovieDetailTit>
       <h2>{title}</h2>
+      <p>{desc}</p>
       <button type="button">
         <svg
           className="SVGInline-svg css-rxj3gn-StyledHomeBannerActionButtonIcon-StyledContentActionButtonIconStyle-svg eukriky0-svg"

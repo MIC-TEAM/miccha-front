@@ -238,6 +238,11 @@ export const MovieDetailTit = styled.div`
     white-space: pre-wrap;
     margin-left: -0.078125vw;
   }
+  p {
+    color: rgb(255, 255, 255);
+    font-size: 1.33vw;
+    margin-top: 0.8vw;
+  }
   button {
     color: #fff;
     background: rgb(255, 255, 255, 0.1);
@@ -245,7 +250,7 @@ export const MovieDetailTit = styled.div`
     display: flex;
     align-items: center;
     font-size: 1.6vw;
-    margin-top: 1em;
+    margin-top: 2.578125vw;
     &:hover {
       background: rgb(255, 255, 255);
       color: #000;
