@@ -29,7 +29,7 @@ const MovieSlider: React.FC<Props> = ({ theme, movies, inViewRef }) => {
           </AllView>
         </ContentHead>
 
-        <SlickWrap style={{ padding: '0 50px' }} ref={inViewRef}>
+        <SlickWrap ref={inViewRef}>
           <Slick {...settings}>{itemsList}</Slick>
           <MovieShow />
         </SlickWrap>

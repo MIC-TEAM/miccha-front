@@ -9,6 +9,7 @@ export const SlickWrap = styled.div`
   max-height: 100%;
   position: relative;
   .slick-slider {
+    padding: 0px 50px;
     width: 100vw;
     display: flex;
     justify-content: space-between;
@@ -27,7 +28,7 @@ export const SlickWrap = styled.div`
       }
     }
     .slick-list {
-      padding: 45px 0;
+      padding: 45px 0 0;
     }
     .slick-prev {
       position: absolute;
@@ -142,7 +143,7 @@ export const MovieItemView = styled.div`
         display: flex;
         justify-content: center;
         position: absolute;
-        bottom: 5%;
+        bottom: 10%;
         &--btn {
           width: 1.875em;
           height: 1.25em;
@@ -226,7 +227,7 @@ export const MovieMainWrap = styled.section`
   }
 `
 
-export const MovieDetailTit = styled.div`
+export const MovieDetailBox = styled.div`
   position: absolute;
   top: 36vh;
   left: 5%;
@@ -271,7 +272,17 @@ export const MovieShowBox = styled.div`
   width: 100%;
   height: 35.15vw;
   opacity: 1;
+  background-color: #000;
+  padding: 40px 0 0 50px;
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
   .movie {
+    &__detailWrapper {
+      z-index: 10;
+      position: absolute;
+      width: auto;
+    }
     &__title {
       margin-top: 0.703125vw;
       font-size: 2.8125vw;
@@ -282,6 +293,39 @@ export const MovieShowBox = styled.div`
     }
     &__detail {
       font-size: 1.25vw;
+      display: flex;
+      align-items: center;
+      margin: 1.09375vw 0px 0.625vw;
+      &--ageTime {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.09375vw;
+        font-weight: 700;
+        margin-left: 1vw;
+      }
+      &--star {
+        font-size: 0.9375vw;
+        font-weight: 700;
+        color: #fff;
+        height: 1.7vw;
+        display: flex;
+        align-items: center;
+        span {
+          border: 1px solid #fff;
+          height: 100%;
+          display: inline-flex;
+          align-items: center;
+          padding: 0 0.4vw;
+        }
+        strong {
+          font-size: 1.17188vw;
+          background-color: #fff;
+          color: #000;
+          display: flex;
+          align-items: center;
+          height: 100%;
+          padding: 0 0.4vw;
+        }
+      }
     }
     &__story {
       color: rgba(255, 255, 255, 0.8);
@@ -293,13 +337,77 @@ export const MovieShowBox = styled.div`
       line-height: 1.875vw;
     }
     &__genre {
-      font-weight: 700;
-      margin-right: 0.78125vw;
+      margin-top: 0.9375vw;
       color: rgba(255, 255, 255, 0.5);
       font-size: 1.01562vw;
+      line-height: 1.40625vw;
+      margin-bottom: 0.15625vw;
+      th {
+        font-weight: 700;
+        padding-right: 1.2vw;
+      }
+      td {
+        padding: 0.15vw 0;
+      }
     }
     &__want {
-      color: rgba(255, 255, 255, 0.5);
+      color: #fff;
+      padding: 0.625vw 0.3125vw 0.625vw 0;
+      font-size: 1.25vw;
+      font-weight: 700;
+      opacity: 0.5;
+      display: flex;
+      align-items: center;
+      span {
+        margin-right: 0.4vw;
+      }
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    &__close {
+      position: absolute;
+      top: 1.5vw;
+      right: 1.5vw;
+    }
+    &__imgWrapper {
+      position: absolute;
+      width: 61.5625%;
+      height: 100%;
+      right: 0;
+      top: 0;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .shadowLeft {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-image: linear-gradient(
+          to right,
+          rgb(0, 0, 0) 0,
+          rgba(0, 0, 0, 0.7) 26%,
+          rgba(0, 0, 0, 0.45) 50%,
+          rgba(0, 0, 0, 0.2) 75%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        width: 65%;
+        height: 100%;
+      }
+      .shadowBottom {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        background-image: linear-gradient(
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.17) 28%,
+          rgba(0, 0, 0, 0.5) 62%,
+          rgba(0, 0, 0, 0.85) 100%
+        );
+        height: 63.1%;
+        width: 100%;
+      }
     }
   }
 `
