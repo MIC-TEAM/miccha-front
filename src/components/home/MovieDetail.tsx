@@ -1,5 +1,5 @@
 import React from 'react'
-import { MovieDetailTit } from '../../styles/home_movie'
+import { MovieDetailBox } from '../../styles/home_movie'
 
 type Props = {
   title: string
@@ -7,7 +7,7 @@ type Props = {
 }
 const MovieDetail = ({ title, desc }: Props) => {
   return (
-    <MovieDetailTit>
+    <MovieDetailBox>
       <h2>{title}</h2>
       <p>{desc}</p>
       <button type="button">
@@ -36,7 +36,7 @@ const MovieDetail = ({ title, desc }: Props) => {
         </svg>
         목록보기
       </button>
-    </MovieDetailTit>
+    </MovieDetailBox>
   )
 }
 
