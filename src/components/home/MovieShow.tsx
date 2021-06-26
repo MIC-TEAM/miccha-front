@@ -50,7 +50,7 @@ const MovieShow = () => {
       <div className="movie__imgWrapper">
         <img
           src="https://an2-img.amz.wtchn.net/image/v2/0e08665c01fd5df6e0893cfb6aa60cb0.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN5TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpFMU9ETXlNVGMzTWprMU5qSXpOREU1SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqb3hNamd3ZlEubnRNalBRV0tJTUZaQnI5MzY4Zld2c0hzT0JBZTE2ODlGUGxRMWRmQzRZVQ"
-          alt=""
+          alt="영화포스터"
         />
         <div className="shadowLeft"></div>
         <div className="shadowBottom"></div>

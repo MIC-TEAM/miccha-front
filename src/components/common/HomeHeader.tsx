@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useState, useEffect } from 'react'
 import Link from 'next/link'
 import styled from '@emotion/styled'
 import { mq } from '../../styles/media-query'
@@ -7,9 +7,24 @@ type Props = {
   username: string
 }
 
+const useScroll = () => {
+  const [state, setState] = useState({
+    ScrollTop: 0,
+  })
+  const onScroll = () => {
+    setState({ ScrollTop: window.scrollY })
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  return state
+}
+
 const Header = ({ username }: Props) => {
+  const { ScrollTop } = useScroll()
   return (
-    <HeaderWrap>
+    <HeaderWrap style={{ background: ScrollTop > 1 ? 'black' : 'none' }}>
       <LeftMenu>
         <Logo type="button">
           <Link href="/home">믹챠</Link>
