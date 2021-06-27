@@ -143,7 +143,7 @@ export const MovieItemView = styled.div`
         display: flex;
         justify-content: center;
         position: absolute;
-        bottom: 10%;
+        bottom: 6%;
         &--btn {
           width: 1.875em;
           height: 1.25em;
