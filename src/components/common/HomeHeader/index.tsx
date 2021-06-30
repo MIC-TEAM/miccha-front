@@ -1,30 +1,17 @@
-import React, { memo, useState, useEffect } from 'react'
+import React, { memo } from 'react'
 import Link from 'next/link'
-import { RightMenu, LeftMenu, HeaderWrap, Logo, Login, GenreMenu } from '../../styles/home_header'
+import { RightMenu, LeftMenu, HeaderWrap, Logo, Login, GenreMenu } from './styles'
+import useHomeHeader from '../../../hooks/useHomeHeader'
 
 type Props = {
   username: string
 }
 
-const useScroll = () => {
-  const [state, setState] = useState({
-    ScrollTop: 0,
-  })
-  const onScroll = () => {
-    setState({ ScrollTop: window.scrollY })
-  }
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-  return state
-}
-
-const Header = ({ username }: Props) => {
-  const { ScrollTop } = useScroll()
+const HomeHeader = ({ username }: Props) => {
+  const { scrollTop } = useHomeHeader()
 
   return (
-    <HeaderWrap style={{ background: ScrollTop > 1 ? 'black' : 'none' }}>
+    <HeaderWrap scrollTop={scrollTop}>
       <LeftMenu>
         <Logo type="button">
           <Link href="/home">믹챠</Link>
@@ -77,4 +64,4 @@ const Header = ({ username }: Props) => {
   )
 }
 
-export default memo(Header)
+export default memo(HomeHeader)
