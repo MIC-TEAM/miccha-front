@@ -93,10 +93,10 @@ export const GenreMenu = styled.ul`
   margin-top: 72px;
   left: 187px;
   width: 26.82vw;
-  @media only screen and (max-width: 768px) {
-    width: 20vw;
-    left: 171px;
-  }
+  ${mq({
+    left: ['187px', '171px', '171px', '174px', '188px', '187px'],
+    width: ['20vw', '20vw', '24vw', '22vw', '26vw', '20vw'],
+  })};
   h4 {
     background: #26272a;
     width: 100%;
@@ -109,14 +109,9 @@ export const GenreMenu = styled.ul`
     padding: 0.3125em 0.625em;
     background: #212225;
     display: grid;
-    grid-template-columns: auto auto auto;
-
-    @media only screen and (max-width: 1199px) {
-      grid-template-columns: auto auto;
-    }
-    @media only screen and (max-width: 768px) {
-      grid-template-columns: auto;
-    }
+    ${mq({
+      gridTemplateColumns: ['auto auto auto', 'auto', 'auto', 'auto', 'auto auto', 'auto auto auto'],
+    })};
     li {
       &:hover {
         background: #303134;
