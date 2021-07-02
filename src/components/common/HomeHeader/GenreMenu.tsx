@@ -2,6 +2,7 @@ import { memo } from 'react'
 import styled from '@emotion/styled'
 import { useRecoilValueLoadable } from 'recoil'
 import { categoriesSelector } from '../../../recoil/movie/selector'
+import { mq } from '../../../styles/media-query'
 
 const GenreMenu = () => {
   const categoriesLoadable = useRecoilValueLoadable(categoriesSelector)
@@ -37,20 +38,28 @@ export const GenreMenuContainer = styled.div`
   width: 515px;
 
   h4 {
-    background: #424242;
+    background: #26272a;
     width: 100%;
-    padding: 1.1vw;
+    padding: 0.8125em;
     border-bottom: 1px solid #000;
+    font-size: 1.0625rem;
+    font-weight: 700;
   }
   ul {
-    padding: 0.6em 0.9em;
-    background: #444;
+    padding: 0.3125em 0.625em;
+    background: #212225;
     display: grid;
-    grid-template-columns: auto auto auto;
+    ${mq({
+      gridTemplateColumns: ['auto auto auto', 'auto', 'auto', 'auto', 'auto auto', 'auto auto auto'],
+    })};
     li {
-      padding: 0.7rem 0 0.7rem 0.5rem;
       &:hover {
-        background: #000;
+        background: #303134;
+      }
+      a {
+        font-size: 0.875em;
+        display: block;
+        padding: 0.5625rem 0.6875rem;
       }
     }
   }

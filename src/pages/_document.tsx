@@ -12,6 +12,7 @@ class MyDocument extends Document {
         <Head>
           <meta name="author" content="MIC-TEAM" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+          <link rel="shortcut icon" href="/images/common/favicon.ico" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap"
