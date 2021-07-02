@@ -30,17 +30,27 @@ export const LeftMenu = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
-  .menu {
-    padding-left: 23px;
-    a {
-      margin-right: 23px;
-      color: rgba(255, 255, 255, 0.88);
-      &:active {
-        font-weight: 700;
-      }
-      &:hover {
-        opacity: 0.8;
-      }
+`
+
+export const NavLink = styled.div`
+  position: relative;
+  padding-left: 23px;
+
+  & > a {
+    display: inline-block;
+    margin-right: 23px;
+    color: rgba(255, 255, 255, 0.88);
+
+    &:active > span {
+      font-weight: 700;
+    }
+
+    &:hover > span {
+      opacity: 0.8;
+    }
+
+    &:hover > .genre-container {
+      display: block;
     }
   }
 `
@@ -86,29 +96,5 @@ export const Login = styled.button`
     border-radius: 20px;
     font-size: 0.9em;
     font-weight: 700;
-  }
-`
-export const GenreMenu = styled.ul`
-  position: absolute;
-  margin-top: 72px;
-  left: 15.3vw;
-  width: 31vw;
-  h4 {
-    background: #424242;
-    width: 100%;
-    padding: 1.1vw;
-    border-bottom: 1px solid #000;
-  }
-  ul {
-    padding: 0.6em 0.9em;
-    background: #444;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    li {
-      padding: 0.7rem 0 0.7rem 0.5rem;
-      &:hover {
-        background: #000;
-      }
-    }
   }
 `
