@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { mq } from './media-query'
+import { mq } from '../../../styles/media-query'
 
 export const RightMenu = styled.div`
   height: 72px;
@@ -30,26 +30,32 @@ export const LeftMenu = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
-  .menu {
-    padding-left: 23px;
-    a {
-      margin-right: 23px;
-      color: rgba(255, 255, 255, 0.88);
-      &:active {
-        font-weight: 700;
-      }
-      &:hover {
-        opacity: 0.8;
-      }
+`
+
+export const NavLink = styled.div`
+  position: relative;
+  padding-left: 23px;
+
+  & > a {
+    display: inline-block;
+    margin-right: 23px;
+    color: rgba(255, 255, 255, 0.88);
+
+    &:hover > span {
+      opacity: 0.8;
+    }
+
+    &:hover > .genre-container {
+      display: block;
     }
   }
 `
 
 // 헤더 네비게이션
-export const HeaderWrap = styled.nav`
+export const HeaderWrap = styled.nav<{ scrollTop: number }>`
   position: relative;
   z-index: 80;
-  background: #000;
+  background: ${({ scrollTop }) => (scrollTop > 1 ? '#000' : 'none')};
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -86,41 +92,5 @@ export const Login = styled.button`
     border-radius: 20px;
     font-size: 0.9em;
     font-weight: 700;
-  }
-`
-export const GenreMenu = styled.ul`
-  position: absolute;
-  margin-top: 72px;
-  left: 187px;
-  width: 26.82vw;
-  ${mq({
-    left: ['187px', '171px', '171px', '174px', '188px', '187px'],
-    width: ['20vw', '20vw', '24vw', '22vw', '26vw', '20vw'],
-  })};
-  h4 {
-    background: #26272a;
-    width: 100%;
-    padding: 0.8125em;
-    border-bottom: 1px solid #000;
-    font-size: 1.0625rem;
-    font-weight: 700;
-  }
-  ul {
-    padding: 0.3125em 0.625em;
-    background: #212225;
-    display: grid;
-    ${mq({
-      gridTemplateColumns: ['auto auto auto', 'auto', 'auto', 'auto', 'auto auto', 'auto auto auto'],
-    })};
-    li {
-      &:hover {
-        background: #303134;
-      }
-      a {
-        font-size: 0.875em;
-        display: block;
-        padding: 0.5625rem 0.6875rem;
-      }
-    }
   }
 `

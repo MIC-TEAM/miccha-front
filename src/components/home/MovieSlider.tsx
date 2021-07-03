@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { reactSlickSettings } from '../../utils/react-slick'
 import MovieItem from './MovieItem'
-import { Movie } from '../../recoil/home_movies/atom'
+import { Movie } from '../../recoil/movie/atom'
 import MovieShow from './MovieShow'
 
 type Props = {
