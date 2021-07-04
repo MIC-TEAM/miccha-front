@@ -35,7 +35,7 @@ const HomeHeader = ({ username }: Props) => {
           <img src="/images/common/search.svg" alt="검색하기" />
           &nbsp;&nbsp; 검색
         </button>
-        <Link href="">보고싶어요</Link>
+        <Link href="/wishes">보고싶어요</Link>
         <Login type="button">{username}</Login>
       </RightMenu>
     </HeaderWrap>

@@ -9,7 +9,6 @@ export const SlickWrap = styled.div`
   max-height: 100%;
   position: relative;
   .slick-slider {
-    padding: 0px 50px;
     width: 100vw;
     display: flex;
     justify-content: space-between;
@@ -19,8 +18,8 @@ export const SlickWrap = styled.div`
       width: 53px;
       background-color: rgba(0, 0, 0, 0.4) !important;
       display: none !important;
-      top: 44.2%;
-      height: 57.6%;
+      top: 98px;
+      height: 100%;
     }
     &:hover {
       .slick-arrow {
@@ -32,14 +31,15 @@ export const SlickWrap = styled.div`
     }
     .slick-prev {
       position: absolute;
-      left: -50px;
+      left: 0;
       cursor: pointer;
+      z-index: 100;
       &::before {
         content: url(/images/common/sliderArr_left.svg);
       }
     }
     .slick-next {
-      right: 50px;
+      right: 0;
       &::before {
         content: url(/images/common/sliderArr_right.svg);
       }

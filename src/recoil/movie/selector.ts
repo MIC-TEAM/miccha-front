@@ -20,5 +20,5 @@ export const categoriesSelector = selector<Categories[]>({
     } catch (error) {
       throw new Error(error)
     }
-  },
+  }
 })
