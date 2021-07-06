@@ -67,6 +67,10 @@ export const HeaderWrap = styled.nav<{ scrollTop: number }>`
   ${mq({
     padding: ['0 3em', '0 1em', '0 1.5em', '0 1.5em', '0 2.5em', '0 2em 0 3em'],
   })};
+  &.wishes {
+    position: sticky;
+    background: #000;
+  }
 `
 
 export const Logo = styled.button`
