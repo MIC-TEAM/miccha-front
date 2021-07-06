@@ -1,7 +1,15 @@
 import React from 'react'
+import { memo } from 'react'
+import { MovieDetail } from '../../recoil/movie/atom'
 import { MovieShowBox } from '../../styles/home_movie'
 
-const MovieShow = () => {
+interface Props {
+  movie: MovieDetail
+}
+
+const MovieShow: React.FC<Props> = ({ movie }) => {
+  console.log(movie)
+
   return (
     <MovieShowBox className="movie">
       <div className="movie__detailWrapper">
@@ -63,4 +71,4 @@ const MovieShow = () => {
   )
 }
 
-export default MovieShow
+export default memo(MovieShow)
