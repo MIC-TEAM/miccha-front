@@ -20,15 +20,15 @@ const MovieSlider: React.FC<Props> = ({ theme, movies, inViewRef }) => {
 
   return (
     <>
-      <Row>
-        <ContentHead>
-          <ContentTitle>{theme}</ContentTitle>
-          <AllView href="#">
-            모두 보기
-            <img src="/images/common/arr_right.svg" alt="모두 보기 버튼" />
-          </AllView>
-        </ContentHead>
+      <ContentHead>
+        <ContentTitle>{theme}</ContentTitle>
+        <AllView href="#">
+          모두 보기
+          <img src="/images/common/arr_right.svg" alt="모두 보기 버튼" />
+        </AllView>
+      </ContentHead>
 
+      <Row>
         <SlickWrap ref={inViewRef}>
           <Slick {...settings}>{itemsList}</Slick>
           <MovieShow />

@@ -26,9 +26,6 @@ export const SlickWrap = styled.div`
         display: block !important;
       }
     }
-    .slick-list {
-      padding: 45px 0 0;
-    }
     .slick-prev {
       position: absolute;
       left: 0;
@@ -54,8 +51,7 @@ export const ContentHead = styled.div`
   align-items: center;
   padding: 43px 50px 0;
   margin: 0 0 0.5vw 0;
-  position: absolute;
-  top: -30px;
+  position: relative;
   width: 100%;
 `
 
