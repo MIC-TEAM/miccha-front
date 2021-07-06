@@ -6,13 +6,14 @@ import GenreMenu from './GenreMenu'
 
 type Props = {
   username: string
+  className?: string
 }
 
-const HomeHeader = ({ username }: Props) => {
+const HomeHeader = ({ username, className }: Props) => {
   const { scrollTop } = useHomeHeader()
 
   return (
-    <HeaderWrap scrollTop={scrollTop}>
+    <HeaderWrap scrollTop={scrollTop} className={className}>
       <LeftMenu>
         <Logo type="button">
           <Link href="/home">믹챠</Link>
@@ -35,7 +36,7 @@ const HomeHeader = ({ username }: Props) => {
           <img src="/images/common/search.svg" alt="검색하기" />
           &nbsp;&nbsp; 검색
         </button>
-        <Link href="">보고싶어요</Link>
+        <Link href="/wishes">보고싶어요</Link>
         <Login type="button">{username}</Login>
       </RightMenu>
     </HeaderWrap>

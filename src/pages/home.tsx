@@ -4,22 +4,30 @@ import MovieSlider from '../components/home/MovieSlider'
 import styled from '@emotion/styled'
 import MovieMain from '../components/home/MovieMain'
 import { useHome } from '../hooks/useHome'
+import Head from 'next/head'
 
 const Home: React.FC = () => {
   const { homeMovies, inViewRef } = useHome()
 
   return (
     <>
-      <HomeHeader username="현주" />
-      <MovieMain />
+      <Head>
+        <title>믹챠 | Home</title>
+      </Head>
+
       <HomeWrap>
-        {homeMovies.map(({ theme, movies }, index) =>
-          index === homeMovies.length - 1 ? (
-            <MovieSlider key={theme} theme={theme} movies={movies} inViewRef={inViewRef} />
-          ) : (
-            <MovieSlider key={theme} theme={theme} movies={movies} />
-          )
-        )}
+        <HomeHeader username="현주" />
+        <MovieMain />
+
+        <ul>
+          {homeMovies.map(({ theme, movies }, index) =>
+            index === homeMovies.length - 1 ? (
+              <MovieSlider key={theme} theme={theme} movies={movies} inViewRef={inViewRef} />
+            ) : (
+              <MovieSlider key={theme} theme={theme} movies={movies} />
+            )
+          )}
+        </ul>
       </HomeWrap>
     </>
   )
@@ -32,5 +40,4 @@ const HomeWrap = styled.main`
   color: #fff;
   width: 100%;
   min-height: 100%;
-  padding-top: 1.25vw;
 `
