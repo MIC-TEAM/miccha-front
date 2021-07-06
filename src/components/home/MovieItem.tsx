@@ -6,13 +6,20 @@ interface Props {
   movie: Movie
 }
 
-const MovieItem: React.FC<Props> = ({ movie: { thumbnail, title } }) => {
+const printDuration = (duration: number) => {
+  // duration 7000 / 3600
+  const hours = Math.floor(duration / 3600)
+  const minutes = Math.floor((duration % 3600) / 60)
+  return `${hours > 0 ? hours + '시간 ' : ''}${minutes}분`
+}
+
+const MovieItem: React.FC<Props> = ({ movie }) => {
   const [hoverd, setHoverd] = useState(false)
   const toggleBtn = () => setHoverd((hoverd) => !hoverd)
 
   return (
     <MovieItemView className={hoverd ? 'isHover' : 'notHover'} onMouseEnter={toggleBtn} onMouseLeave={toggleBtn}>
-      <Image src={thumbnail} alt={`${title} 썸네일 이미지`} />
+      <Image src={movie.thumbnail} alt={`${movie.title} 썸네일 이미지`} />
       {hoverd && (
         <div className="itemHover">
           <div className="itemHover__header">
@@ -24,10 +31,10 @@ const MovieItem: React.FC<Props> = ({ movie: { thumbnail, title } }) => {
             </button>
 
             <div className="itemHover__title">
-              <h3>스파이더맨</h3>
+              <h3>{movie.title}</h3>
               <p className="itemHover__detail">
-                <span className="itemHover__detail--age">청불</span>
-                <span className="itemHover__detail--showtimes">1시간 36분</span>
+                <span className="itemHover__detail--age">{movie.rating}</span> &nbsp;
+                <span className="itemHover__detail--showtimes">{printDuration(movie.duration)}</span>
               </p>
             </div>
 
@@ -36,14 +43,14 @@ const MovieItem: React.FC<Props> = ({ movie: { thumbnail, title } }) => {
             </button>
           </div>
 
-          <p className="itemHover__desc">엔드게임 이후 피터 파커는 친구들과 유럽 여행을 떠난다.</p>
+          <p className="itemHover__desc">{movie.description}</p>
 
           <div className="itemHover__more">
             <button type="button" className="itemHover__more--btn"></button>
           </div>
         </div>
       )}
-      <SmallTitle className="movieTit">{title}</SmallTitle>
+      <SmallTitle className="movieTit">{movie.title}</SmallTitle>
     </MovieItemView>
   )
 }
