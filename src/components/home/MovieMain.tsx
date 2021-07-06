@@ -1,7 +1,6 @@
 import React, { memo } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { EffectFade, Navigation, Pagination } from 'swiper/core'
-import { MovieMainWrap } from '../../styles/home_movie'
 
 SwiperCore.use([EffectFade, Navigation, Pagination])
 import 'swiper/swiper.min.css'
@@ -9,6 +8,7 @@ import 'swiper/components/effect-fade/effect-fade.min.css'
 import 'swiper/components/navigation/navigation.min.css'
 import 'swiper/components/pagination/pagination.min.css'
 import MovieDetail from './MovieDetail'
+import styled from '@emotion/styled'
 
 const MovieMain: React.FC = () => {
   return (
@@ -49,3 +49,56 @@ const MovieMain: React.FC = () => {
 }
 
 export default memo(MovieMain)
+
+export const MovieMainWrap = styled.div`
+  position: relative;
+  background: rgb(20, 21, 23);
+  .swiper-wrapper {
+    height: 100vh;
+    position: relative;
+  }
+  .movieMainSlider {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    .backgroundImg {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      position: absolute;
+    }
+  }
+  .swiper-pagination {
+    padding-right: 50px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    span {
+      display: inline-block;
+      background-color: #ffffff;
+      width: 0.78125vw;
+      height: 0.78125vw;
+      border-radius: 50%;
+      margin: 0 0.3125vw;
+      opacity: 0.25;
+      cursor: pointer;
+      &.swiper-pagination-bullet-active {
+        opacity: 1;
+      }
+    }
+  }
+  div[class*='swiper-button'] {
+    --swiper-navigation-size: 25px;
+    color: #ffffff;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .swiper-button-prev {
+    left: 20px;
+  }
+  .swiper-button-next {
+    right: 20px;
+  }
+`

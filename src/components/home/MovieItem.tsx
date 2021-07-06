@@ -1,6 +1,6 @@
+import styled from '@emotion/styled'
 import { memo, useState } from 'react'
 import { Movie } from '../../recoil/movie/atom'
-import { MovieItemView, Image, SmallTitle } from '../../styles/home_movie'
 import ItemHover from './ItemHover'
 
 interface Props {
@@ -34,3 +34,31 @@ const MovieItem: React.FC<Props> = ({ movie }) => {
 }
 
 export default memo(MovieItem)
+
+export const MovieItemView = styled.li`
+  transition: transform 300ms ease 100ms;
+  position: relative;
+  object-fit: cover;
+  width: 300px;
+  transform: scale(1);
+  margin: 0.156vw;
+  &.isHover {
+    height: 100%;
+    .movieTit {
+      display: none;
+    }
+  }
+`
+export const Image = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  width: 100%;
+`
+
+export const SmallTitle = styled.h4`
+  margin-top: 6px;
+  white-space: pre-wrap;
+  letter-spacing: -0.031vw;
+  margin-left: 4px;
+`
