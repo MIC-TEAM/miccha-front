@@ -2,21 +2,21 @@ import React from 'react'
 import HomeHeader from '../components/common/HomeHeader'
 import styled from '@emotion/styled'
 
-const Wishes = () => {
+const Search = () => {
   return (
     <>
       <HomeHeader username="현주" className="wishes" />
 
-      <WishesWrap>
-        <ContentTitle>현주님이 보고싶어요한 작품</ContentTitle>
-      </WishesWrap>
+      <SearchWrap>
+        <ContentTitle>'해리포터와 마법사의 돌' 검색 결과</ContentTitle>
+      </SearchWrap>
     </>
   )
 }
 
-export default Wishes
+export default Search
 
-const WishesWrap = styled.main`
+const SearchWrap = styled.main`
   background: rgb(20, 21, 23);
   color: #fff;
   width: 100%;

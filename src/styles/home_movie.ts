@@ -1,9 +1,5 @@
 import styled from '@emotion/styled'
 
-export const Row = styled.section`
-  position: relative;
-`
-
 export const Slider = styled.ul`
   display: inline-flex;
   position: relative;

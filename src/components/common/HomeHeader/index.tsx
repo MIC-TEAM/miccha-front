@@ -3,16 +3,18 @@ import Link from 'next/link'
 import { RightMenu, LeftMenu, HeaderWrap, Logo, Login, NavLink } from './styles'
 import useHomeHeader from '../../../hooks/useHomeHeader'
 import GenreMenu from './GenreMenu'
+import Wishes from '../../../pages/wishes'
 
 type Props = {
   username: string
+  className?: string
 }
 
-const HomeHeader = ({ username }: Props) => {
+const HomeHeader = ({ username, className }: Props) => {
   const { scrollTop } = useHomeHeader()
 
   return (
-    <HeaderWrap scrollTop={scrollTop}>
+    <HeaderWrap scrollTop={scrollTop} className={className}>
       <LeftMenu>
         <Logo type="button">
           <Link href="/home">믹챠</Link>
