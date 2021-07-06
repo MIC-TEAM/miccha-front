@@ -10,16 +10,19 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <HomeHeader username="현주" />
-      <MovieMain />
       <HomeWrap>
-        {homeMovies.map(({ theme, movies }, index) =>
-          index === homeMovies.length - 1 ? (
-            <MovieSlider key={theme} theme={theme} movies={movies} inViewRef={inViewRef} />
-          ) : (
-            <MovieSlider key={theme} theme={theme} movies={movies} />
-          )
-        )}
+        <HomeHeader username="현주" />
+        <MovieMain />
+
+        <ul>
+          {homeMovies.map(({ theme, movies }, index) =>
+            index === homeMovies.length - 1 ? (
+              <MovieSlider key={theme} theme={theme} movies={movies} inViewRef={inViewRef} />
+            ) : (
+              <MovieSlider key={theme} theme={theme} movies={movies} />
+            )
+          )}
+        </ul>
       </HomeWrap>
     </>
   )
@@ -32,5 +35,4 @@ const HomeWrap = styled.main`
   color: #fff;
   width: 100%;
   min-height: 100%;
-  padding-top: 1.25vw;
 `

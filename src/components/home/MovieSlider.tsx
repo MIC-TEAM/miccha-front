@@ -1,6 +1,6 @@
 import React, { memo, useMemo } from 'react'
 import Slick from 'react-slick'
-import { SlickWrap, ContentHead, ContentTitle, AllView, Row } from '../../styles/home_movie'
+import { SlickWrap, ContentHead, ContentTitle, AllView } from '../../styles/home_movie'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { reactSlickSettings } from '../../utils/react-slick'
@@ -19,7 +19,7 @@ const MovieSlider: React.FC<Props> = ({ theme, movies, inViewRef }) => {
   const itemsList = movies.map((movie) => <MovieItem key={movie.id} movie={movie} />)
 
   return (
-    <>
+    <li>
       <ContentHead>
         <ContentTitle>{theme}</ContentTitle>
         <AllView href="#">
@@ -28,13 +28,13 @@ const MovieSlider: React.FC<Props> = ({ theme, movies, inViewRef }) => {
         </AllView>
       </ContentHead>
 
-      <Row>
+      <ul>
         <SlickWrap ref={inViewRef}>
           <Slick {...settings}>{itemsList}</Slick>
           <MovieShow />
         </SlickWrap>
-      </Row>
-    </>
+      </ul>
+    </li>
   )
 }
 

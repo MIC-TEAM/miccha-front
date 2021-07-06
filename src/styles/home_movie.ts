@@ -4,21 +4,18 @@ export const Row = styled.section`
   position: relative;
 `
 
-export const SlickWrap = styled.div`
+export const SlickWrap = styled.li`
   max-width: 100%;
   max-height: 100%;
   position: relative;
   .slick-slider {
-    width: 100vw;
     display: flex;
-    justify-content: space-between;
     cursor: pointer;
     .slick-arrow {
       position: absolute;
       width: 53px;
       background-color: rgba(0, 0, 0, 0.4) !important;
       display: none !important;
-      top: 98px;
       height: 100%;
     }
     &:hover {
@@ -91,65 +88,68 @@ export const MovieItemView = styled.div`
     .movieTit {
       display: none;
     }
-    .itemHover {
-      position: absolute;
-      top: 0;
-      left: 0;
+    & ~ .notHover {
+      transform: translateX(25%);
+    }
+  }
+`
+
+export const ItemHoverView = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+  z-index: 81;
+  height: 100%;
+  padding-top: 1.5em;
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1em;
+    .save {
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      overflow: hidden;
-      box-sizing: border-box;
-      z-index: 81;
-      height: 100%;
-      padding-top: 1.5em;
-      &__header {
-        display: grid;
-        grid-template-columns: 1fr 5fr 1fr;
-        justify-content: center;
-        align-items: center;
-        padding: 0 1em;
-        .save {
-          width: 100%;
-        }
-        .play {
-          margin-right: 0.8em;
-          width: 100%;
-        }
-      }
-      &__title {
-        margin-left: 0.5em;
-        h3 {
-          font-size: 0.9rem;
-        }
-      }
-      &__detail {
-        font-size: 0.6rem;
-        opacity: 0.8;
-        margin-top: 5px;
-      }
+    }
+    .play {
+      margin-right: 0.8em;
+      width: 100%;
+    }
+  }
+  .title {
+    margin-left: 0.5em;
+    h3 {
+      font-size: 0.9rem;
+    }
+  }
+  .detail {
+    font-size: 0.6rem;
+    opacity: 0.8;
+    margin-top: 5px;
+  }
 
-      &__desc {
-        font-size: 0.6rem;
-        line-height: 1.3;
-        margin: 0.5em 1em 0.2em;
-      }
+  .desc {
+    font-size: 0.6rem;
+    line-height: 1.3;
+    margin: 0.5em 1em 0.2em;
+  }
 
-      &__more {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        bottom: 6%;
-        &--btn {
-          width: 1.875em;
-          height: 1.25em;
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDQ0IDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgb3BhY2l0eT0iLjMyIj4KICAgICAgICA8cGF0aCBkPSJNMCAwaDQ0djIwSDB6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTIyLjAwNCAxNi41OTZsLS4wMDEuMDAyLS4wMDQtLjAwMkw0LjY4MiA2LjU5OCA2LjE4MiA0bDE1LjgyIDkuMTMzTDM3LjgyIDRsMS41IDIuNTk4LTE3LjMxNyA5Ljk5OHoiLz4KICAgIDwvZz4KPC9zdmc+Cg==);
-          &:hover {
-            background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDQ0IDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGg0NHYyMEgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNGODJGNjIiIGQ9Ik0yMi4wMDQgMTYuNTk2bC0uMDAxLjAwMi0uMDA0LS4wMDJMNC42ODIgNi41OTggNi4xODIgNGwxNS44MiA5LjEzM0wzNy44MiA0bDEuNSAyLjU5OC0xNy4zMTcgOS45OTh6Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=);
-          }
-        }
+  .more {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 6%;
+    .btn {
+      width: 1.875em;
+      height: 1.25em;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDQ0IDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgb3BhY2l0eT0iLjMyIj4KICAgICAgICA8cGF0aCBkPSJNMCAwaDQ0djIwSDB6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTIyLjAwNCAxNi41OTZsLS4wMDEuMDAyLS4wMDQtLjAwMkw0LjY4MiA2LjU5OCA2LjE4MiA0bDE1LjgyIDkuMTMzTDM3LjgyIDRsMS41IDIuNTk4LTE3LjMxNyA5Ljk5OHoiLz4KICAgIDwvZz4KPC9zdmc+Cg==);
+      &:hover {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDQ0IDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGg0NHYyMEgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNGODJGNjIiIGQ9Ik0yMi4wMDQgMTYuNTk2bC0uMDAxLjAwMi0uMDA0LS4wMDJMNC42ODIgNi41OTggNi4xODIgNGwxNS44MiA5LjEzM0wzNy44MiA0bDEuNSAyLjU5OC0xNy4zMTcgOS45OTh6Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=);
       }
     }
   }
@@ -170,7 +170,7 @@ export const SmallTitle = styled.h4`
   margin-left: 4px;
 `
 
-export const MovieMainWrap = styled.section`
+export const MovieMainWrap = styled.div`
   position: relative;
   background: rgb(20, 21, 23);
   .swiper-wrapper {
