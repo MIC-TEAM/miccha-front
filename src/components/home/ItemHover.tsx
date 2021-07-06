@@ -2,13 +2,19 @@ import styled from '@emotion/styled'
 import React, { memo } from 'react'
 
 type Props = {
-  movieTit: string
-  story: string
-  showTime: string
-  age: string
+  title: string
+  description: string
+  duration: number
+  rating: string
 }
 
-const ItemHover = ({ movieTit, story, showTime, age }: Props) => {
+const printDuration = (duration: number) => {
+  const hours = Math.floor(duration / 3600)
+  const minutes = Math.floor((duration % 3600) / 60)
+  return `${hours > 0 ? hours + '시간 ' : ''}${minutes}분`
+}
+
+const ItemHover = ({ title, description, duration, rating }: Props) => {
   return (
     <ItemHoverView>
       <div className="header">
@@ -20,10 +26,10 @@ const ItemHover = ({ movieTit, story, showTime, age }: Props) => {
         </button>
 
         <div className="title">
-          <h3>{movieTit}</h3>
+          <h3>{title}</h3>
           <p className="detail">
-            <span>{age}</span>
-            <span>{showTime}</span>
+            <span>{rating}</span> &nbsp;
+            <span>{printDuration(duration)}</span>
           </p>
         </div>
 
@@ -32,7 +38,7 @@ const ItemHover = ({ movieTit, story, showTime, age }: Props) => {
         </button>
       </div>
 
-      <p className="desc">{story}</p>
+      <p className="desc">{description}</p>
 
       <div className="more">
         <button type="button" className="btn"></button>

@@ -17,6 +17,7 @@
     "axios": "^0.21.1",
     "emotion-reset": "^3.0.0",
     "facepaint": "^1.2.1",
+    "formik": "^2.2.9",
     "fullpage.js": "2.9.6",
     "next": "^10.0.7",
     "react": "^17.0.1",
@@ -26,7 +27,8 @@
     "react-lazy-load-image-component": "^1.5.1",
     "recoil": "^0.2.0",
     "swiper": "^6.7.0",
-    "use-async-effect": "^2.2.3"
+    "use-async-effect": "^2.2.3",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.2.0",
