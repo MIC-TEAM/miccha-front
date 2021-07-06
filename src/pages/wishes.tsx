@@ -1,10 +1,15 @@
 import React from 'react'
 import HomeHeader from '../components/common/HomeHeader'
 import styled from '@emotion/styled'
+import Head from 'next/head'
 
 const Wishes = () => {
   return (
     <>
+      <Head>
+        <title>믹챠 | 보고싶어요</title>
+      </Head>
+
       <HomeHeader username="현주" className="wishes" />
 
       <WishesWrap>

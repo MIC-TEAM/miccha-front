@@ -4,12 +4,17 @@ import MovieSlider from '../components/home/MovieSlider'
 import styled from '@emotion/styled'
 import MovieMain from '../components/home/MovieMain'
 import { useHome } from '../hooks/useHome'
+import Head from 'next/head'
 
 const Home: React.FC = () => {
   const { homeMovies, inViewRef } = useHome()
 
   return (
     <>
+      <Head>
+        <title>믹챠 | Home</title>
+      </Head>
+
       <HomeWrap>
         <HomeHeader username="현주" />
         <MovieMain />
