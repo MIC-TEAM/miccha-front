@@ -4,40 +4,23 @@ export const Row = styled.section`
   position: relative;
 `
 
-export const SlickWrap = styled.li`
-  max-width: 100%;
-  max-height: 100%;
+export const Slider = styled.ul`
+  display: inline-flex;
   position: relative;
-  .slick-slider {
-    display: flex;
-    cursor: pointer;
-    .slick-arrow {
-      position: absolute;
-      width: 53px;
-      background-color: rgba(0, 0, 0, 0.4) !important;
-      display: none !important;
-      height: 100%;
-    }
-    &:hover {
-      .slick-arrow {
-        display: block !important;
-      }
-    }
-    .slick-prev {
-      position: absolute;
-      left: 0;
-      cursor: pointer;
-      z-index: 100;
-      &::before {
-        content: url(/images/common/sliderArr_left.svg);
-      }
-    }
-    .slick-next {
-      right: 0;
-      &::before {
-        content: url(/images/common/sliderArr_right.svg);
-      }
-    }
+  padding-left: 3.125em;
+  &:hover li {
+    transform: translateX(-25%);
+  }
+  .sliderBtn {
+    position: absolute;
+  }
+
+  li:hover ~ li {
+    transform: translateX(25%);
+  }
+
+  li:hover {
+    transform: scale(1.5);
   }
 `
 
@@ -73,23 +56,18 @@ export const AllView = styled.a`
     height: 100%;
   }
 `
-export const MovieItemView = styled.div`
-  transition: 0.3s;
+
+export const MovieItemView = styled.li`
+  transition: transform 300ms ease 100ms;
   position: relative;
   object-fit: cover;
-  &.notHover {
-    transform: scale(1);
-    z-index: 1;
-    width: 100%;
-  }
+  width: 300px;
+  transform: scale(1);
+  margin: 0.156vw;
   &.isHover {
-    transform: scale(1.6);
-    z-index: 10;
+    height: 100%;
     .movieTit {
       display: none;
-    }
-    & ~ .notHover {
-      transform: translateX(25%);
     }
   }
 `
@@ -99,17 +77,19 @@ export const ItemHoverView = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  box-sizing: border-box;
-  z-index: 81;
   height: 100%;
-  padding-top: 1.5em;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.23) 0%,
+    rgba(0, 0, 0, 0.56) 40%,
+    rgba(0, 0, 0, 0.68) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
   .header {
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
     justify-content: center;
     align-items: center;
-    padding: 0 1em;
+    padding: 1.5em 1em;
     .save {
       width: 100%;
     }
@@ -141,7 +121,7 @@ export const ItemHoverView = styled.div`
     display: flex;
     justify-content: center;
     position: absolute;
-    bottom: 6%;
+    bottom: 0.5em;
     .btn {
       width: 1.875em;
       height: 1.25em;
@@ -159,7 +139,6 @@ export const Image = styled.img`
   max-width: 100%;
   max-height: 100%;
   display: flex;
-  padding: 0.156vw;
   width: 100%;
 `
 

@@ -2,7 +2,6 @@ import { memo, useState } from 'react'
 import { Movie } from '../../recoil/movie/atom'
 import { MovieItemView, Image, SmallTitle } from '../../styles/home_movie'
 import ItemHover from './ItemHover'
-import MovieShow from './MovieShow'
 
 interface Props {
   movie: Movie
