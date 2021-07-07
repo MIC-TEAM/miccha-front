@@ -29,10 +29,11 @@ const MovieSlider: React.FC<Props> = ({ theme, movies }) => {
 
         <div className="sliderBtn">
           <button className="pre">
-            <IoIosArrowBack style={{ color: '#fff', opacity: '80%' }} />
+            <img src="/images/common/sliderArr_left.svg" alt="왼쪽 버튼" />
           </button>
+
           <button className="next">
-            <IoIosArrowForward style={{ color: '#fff', opacity: '80%' }} />
+            <img src="/images/common/sliderArr_right.svg" alt="오른쪽 버튼" />
           </button>
         </div>
       </Slider>

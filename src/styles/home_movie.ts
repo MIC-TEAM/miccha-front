@@ -9,6 +9,21 @@ export const Slider = styled.ul`
   }
   .sliderBtn {
     position: absolute;
+    width: 100vw;
+    height: 100%;
+    left: 0;
+    button {
+      height: 100%;
+      width: 2.8vw;
+      background-color: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      img {
+        width: 1.8em;
+      }
+    }
+    .next {
+      right: 17px;
+    }
   }
 
   li:hover ~ li {
