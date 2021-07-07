@@ -39,6 +39,7 @@ export const MovieItemView = styled.li`
   width: 300px;
   transform: scale(1);
   margin: 0.156vw;
+  cursor: pointer;
   &.isHover {
     height: 100%;
     .movieTit {
