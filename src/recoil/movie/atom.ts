@@ -16,7 +16,7 @@ export interface HomeMovies {
 export interface MovieDetail {
   id: number
   title: string
-  thumbnail: string[]
+  thumbnail: string
   description: string
   rating: string
   duration: number
