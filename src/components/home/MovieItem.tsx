@@ -4,10 +4,11 @@ import { Movie } from '../../recoil/movie/atom'
 import ItemHover from './ItemHover'
 
 interface Props {
+  sliderIndex: number
   movie: Movie
 }
 
-const MovieItem: React.FC<Props> = ({ movie }) => {
+const MovieItem: React.FC<Props> = ({ sliderIndex, movie }) => {
   const [hoverd, setHoverd] = useState(false)
   const toggleBtn = () => setHoverd((hoverd) => !hoverd)
 
@@ -16,10 +17,12 @@ const MovieItem: React.FC<Props> = ({ movie }) => {
       <Image src={movie.thumbnail} alt={`${movie.title} 썸네일 이미지`} />
       {hoverd && (
         <ItemHover
+          id={movie.id}
           description={movie.description}
           title={movie.title}
           duration={movie.duration}
           rating={movie.rating}
+          sliderIndex={sliderIndex}
         />
       )}
       <SmallTitle className="movieTit">{movie.title}</SmallTitle>

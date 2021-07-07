@@ -1,21 +1,20 @@
 import React, { memo } from 'react'
 import MovieItem from './MovieItem'
-import { Movie } from '../../recoil/movie/atom'
-// import { Movie, movieDetailsAtom } from '../../recoil/movie/atom'
-// import MovieShow from './MovieShow'
+import { Movie, movieDetailsAtom } from '../../recoil/movie/atom'
+import MovieShow from './MovieShow'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/Io'
 import styled from '@emotion/styled'
-// import { useRecoilValue } from 'recoil'
+import { useRecoilValue } from 'recoil'
 
 type Props = {
-  index: number
+  sliderIndex: number
   theme: string
   movies: Movie[]
   inViewRef?: (node?: Element | null | undefined) => void
 }
 
-const MovieSlider: React.FC<Props> = ({ index, theme, movies, inViewRef }) => {
-  // const { sliderIndex, detailMovie } = useRecoilValue(movieDetailsAtom)
+const MovieSlider: React.FC<Props> = ({ sliderIndex, theme, movies, inViewRef }) => {
+  const { sliderIndex: movieDetailSliderIndex, detailMovie } = useRecoilValue(movieDetailsAtom)
 
   return (
     <li ref={inViewRef}>
@@ -29,7 +28,7 @@ const MovieSlider: React.FC<Props> = ({ index, theme, movies, inViewRef }) => {
 
       <Slider>
         {movies.map((movie) => (
-          <MovieItem key={movie.id} movie={movie} />
+          <MovieItem key={movie.id} sliderIndex={sliderIndex} movie={movie} />
         ))}
 
         <div className="sliderBtn">
@@ -42,7 +41,7 @@ const MovieSlider: React.FC<Props> = ({ index, theme, movies, inViewRef }) => {
         </div>
       </Slider>
 
-      {/* {index === sliderIndex && <MovieShow movie={detailMovie!} />} */}
+      {sliderIndex === movieDetailSliderIndex && <MovieShow movie={detailMovie!} />}
     </li>
   )
 }
