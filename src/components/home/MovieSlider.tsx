@@ -3,7 +3,6 @@ import { ContentHead, ContentTitle, AllView, Slider } from '../../styles/home_mo
 import MovieItem from './MovieItem'
 import { Movie } from '../../recoil/movie/atom'
 import MovieShow from './MovieShow'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/Io'
 
 type Props = {
   theme: string
