@@ -37,7 +37,7 @@ const HomeHeader = ({ username, className }: Props) => {
           <span>검색</span>
         </button>
 
-        <InputBox action="#" method="POST">
+        <InputBox>
           <span>
             <img src="/images/common/search_bar.svg" alt="검색 버튼" />
           </span>
