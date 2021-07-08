@@ -1,20 +1,25 @@
 import styled from '@emotion/styled'
 import React, { memo } from 'react'
+import useItemHover from '../../hooks/useItemHover'
 
 type Props = {
+  id: number
   title: string
   description: string
   duration: number
   rating: string
+  sliderIndex: number
 }
 
-const printDuration = (duration: number) => {
+export const printDuration = (duration: number) => {
   const hours = Math.floor(duration / 3600)
   const minutes = Math.floor((duration % 3600) / 60)
   return `${hours > 0 ? hours + '시간 ' : ''}${minutes}분`
 }
 
-const ItemHover = ({ title, description, duration, rating }: Props) => {
+const ItemHover = ({ id, title, description, duration, rating, sliderIndex }: Props) => {
+  const { onClickDetailArrow } = useItemHover(id, sliderIndex)
+
   return (
     <ItemHoverView>
       <div className="header">
@@ -41,7 +46,7 @@ const ItemHover = ({ title, description, duration, rating }: Props) => {
       <p className="desc">{description}</p>
 
       <div className="more">
-        <button type="button" className="btn"></button>
+        <button type="button" className="btn" onClick={onClickDetailArrow} />
       </div>
     </ItemHoverView>
   )

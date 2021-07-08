@@ -16,7 +16,7 @@ export interface HomeMovies {
 export interface MovieDetail {
   id: number
   title: string
-  thumbnail: string[]
+  thumbnail: string
   description: string
   rating: string
   duration: number
@@ -43,7 +43,7 @@ export const homeMoviesPageAtom = atom<number>({
 export const movieDetailsAtom = atom<{ sliderIndex: number; detailMovie: MovieDetail | null }>({
   key: 'movieDetailsAtom',
   default: {
-    sliderIndex: 0,
+    sliderIndex: -1,
     detailMovie: null,
   },
 })
