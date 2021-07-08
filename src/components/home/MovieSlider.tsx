@@ -63,15 +63,15 @@ export const Slider = styled.div`
   .sliderBtn {
     position: absolute;
     width: 100vw;
-    height: 100%;
+    height: 169.6px;
     left: 0;
-    top: 0;
+    top: 3px;
     button {
       height: 100%;
       width: 53px;
       background-color: rgba(0, 0, 0, 0.6);
       position: absolute;
-      z-index: 999;
+      z-index: 12;
       img {
         width: 1.8em;
       }
