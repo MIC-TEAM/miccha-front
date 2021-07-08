@@ -14,7 +14,7 @@ export const Slider = styled.ul`
     left: 0;
     button {
       height: 100%;
-      width: 2.8vw;
+      width: 53px;
       background-color: rgba(0, 0, 0, 0.6);
       position: absolute;
       img {
