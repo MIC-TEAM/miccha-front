@@ -2,7 +2,6 @@ import React, { memo } from 'react'
 import MovieItem from './MovieItem'
 import { Movie, movieDetailsAtom } from '../../recoil/movie/atom'
 import MovieShow from './MovieShow'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/Io'
 import styled from '@emotion/styled'
 import { useRecoilValue } from 'recoil'
 
@@ -33,10 +32,11 @@ const MovieSlider: React.FC<Props> = ({ sliderIndex, theme, movies, inViewRef })
 
         <div className="sliderBtn">
           <button className="pre">
-            <IoIosArrowBack style={{ color: '#fff', opacity: '80%' }} />
+            <img src="/images/common/sliderArr_left.svg" alt="왼쪽 버튼" />
           </button>
+
           <button className="next">
-            <IoIosArrowForward style={{ color: '#fff', opacity: '80%' }} />
+            <img src="/images/common/sliderArr_right.svg" alt="오른쪽 버튼" />
           </button>
         </div>
       </Slider>

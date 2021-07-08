@@ -1,19 +1,18 @@
 # 🎈 miccha-front
 
-> WatchPlay를 클론코딩한 사이드 프로젝트 입니다.
+> `WatchPlay` 클론 코딩한 사이드 프로젝트 입니다.
 
 <br>
 
-## 🎬 [믹챠 홈페이지 바로가기](https://miccha.vercel.app/)
+## 🎬 [MICCHA 홈페이지 바로가기](https://miccha.vercel.app/)
 
 <br>
 
-## 🎨 작업 기간
+## 🎨 작업 기간 (2021. 05 ~ 2021. 07)
 
-- **2021. 05 ~ 2021. 07** <br>
 - Phase 1 (2021. 05.11 ~ 6. 02)
 - Phase 2 (2021. 06.14 ~ 6. 30)
-- Phase 3
+- Phase 3 (2021. 07.04 ~ 7. 18)
 
 <br>
 
@@ -55,3 +54,21 @@
 <br>
 
 ## 📌 화면 소개
+
+<br>
+
+### 로그인 전 메인페이지
+
+![](https://images.velog.io/images/leemember/post/5e8aebb0-d6ef-4bca-8bc8-b285e63149d4/%E1%84%86%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%91%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%B5.gif)
+ 
+<br>
+
+### 로그인 페이지
+
+![](https://images.velog.io/images/leemember/post/8a9bd002-afc6-4adb-ab30-bda08c3dd608/login.gif)
+
+<br>
+
+### 회원가입 페이지
+
+![](https://images.velog.io/images/leemember/post/135cc4d8-ce76-48b4-8e25-cd7ad4b7880b/%E1%84%92%E1%85%AC%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8.gif)
