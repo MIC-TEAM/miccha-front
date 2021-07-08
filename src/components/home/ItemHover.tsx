@@ -1,14 +1,25 @@
+import styled from '@emotion/styled'
 import React, { memo } from 'react'
-import { Image, ItemHoverView } from '../../styles/home_movie'
+import useItemHover from '../../hooks/useItemHover'
 
 type Props = {
-  movietit: string
-  story: string
-  showtime: string
-  age: string
+  id: number
+  title: string
+  description: string
+  duration: number
+  rating: string
+  sliderIndex: number
 }
 
-const ItemHover = ({ movietit, story, showtime, age }: Props) => {
+export const printDuration = (duration: number) => {
+  const hours = Math.floor(duration / 3600)
+  const minutes = Math.floor((duration % 3600) / 60)
+  return `${hours > 0 ? hours + '시간 ' : ''}${minutes}분`
+}
+
+const ItemHover = ({ id, title, description, duration, rating, sliderIndex }: Props) => {
+  const { onClickDetailArrow } = useItemHover(id, sliderIndex)
+
   return (
     <ItemHoverView>
       <div className="header">
@@ -20,10 +31,10 @@ const ItemHover = ({ movietit, story, showtime, age }: Props) => {
         </button>
 
         <div className="title">
-          <h3>{movietit}</h3>
+          <h3>{title}</h3>
           <p className="detail">
-            <span className="age">{age}</span>
-            <span className="showtimes">{showtime}</span>
+            <span>{rating}</span> &nbsp;
+            <span>{printDuration(duration)}</span>
           </p>
         </div>
 
@@ -32,13 +43,83 @@ const ItemHover = ({ movietit, story, showtime, age }: Props) => {
         </button>
       </div>
 
-      <p className="desc">{story}</p>
+      <p className="desc">{description}</p>
 
       <div className="more">
-        <button type="button" className="btn"></button>
+        <button type="button" className="btn" onClick={onClickDetailArrow} />
       </div>
     </ItemHoverView>
   )
 }
 
 export default memo(ItemHover)
+
+export const Image = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  width: 100%;
+`
+
+export const ItemHoverView = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.23) 0%,
+    rgba(0, 0, 0, 0.56) 40%,
+    rgba(0, 0, 0, 0.68) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5em 1em;
+    .save {
+      width: 100%;
+    }
+    .play {
+      margin-right: 0.8em;
+      width: 100%;
+    }
+  }
+  .title {
+    margin-left: 0.5em;
+    h3 {
+      font-size: 0.9rem;
+    }
+  }
+  .detail {
+    font-size: 0.6rem;
+    opacity: 0.8;
+    margin-top: 5px;
+  }
+
+  .desc {
+    font-size: 0.6rem;
+    line-height: 1.3;
+    margin: 0.5em 1em 0.2em;
+  }
+
+  .more {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0.5em;
+    .btn {
+      width: 1.875em;
+      height: 1.25em;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDQ0IDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgb3BhY2l0eT0iLjMyIj4KICAgICAgICA8cGF0aCBkPSJNMCAwaDQ0djIwSDB6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTIyLjAwNCAxNi41OTZsLS4wMDEuMDAyLS4wMDQtLjAwMkw0LjY4MiA2LjU5OCA2LjE4MiA0bDE1LjgyIDkuMTMzTDM3LjgyIDRsMS41IDIuNTk4LTE3LjMxNyA5Ljk5OHoiLz4KICAgIDwvZz4KPC9zdmc+Cg==);
+      &:hover {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDQ0IDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGg0NHYyMEgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNGODJGNjIiIGQ9Ik0yMi4wMDQgMTYuNTk2bC0uMDAxLjAwMi0uMDA0LS4wMDJMNC42ODIgNi41OTggNi4xODIgNGwxNS44MiA5LjEzM0wzNy44MiA0bDEuNSAyLjU5OC0xNy4zMTcgOS45OTh6Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=);
+      }
+    }
+  }
+`

@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { RightMenu, LeftMenu, HeaderWrap, Logo, Login, NavLink } from './styles'
 import useHomeHeader from '../../../hooks/useHomeHeader'
 import GenreMenu from './GenreMenu'
-import Wishes from '../../../pages/wishes'
 
 type Props = {
   username: string

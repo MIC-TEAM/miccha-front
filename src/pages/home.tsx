@@ -22,9 +22,9 @@ const Home: React.FC = () => {
         <ul>
           {homeMovies.map(({ theme, movies }, index) =>
             index === homeMovies.length - 1 ? (
-              <MovieSlider key={theme} theme={theme} movies={movies} inViewRef={inViewRef} />
+              <MovieSlider key={theme} sliderIndex={index} theme={theme} movies={movies} inViewRef={inViewRef} />
             ) : (
-              <MovieSlider key={theme} theme={theme} movies={movies} />
+              <MovieSlider key={theme} sliderIndex={index} theme={theme} movies={movies} />
             )
           )}
         </ul>
