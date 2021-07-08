@@ -1,5 +1,6 @@
 import React from 'react'
 import HomeHeader from '../components/common/HomeHeader'
+import Footer from '../components/common/Footer'
 import MovieSlider from '../components/home/MovieSlider'
 import styled from '@emotion/styled'
 import MovieMain from '../components/home/MovieMain'
@@ -29,6 +30,8 @@ const Home: React.FC = () => {
           )}
         </ul>
       </HomeWrap>
+
+      <Footer />
     </>
   )
 }
@@ -40,4 +43,5 @@ const HomeWrap = styled.main`
   color: #fff;
   width: 100%;
   min-height: 100%;
+  padding-bottom: 72px;
 `

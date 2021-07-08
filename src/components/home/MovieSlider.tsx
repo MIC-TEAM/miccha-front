@@ -26,9 +26,11 @@ const MovieSlider: React.FC<Props> = ({ sliderIndex, theme, movies, inViewRef })
       </ContentHead>
 
       <Slider>
-        {movies.map((movie) => (
-          <MovieItem key={movie.id} sliderIndex={sliderIndex} movie={movie} />
-        ))}
+        <ul className="movieList">
+          {movies.map((movie) => (
+            <MovieItem key={movie.id} sliderIndex={sliderIndex} movie={movie} />
+          ))}
+        </ul>
 
         <div className="sliderBtn">
           <button className="pre">
@@ -48,10 +50,13 @@ const MovieSlider: React.FC<Props> = ({ sliderIndex, theme, movies, inViewRef })
 
 export default memo(MovieSlider)
 
-export const Slider = styled.ul`
-  display: inline-flex;
+export const Slider = styled.div`
   position: relative;
-  padding-left: 3.125em;
+  .movieList {
+    display: inline-flex;
+    position: relative;
+    padding-left: 3.125em;
+  }
   &:hover li {
     transform: translateX(-25%);
   }
@@ -60,11 +65,13 @@ export const Slider = styled.ul`
     width: 100vw;
     height: 100%;
     left: 0;
+    top: 0;
     button {
       height: 100%;
       width: 53px;
       background-color: rgba(0, 0, 0, 0.6);
       position: absolute;
+      z-index: 999;
       img {
         width: 1.8em;
       }
@@ -73,10 +80,12 @@ export const Slider = styled.ul`
       right: 17px;
     }
   }
+  li {
+    z-index: 10;
+  }
   li:hover ~ li {
     transform: translateX(25%);
   }
-
   li:hover {
     transform: scale(1.5);
   }
