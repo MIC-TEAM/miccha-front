@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import Link from 'next/link'
-import { RightMenu, LeftMenu, HeaderWrap, Logo, Login, NavLink } from './styles'
+import { RightMenu, LeftMenu, HeaderWrap, Logo, Login, NavLink, InputBox, Close } from './styles'
 import useHomeHeader from '../../../hooks/useHomeHeader'
 import GenreMenu from './GenreMenu'
 
@@ -33,9 +33,23 @@ const HomeHeader = ({ username, className }: Props) => {
 
       <RightMenu>
         <button type="button" className="search">
-          <img src="/images/common/search.svg" alt="검색하기" />
-          &nbsp;&nbsp; 검색
+          <img src="/images/common/search.svg" alt="검색 버튼" />
+          <span>검색</span>
         </button>
+
+        <InputBox>
+          <span>
+            <img src="/images/common/search_bar.svg" alt="검색 버튼" />
+          </span>
+          <input placeholder="제목, 감독, 배우로 검색" type="text" className="searchBar" />
+
+          <Close type="reset">
+            <span>
+              <img src="/images/common/search_del.svg" alt="검색취소" />
+            </span>
+          </Close>
+        </InputBox>
+
         <Link href="/wishes">보고싶어요</Link>
         <Login type="button">{username}</Login>
       </RightMenu>

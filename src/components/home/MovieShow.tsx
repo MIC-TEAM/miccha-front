@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
 import React, { useMemo } from 'react'
+import { useState } from 'react'
+import { useCallback } from 'react'
 import { memo } from 'react'
 import { useResetRecoilState } from 'recoil'
 import { MovieDetail, movieDetailsAtom } from '../../recoil/movie/atom'
@@ -11,6 +13,11 @@ interface Props {
 
 const MovieShow: React.FC<Props> = ({ movie }) => {
   const resetMovieDetails = useResetRecoilState(movieDetailsAtom)
+
+  const [isWant, setIsWant] = useState(false)
+  const toggleWant = useCallback(() => {
+    setIsWant((prevState) => !prevState)
+  }, [])
 
   return (
     <MovieShowBox className="movie">
@@ -50,12 +57,17 @@ const MovieShow: React.FC<Props> = ({ movie }) => {
           </table>
         </div>
 
-        <button type="button" className="movie__want">
-          <span>
+        {isWant ? (
+          <button type="button" className="movie__want checked" onClick={toggleWant}>
+            <img src="./images/common/icon_want_check.svg" alt="보고싶어요" />
+            <i>보고싶어요</i>
+          </button>
+        ) : (
+          <button type="button" className="movie__want" onClick={toggleWant}>
             <img src="./images/common/icon_want.svg" alt="보고싶어요" />
-          </span>
-          보고싶어요
-        </button>
+            <i>보고싶어요</i>
+          </button>
+        )}
       </div>
 
       <div className="movie__imgWrapper">
@@ -85,7 +97,7 @@ export const MovieShowBox = styled.div`
   opacity: 1;
   background-color: #000;
   padding: 40px 0 0 50px;
-  margin: 20px 0;
+  margin: 55px 0;
   position: relative;
   overflow: hidden;
   .movie {
@@ -169,11 +181,20 @@ export const MovieShowBox = styled.div`
       opacity: 0.5;
       display: flex;
       align-items: center;
-      span {
-        margin-right: 0.4vw;
+      margin-right: 0.4vw;
+      &.checked {
+        color: rgb(255, 61, 110);
+        opacity: 0.8;
+        &:hover {
+          opacity: 0.8;
+        }
       }
       &:hover {
         opacity: 0.8;
+      }
+      i {
+        margin-top: 3px;
+        margin-left: 5px;
       }
     }
     &__close {
