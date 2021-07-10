@@ -63,9 +63,9 @@ export const Slider = styled.div`
   .sliderBtn {
     position: absolute;
     width: 100vw;
-    height: 169.6px;
+    height: 170.6px;
     left: 0;
-    top: 3px;
+    top: 0;
     button {
       height: 100%;
       width: 53px;
@@ -77,7 +77,7 @@ export const Slider = styled.div`
       }
     }
     .next {
-      right: 17px;
+      right: 0;
     }
   }
   li {
