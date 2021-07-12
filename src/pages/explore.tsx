@@ -1,22 +1,24 @@
 import React from 'react'
 import HomeHeader from '../components/common/HomeHeader'
 import styled from '@emotion/styled'
+import CategoryList from '../components/explore/CategoryList'
 
-const Search = () => {
+const Explore = () => {
   return (
     <>
       <HomeHeader username="현주" className="wishes" />
 
-      <SearchWrap>
-        <ContentTitle>&#39;해리포터와 마법사의 돌&#39; 검색 결과</ContentTitle>
-      </SearchWrap>
+      <ExploreWrap>
+        <ContentTitle>보고싶은 작품을 찾아보세요</ContentTitle>
+        <CategoryList />
+      </ExploreWrap>
     </>
   )
 }
 
-export default Search
+export default Explore
 
-const SearchWrap = styled.main`
+const ExploreWrap = styled.main`
   background: rgb(20, 21, 23);
   color: #fff;
   width: 100%;
