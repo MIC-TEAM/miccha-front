@@ -1,8 +1,9 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import Link from 'next/link'
-import { RightMenu, LeftMenu, HeaderWrap, Logo, Login, NavLink, InputBox, Close } from './styles'
+import { RightMenu, LeftMenu, HeaderWrap, Logo, Login, NavLink } from './styles'
 import useHomeHeader from '../../../hooks/useHomeHeader'
 import GenreMenu from './GenreMenu'
+import SearchBox from './SearchBox'
 
 type Props = {
   username: string
@@ -11,6 +12,12 @@ type Props = {
 
 const HomeHeader = ({ username, className }: Props) => {
   const { scrollTop } = useHomeHeader()
+
+  const [searchShow, setSearchShow] = useState(false)
+
+  const onToggleSearch = () => {
+    setSearchShow((prevState) => !prevState)
+  }
 
   return (
     <HeaderWrap scrollTop={scrollTop} className={className}>
@@ -32,23 +39,14 @@ const HomeHeader = ({ username, className }: Props) => {
       </LeftMenu>
 
       <RightMenu>
-        <button type="button" className="search">
-          <img src="/images/common/search.svg" alt="검색 버튼" />
-          <span>검색</span>
-        </button>
-
-        <InputBox>
-          <span>
-            <img src="/images/common/search_bar.svg" alt="검색 버튼" />
-          </span>
-          <input placeholder="제목, 감독, 배우로 검색" type="text" className="searchBar" />
-
-          <Close type="reset">
-            <span>
-              <img src="/images/common/search_del.svg" alt="검색취소" />
-            </span>
-          </Close>
-        </InputBox>
+        {searchShow ? (
+          <SearchBox />
+        ) : (
+          <button type="button" className="search" onClick={onToggleSearch}>
+            <img src="/images/common/search.svg" alt="검색 버튼" />
+            <span>검색</span>
+          </button>
+        )}
 
         <Link href="/wishes">보고싶어요</Link>
         <Login type="button">{username}</Login>
