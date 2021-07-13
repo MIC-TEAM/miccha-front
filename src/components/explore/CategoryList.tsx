@@ -1,12 +1,25 @@
 import styled from '@emotion/styled'
+import { useCallback } from 'react'
 import { useState } from 'react'
+import { useRecoilValueLoadable } from 'recoil'
+import { categoriesSelector } from '../../recoil/movie/selector'
 
 const CategoryList = () => {
   const [showCategoryList, setShowCategoryList] = useState(false)
+  const categoriesLoadable = useRecoilValueLoadable(categoriesSelector)
 
   const onClickNav = () => {
     setShowCategoryList((prevState) => !prevState)
   }
+
+  const getCategories = useCallback(() => {
+    switch (categoriesLoadable.state) {
+      case 'loading':
+        return <div>loading..</div>
+      case 'hasValue':
+        return categoriesLoadable.contents.map((category) => <li key={category.id}>{category.name}</li>)
+    }
+  }, [categoriesLoadable])
 
   return (
     <CategoryListContainer>
@@ -14,13 +27,7 @@ const CategoryList = () => {
         <span>모든 장르</span>
         <img src="/images/explore/bottom_arrow.svg" alt="bottom arrow" />
       </CurrentCategory>
-      <CategoryListWrapper show={showCategoryList}>
-        <li>모든 장르</li>
-        <li>모든 장르</li>
-        <li>모든 장르</li>
-        <li>모든 장르</li>
-        <li>모든 장르</li>
-      </CategoryListWrapper>
+      <CategoryListWrapper show={showCategoryList}>{getCategories()}</CategoryListWrapper>
     </CategoryListContainer>
   )
 }
@@ -64,6 +71,8 @@ const CurrentCategory = styled.div`
 
 const CategoryListWrapper = styled.ul<{ show: boolean }>`
   display: ${({ show }) => (show ? 'block' : 'none')};
+  max-height: 18.75vw;
+  overflow-y: scroll;
 
   li {
     color: rgb(102, 102, 102);
