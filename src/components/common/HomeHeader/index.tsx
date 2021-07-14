@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { RightMenu, LeftMenu, HeaderWrap, Logo, Login, NavLink, InputBox, Close } from './styles'
 import useHomeHeader from '../../../hooks/useHomeHeader'
 import GenreMenu from './GenreMenu'
+import { useRouter } from 'next/dist/client/router'
 
 type Props = {
   username: string
@@ -11,6 +12,7 @@ type Props = {
 
 const HomeHeader = ({ username, className }: Props) => {
   const { scrollTop } = useHomeHeader()
+  const router = useRouter()
 
   return (
     <HeaderWrap scrollTop={scrollTop} className={className}>
@@ -20,10 +22,10 @@ const HomeHeader = ({ username, className }: Props) => {
         </Logo>
         <NavLink>
           <Link href="/home">
-            <a>홈</a>
+            <a className={router.pathname === '/home' ? 'active' : ''}>홈</a>
           </Link>
-          <Link href="/home">
-            <a>
+          <Link href="/explore">
+            <a className={router.pathname === '/explore' ? 'active' : ''}>
               <span>탐색하기</span>
               <GenreMenu />
             </a>

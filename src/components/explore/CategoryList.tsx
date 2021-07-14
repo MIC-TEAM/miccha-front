@@ -1,4 +1,7 @@
 import styled from '@emotion/styled'
+import { useRouter } from 'next/dist/client/router'
+import Link from 'next/link'
+import { useEffect } from 'react'
 import { useCallback } from 'react'
 import { useState } from 'react'
 import { useRecoilValueLoadable } from 'recoil'
@@ -7,6 +10,14 @@ import { categoriesSelector } from '../../recoil/movie/selector'
 const CategoryList = () => {
   const [showCategoryList, setShowCategoryList] = useState(false)
   const categoriesLoadable = useRecoilValueLoadable(categoriesSelector)
+  const {
+    query: { genre: tempGenre },
+  } = useRouter()
+  const genreId = parseInt(tempGenre as string, 10)
+
+  useEffect(() => {
+    setShowCategoryList(false)
+  }, [genreId])
 
   const onClickNav = () => {
     setShowCategoryList((prevState) => !prevState)
@@ -17,14 +28,27 @@ const CategoryList = () => {
       case 'loading':
         return <div>loading..</div>
       case 'hasValue':
-        return categoriesLoadable.contents.map((category) => <li key={category.id}>{category.name}</li>)
+        return categoriesLoadable.contents.map((category) => (
+          <li key={category.id} className={genreId === category.id ? 'active' : ''}>
+            <Link href={`/explore?genre=${category.id}`}>{category.name}</Link>
+          </li>
+        ))
     }
-  }, [categoriesLoadable])
+  }, [categoriesLoadable, genreId])
+
+  const getCurrentCategory = useCallback(() => {
+    if (categoriesLoadable.state !== 'hasValue') {
+      return ''
+    }
+
+    const currentCategory = categoriesLoadable.contents.filter((category) => category.id === genreId)
+    return currentCategory.length > 0 && currentCategory[0].name
+  }, [categoriesLoadable, genreId])
 
   return (
     <CategoryListContainer>
       <CurrentCategory onClick={onClickNav}>
-        <span>모든 장르</span>
+        <span>{getCurrentCategory()}</span>
         <img src="/images/explore/bottom_arrow.svg" alt="bottom arrow" />
       </CurrentCategory>
       <CategoryListWrapper show={showCategoryList}>{getCategories()}</CategoryListWrapper>
@@ -57,7 +81,7 @@ const CurrentCategory = styled.div`
   font-size: 1.09375vw;
   font-weight: 700;
   letter-spacing: -0.015625vw;
-  line-height: 2.5;
+  line-height: 2.3;
 
   img {
     position: absolute;
@@ -81,6 +105,11 @@ const CategoryListWrapper = styled.ul<{ show: boolean }>`
     letter-spacing: -0.015625vw;
     line-height: 1.71875vw;
     padding: 0.234375vw 0.78125vw;
+
+    &.active {
+      color: white;
+      font-weight: 700;
+    }
 
     &:hover {
       color: rgb(255, 255, 255);
