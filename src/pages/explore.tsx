@@ -2,15 +2,18 @@ import React from 'react'
 import HomeHeader from '../components/common/HomeHeader'
 import styled from '@emotion/styled'
 import CategoryList from '../components/explore/CategoryList'
+import { useExplore } from '../hooks/useExplore'
 
 const Explore = () => {
+  const { genreId, exploreMovies, inViewRef } = useExplore()
+
   return (
     <>
       <HomeHeader username="현주" className="wishes" />
 
       <ExploreWrap>
         <ContentTitle>보고싶은 작품을 찾아보세요</ContentTitle>
-        <CategoryList />
+        <CategoryList genreId={genreId} />
       </ExploreWrap>
     </>
   )

@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { useCallback } from 'react'
@@ -7,13 +6,13 @@ import { useState } from 'react'
 import { useRecoilValueLoadable } from 'recoil'
 import { categoriesSelector } from '../../recoil/movie/selector'
 
-const CategoryList = () => {
+interface Props {
+  genreId: number
+}
+
+const CategoryList = ({ genreId }: Props) => {
   const [showCategoryList, setShowCategoryList] = useState(false)
   const categoriesLoadable = useRecoilValueLoadable(categoriesSelector)
-  const {
-    query: { genre: tempGenre },
-  } = useRouter()
-  const genreId = parseInt(tempGenre as string, 10)
 
   useEffect(() => {
     setShowCategoryList(false)
@@ -42,7 +41,7 @@ const CategoryList = () => {
     }
 
     const currentCategory = categoriesLoadable.contents.filter((category) => category.id === genreId)
-    return currentCategory.length > 0 && currentCategory[0].name
+    return currentCategory.length > 0 ? currentCategory[0].name : '모든 장르'
   }, [categoriesLoadable, genreId])
 
   return (

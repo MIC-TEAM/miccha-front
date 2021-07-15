@@ -11,7 +11,7 @@ const GenreMenu = () => {
   const {
     query: { genre: tempGenre },
   } = useRouter()
-  const genre = parseInt(tempGenre as string, 10)
+  const genreId = parseInt(tempGenre as string, 10)
 
   const getCategories = () => {
     switch (categoriesLoadable.state) {
@@ -19,7 +19,7 @@ const GenreMenu = () => {
         return <div>loading..</div>
       case 'hasValue':
         return categoriesLoadable.contents.map((category) => (
-          <li key={category.id} className={genre === category.id ? 'active' : ''}>
+          <li key={category.id} className={genreId === category.id ? 'active' : ''}>
             <Link href={`/explore?genre=${category.id}`}>{category.name}</Link>
           </li>
         ))
