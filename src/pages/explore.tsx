@@ -3,6 +3,7 @@ import HomeHeader from '../components/common/HomeHeader'
 import styled from '@emotion/styled'
 import CategoryList from '../components/explore/CategoryList'
 import { useExplore } from '../hooks/useExplore'
+import DefaultSlider from '../components/common/DefaultSlider'
 
 const Explore = () => {
   const { genreId, exploreMovies, inViewRef } = useExplore()
@@ -14,6 +15,7 @@ const Explore = () => {
       <ExploreWrap>
         <ContentTitle>보고싶은 작품을 찾아보세요</ContentTitle>
         <CategoryList genreId={genreId} />
+        <DefaultSlider />
       </ExploreWrap>
     </>
   )

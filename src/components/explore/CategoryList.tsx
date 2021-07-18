@@ -28,9 +28,9 @@ const CategoryList = ({ genreId }: Props) => {
         return <div>loading..</div>
       case 'hasValue':
         return categoriesLoadable.contents.map((category) => (
-          <li key={category.id} className={genreId === category.id ? 'active' : ''}>
-            <Link href={`/explore?genre=${category.id}`}>{category.name}</Link>
-          </li>
+          <Link href={`/explore?genre=${category.id}`} key={category.id}>
+            <li className={genreId === category.id ? 'active' : ''}>{category.name}</li>
+          </Link>
         ))
     }
   }, [categoriesLoadable, genreId])
@@ -41,7 +41,7 @@ const CategoryList = ({ genreId }: Props) => {
     }
 
     const currentCategory = categoriesLoadable.contents.filter((category) => category.id === genreId)
-    return currentCategory.length > 0 ? currentCategory[0].name : '모든 장르'
+    return currentCategory.length > 0 && currentCategory[0].name
   }, [categoriesLoadable, genreId])
 
   return (

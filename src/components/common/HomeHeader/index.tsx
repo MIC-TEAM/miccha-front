@@ -24,7 +24,7 @@ const HomeHeader = ({ username, className }: Props) => {
           <Link href="/home">
             <a className={router.pathname === '/home' ? 'active' : ''}>홈</a>
           </Link>
-          <Link href="/explore">
+          <Link href="/explore?genre=1">
             <a className={router.pathname === '/explore' ? 'active' : ''}>
               <span>탐색하기</span>
               <GenreMenu />
