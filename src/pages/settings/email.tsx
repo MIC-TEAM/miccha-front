@@ -40,18 +40,6 @@ const Email = () => {
 
 export default Email
 
-const EmailWrap = styled.div`
-  background: rgb(20, 21, 23);
-  color: #fff;
-  width: 100%;
-  height: 52vh;
-  padding: 3.35938vw 50px;
-  div {
-    max-width: 480px;
-    margin: 0px auto;
-  }
-`
-
 export const SettingInput = styled.form`
   div {
     background: rgb(29, 30, 31);
@@ -71,6 +59,18 @@ export const SettingInput = styled.form`
     padding: 10px 14px;
     border: 0px;
     outline: none;
+  }
+`
+
+const EmailWrap = styled.div`
+  background: rgb(20, 21, 23);
+  color: #fff;
+  width: 100%;
+  height: 52vh;
+  padding: 3.35938vw 50px;
+  div {
+    max-width: 480px;
+    margin: 0px auto;
   }
 `
 
