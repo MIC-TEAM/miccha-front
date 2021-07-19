@@ -4,7 +4,7 @@ type Props = {
   title: string
   desc: string
 }
-const Setting = ({ title, desc }: Props) => {
+const SettingTitles = ({ title, desc }: Props) => {
   return (
     <>
       <SettingTitle>{title}</SettingTitle>
@@ -13,7 +13,7 @@ const Setting = ({ title, desc }: Props) => {
   )
 }
 
-export default Setting
+export default SettingTitles
 
 const SettingTitle = styled.h2`
   color: rgb(255, 255, 255);
