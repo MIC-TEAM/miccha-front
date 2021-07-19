@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { RightMenu, LeftMenu, HeaderWrap, Logo, Login, NavLink } from './styles'
 import useHomeHeader from '../../../hooks/useHomeHeader'
 import GenreMenu from './GenreMenu'
+import { useRouter } from 'next/router'
 import SearchBox from './SearchBox'
 
 type Props = {
@@ -12,6 +13,7 @@ type Props = {
 
 const HomeHeader = ({ username, className }: Props) => {
   const { scrollTop } = useHomeHeader()
+  const router = useRouter()
 
   const [searchShow, setSearchShow] = useState(false)
 
@@ -27,10 +29,10 @@ const HomeHeader = ({ username, className }: Props) => {
         </Logo>
         <NavLink>
           <Link href="/home">
-            <a>홈</a>
+            <a className={router.pathname === '/home' ? 'active' : ''}>홈</a>
           </Link>
-          <Link href="/home">
-            <a>
+          <Link href="/explore?genre=1">
+            <a className={router.pathname === '/explore' ? 'active' : ''}>
               <span>탐색하기</span>
               <GenreMenu />
             </a>

@@ -3,9 +3,9 @@ import { useInView } from 'react-intersection-observer'
 import { useRecoilState } from 'recoil'
 import useAsyncEffect from 'use-async-effect'
 import { apiClient } from '../lib/apiClient'
-import { HomeMovies, homeMoviesAtom, homeMoviesPageAtom, PAGE_SIZE } from '../recoil/movie/atom'
+import { Movies, homeMoviesAtom, homeMoviesPageAtom, PAGE_SIZE } from '../recoil/movie/atom'
 
-async function getHomeMovies(page: number): Promise<HomeMovies[] | undefined> {
+async function getHomeMovies(page: number): Promise<Movies[] | undefined> {
   try {
     const res = await apiClient.get(`/home?page=${page}`)
     return res.data

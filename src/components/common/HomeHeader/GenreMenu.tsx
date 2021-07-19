@@ -3,9 +3,15 @@ import styled from '@emotion/styled'
 import { useRecoilValueLoadable } from 'recoil'
 import { categoriesSelector } from '../../../recoil/movie/selector'
 import { mq } from '../../../styles/media-query'
+import Link from 'next/link'
+import { useRouter } from 'next/dist/client/router'
 
 const GenreMenu = () => {
   const categoriesLoadable = useRecoilValueLoadable(categoriesSelector)
+  const {
+    query: { genre: tempGenre },
+  } = useRouter()
+  const genreId = parseInt(tempGenre as string, 10)
 
   const getCategories = () => {
     switch (categoriesLoadable.state) {
@@ -13,8 +19,8 @@ const GenreMenu = () => {
         return <div>loading..</div>
       case 'hasValue':
         return categoriesLoadable.contents.map((category) => (
-          <li key={category.id}>
-            <a href="#this">{category.name}</a>
+          <li key={category.id} className={genreId === category.id ? 'active' : ''}>
+            <Link href={`/explore?genre=${category.id}`}>{category.name}</Link>
           </li>
         ))
     }
@@ -49,10 +55,19 @@ export const GenreMenuContainer = styled.div`
     padding: 0.3125em 0.625em;
     background: #212225;
     display: grid;
+
     ${mq({
       gridTemplateColumns: ['auto auto auto', 'auto', 'auto', 'auto', 'auto auto', 'auto auto auto'],
     })};
+
     li {
+      color: rgba(255, 255, 255, 0.88);
+
+      &.active {
+        color: white;
+        font-weight: 700;
+      }
+
       &:hover {
         background: #303134;
       }

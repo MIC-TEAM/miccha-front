@@ -40,6 +40,11 @@ export const NavLink = styled.div`
     margin-right: 23px;
     color: rgba(255, 255, 255, 0.88);
 
+    &.active {
+      font-weight: 700;
+      color: #ffffff;
+    }
+
     &:hover > span {
       opacity: 0.8;
     }
