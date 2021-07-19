@@ -1,5 +1,6 @@
 import React from 'react'
 import HomeHeader from '../components/common/HomeHeader'
+import Footer from '../components/common/Footer'
 import styled from '@emotion/styled'
 
 const Search = () => {
@@ -8,8 +9,10 @@ const Search = () => {
       <HomeHeader username="현주" className="wishes" />
 
       <SearchWrap>
-        <ContentTitle>&#39;해리포터와 마법사의 돌&#39; 검색 결과</ContentTitle>
+        <ContentTitle>&apos;해리포터와 마법사의 돌&apos; 검색 결과</ContentTitle>
       </SearchWrap>
+
+      <Footer />
     </>
   )
 }
