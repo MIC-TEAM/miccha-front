@@ -1,8 +1,8 @@
 import React from 'react'
 import HomeHeader from '../../components/common/HomeHeader'
 import Footer from '../../components/common/Footer'
-import SettingTitle from '../../components/settings/title'
-import SettingButton from '../../components/settings/button'
+import SettingTitle from '../../components/settings/Title'
+import SettingButton from '../../components/settings/Button'
 import { EmailWrap, CurrentEmail, SettingInput } from './styles'
 
 const Email = () => {
