@@ -1,7 +1,8 @@
 import React from 'react'
 import HomeHeader from '../../components/common/HomeHeader'
 import Footer from '../../components/common/Footer'
-import styled from '@emotion/styled'
+import { Setting, SettingsWrap, ContentTitle, Change } from './styles'
+import Link from 'next/link'
 
 const Settings = () => {
   return (
@@ -19,104 +20,27 @@ const Settings = () => {
                 <div>이메일</div>
                 <div>studymicteam@gmail.com</div>
                 <div>
-                  <button type="button">
-                    이메일 변경 <img src="/images/common/btn_setting_arr.svg" alt="이메일 변경" />
-                  </button>
-                  <button type="button">
-                    비밀번호 변경
-                    <img src="/images/common/btn_setting_arr.svg" alt="비밀번호 변경" />
-                  </button>
+                  <Link href="/settings/email">
+                    <a>
+                      이메일 변경 <img src="/images/common/btn_setting_arr.svg" alt="이메일 변경" />
+                    </a>
+                  </Link>
+
+                  <Link href="/settings/password">
+                    <a>
+                      비밀번호 변경
+                      <img src="/images/common/btn_setting_arr.svg" alt="비밀번호 변경" />
+                    </a>
+                  </Link>
                 </div>
               </li>
             </ul>
           </Change>
         </SettingsWrap>
       </Setting>
-
       <Footer />
     </>
   )
 }
 
 export default Settings
-
-const SettingsWrap = styled.div`
-  max-width: 780px;
-  margin: 0px auto;
-`
-
-const Change = styled.section`
-  background: rgb(18, 19, 20);
-  border: 1px solid rgb(32, 33, 33);
-  border-radius: 4px;
-  h3 {
-    background: rgb(27, 27, 28);
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 14px;
-    letter-spacing: -0.28px;
-    line-height: 16px;
-    padding: 12px 20px;
-  }
-  button {
-    color: rgb(248, 47, 98);
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: -0.3px;
-    line-height: 18px;
-    text-align: right;
-    padding: 2px 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img {
-      margin-left: 5px;
-    }
-  }
-  button + button {
-    margin-top: 24px;
-  }
-  ul {
-    li {
-      display: flex;
-      align-items: flex-start;
-      padding: 22px 12px 24px 20px;
-      div:nth-of-type(1) {
-        color: rgb(255, 255, 255);
-        font-size: 15px;
-        font-weight: 500;
-        letter-spacing: -0.3px;
-        line-height: 18px;
-        width: 220px;
-      }
-      div:nth-of-type(2) {
-        flex: 1 0 auto;
-        max-width: 320px;
-        margin-right: auto;
-        color: rgba(255, 255, 255, 0.54);
-        font-size: 15px;
-        font-weight: 500;
-        letter-spacing: -0.3px;
-        line-height: 18px;
-      }
-      div:nth-of-type(3) {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-      }
-    }
-  }
-`
-
-const Setting = styled.main`
-  background: rgb(20, 21, 23);
-  color: #fff;
-  width: 100%;
-  padding: 3.35938vw 50px;
-`
-
-const ContentTitle = styled.h3`
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.6px;
-  margin-bottom: 1.01562vw;
-`
