@@ -1,23 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
-import { useState } from 'react'
-import { css } from '@emotion/react'
 
 const SearchBox: React.FC = () => {
-  const [searchInput, setSearchInput] = useState('')
+  const [textWrite, setTextWrite] = useState(false)
+
+  const handleInputEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.currentTarget.value
+    if (newValue.length >= 1) {
+      setTextWrite(true)
+    } else {
+      setTextWrite(false)
+    }
+  }
 
   return (
     <InputBox>
       <span>
         <img src="/images/common/search_bar.svg" alt="검색 버튼" />
       </span>
-      <input placeholder="제목, 감독, 배우로 검색" type="text" css={searchBar}/>
+      <input placeholder="제목, 감독, 배우로 검색" type="text" onInput={handleInputEvent} />
 
-      <Close type="reset">
-        <span>
-          <img src="/images/common/search_del.svg" alt="검색취소" />
-        </span>
-      </Close>
+      {textWrite ? (
+        <Close type="reset">
+          <span>
+            <img src="/images/common/search_del.svg" alt="검색취소" />
+          </span>
+        </Close>
+      ) : null}
     </InputBox>
   )
 }
@@ -52,10 +61,6 @@ const InputBox = styled.form`
     outline: 0px;
   }
 `
-
-const searchBar = css({
-  fontSize: '1em'
-})
 
 const Close = styled.button`
   display: inline-block;
