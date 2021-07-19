@@ -8,7 +8,7 @@ const Search = () => {
       <HomeHeader username="현주" className="wishes" />
 
       <SearchWrap>
-        <ContentTitle>'해리포터와 마법사의 돌' 검색 결과</ContentTitle>
+        <ContentTitle>&apos;해리포터와 마법사의 돌&apos; 검색 결과</ContentTitle>
       </SearchWrap>
     </>
   )
