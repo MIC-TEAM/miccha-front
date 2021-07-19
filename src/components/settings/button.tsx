@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
-import { useHistory } from 'react-router-dom'
+import { useRouter } from 'next/router'
 
 const SettingButtons = () => {
-  const history = useHistory()
+  const router = useRouter()
 
   return (
     <SettingButton>
@@ -10,7 +10,7 @@ const SettingButtons = () => {
         저장
       </button>
 
-      <button type="button" className="back" onClick={() => history.goBack()}>
+      <button type="button" className="back" onClick={() => router.back()}>
         뒤로
       </button>
     </SettingButton>
