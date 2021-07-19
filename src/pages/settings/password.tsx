@@ -1,7 +1,7 @@
 import React from 'react'
 import HomeHeader from '../../components/common/HomeHeader'
 import Footer from '../../components/common/Footer'
-import SettingTitle from '../../components/settings/Title'
+import Title from '../../components/settings/Title'
 import SettingButton from '../../components/settings/Button'
 import { PasswordWrap, SettingInput, PwForget } from './styles'
 import Link from 'next/link'
@@ -13,10 +13,7 @@ const Password = () => {
 
       <PasswordWrap>
         <div>
-          <SettingTitle
-            title="비밀번호 변경"
-            desc="비밀번호가 변경되면 로그인된 모든 디바이스에서 다시 로그인해야 합니다."
-          />
+          <Title title="비밀번호 변경" desc="비밀번호가 변경되면 로그인된 모든 디바이스에서 다시 로그인해야 합니다." />
 
           <SettingInput>
             <div>
