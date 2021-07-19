@@ -3,8 +3,9 @@ import HomeHeader from '../../components/common/HomeHeader'
 import Footer from '../../components/common/Footer'
 import Title from '../../components/settings/Title'
 import SettingButton from '../../components/settings/Button'
-import { PasswordWrap, SettingInput, PwForget } from './styles'
 import Link from 'next/link'
+import styled from '@emotion/styled'
+import { SettingInput } from './email'
 
 const Password = () => {
   return (
@@ -45,3 +46,24 @@ const Password = () => {
 }
 
 export default Password
+
+const PwForget = styled.div`
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  text-decoration: underline;
+  line-height: 18px;
+  padding: 34px 0;
+`
+const PasswordWrap = styled.div`
+  background: rgb(20, 21, 23);
+  color: #fff;
+  width: 100%;
+  height: 64vh;
+  padding: 3.35938vw 50px;
+  div {
+    max-width: 480px;
+    margin: 0px auto;
+  }
+`
