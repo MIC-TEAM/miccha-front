@@ -1,32 +1,38 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 import styled from '@emotion/styled'
+import { useRouter } from 'next/router'
 
 const SearchBox: React.FC = () => {
-  const [textWrite, setTextWrite] = useState(false)
+  const [searchInput, setSearchInput] = useState('')
+  const router = useRouter()
 
-  const handleInputEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.currentTarget.value
-    if (newValue.length >= 1) {
-      setTextWrite(true)
-    } else {
-      setTextWrite(false)
-    }
+  const onChangeSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e.target.value)
+  }
+
+  const onClickClose = () => {
+    setSearchInput('')
+  }
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    router.push(`/search?q=${searchInput}`)
   }
 
   return (
-    <InputBox>
+    <InputBox onSubmit={onSubmit}>
       <span>
         <img src="/images/common/search_bar.svg" alt="검색 버튼" />
       </span>
-      <input placeholder="제목, 감독, 배우로 검색" type="text" onInput={handleInputEvent} />
+      <input placeholder="제목, 감독, 배우로 검색" type="text" value={searchInput} onChange={onChangeSearchInput} />
 
-      {textWrite ? (
-        <Close type="reset">
+      {searchInput.length > 0 && (
+        <Close type="reset" onClick={onClickClose}>
           <span>
             <img src="/images/common/search_del.svg" alt="검색취소" />
           </span>
         </Close>
-      ) : null}
+      )}
     </InputBox>
   )
 }
