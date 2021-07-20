@@ -1,8 +1,8 @@
 import React from 'react'
 import HomeHeader from '../../components/common/HomeHeader'
 import Footer from '../../components/common/Footer'
-import Title from '../../components/settings/Title'
-import SettingButton from '../../components/settings/Button'
+import SettingTitle from '../../components/settings/SettingTitle'
+import SettingButton from '../../components/settings/SettingButton'
 import styled from '@emotion/styled'
 
 const Email = () => {
@@ -12,7 +12,10 @@ const Email = () => {
 
       <EmailWrap>
         <div>
-          <Title title="이메일 변경" desc="계정 이메일은 모든 프로필에 로그인하고 이메일을 발송하는데 사용됩니다." />
+          <SettingTitle
+            title="이메일 변경"
+            desc="계정 이메일은 모든 프로필에 로그인하고 이메일을 발송하는데 사용됩니다."
+          />
 
           <CurrentEmail>
             현재 이메일
