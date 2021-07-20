@@ -6,7 +6,7 @@ import { useExplore } from '../hooks/useExplore'
 import DefaultSlider from '../components/common/DefaultSlider'
 
 const Explore = () => {
-  const { genreId, exploreMovies, inViewRef } = useExplore()
+  const { genreId } = useExplore()
 
   return (
     <>
