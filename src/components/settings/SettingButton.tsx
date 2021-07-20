@@ -1,11 +1,11 @@
 import styled from '@emotion/styled'
 import { useRouter } from 'next/router'
 
-const SettingButtons = () => {
+const SettingButton = () => {
   const router = useRouter()
 
   return (
-    <SettingButton>
+    <Container>
       <button type="button" className="save">
         저장
       </button>
@@ -13,13 +13,13 @@ const SettingButtons = () => {
       <button type="button" className="back" onClick={() => router.back()}>
         뒤로
       </button>
-    </SettingButton>
+    </Container>
   )
 }
 
-export default SettingButtons
+export default SettingButton
 
-const SettingButton = styled.div`
+const Container = styled.div`
   margin-top: 13px !important;
   button {
     font-size: 14px;
