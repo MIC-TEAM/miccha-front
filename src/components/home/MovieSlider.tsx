@@ -4,6 +4,8 @@ import { Movie, movieDetailsAtom } from '../../recoil/movie/atom'
 import MovieShow from './MovieShow'
 import styled from '@emotion/styled'
 import { useRecoilValue } from 'recoil'
+import { useState } from 'react'
+import { useRef } from 'react'
 
 type Props = {
   sliderIndex: number
@@ -14,6 +16,22 @@ type Props = {
 
 const MovieSlider: React.FC<Props> = ({ sliderIndex, theme, movies, inViewRef }) => {
   const { sliderIndex: movieDetailSliderIndex, detailMovie } = useRecoilValue(movieDetailsAtom)
+  const [ulOffsetX, setUlOffsetX] = useState(0)
+  const listRef = useRef<HTMLUListElement>(null)
+  const movieListScrollWidth = listRef.current?.scrollWidth
+
+  const onMoveSlider = (direction: 'PREV' | 'NEXT') => () => {
+    switch (direction) {
+      case 'PREV':
+        setUlOffsetX((prevState) => (prevState === 0 ? prevState : prevState + 100))
+        break
+      case 'NEXT':
+        if (window.innerWidth * ((ulOffsetX / 100) * -1) < movieListScrollWidth! - window.innerWidth) {
+          setUlOffsetX((prevState) => prevState - 100)
+        }
+        break
+    }
+  }
 
   return (
     <li ref={inViewRef}>
@@ -26,18 +44,18 @@ const MovieSlider: React.FC<Props> = ({ sliderIndex, theme, movies, inViewRef })
       </ContentHead>
 
       <Slider>
-        <ul className="movieList">
+        <MovieList ref={listRef} ulOffsetX={ulOffsetX}>
           {movies.map((movie) => (
             <MovieItem key={movie.id} sliderIndex={sliderIndex} movie={movie} />
           ))}
-        </ul>
+        </MovieList>
 
         <div className="sliderBtn">
-          <button className="pre">
+          <button className="pre" onClick={onMoveSlider('PREV')}>
             <img src="/images/common/sliderArr_left.svg" alt="왼쪽 버튼" />
           </button>
 
-          <button className="next">
+          <button className="next" onClick={onMoveSlider('NEXT')}>
             <img src="/images/common/sliderArr_right.svg" alt="오른쪽 버튼" />
           </button>
         </div>
@@ -50,13 +68,8 @@ const MovieSlider: React.FC<Props> = ({ sliderIndex, theme, movies, inViewRef })
 
 export default memo(MovieSlider)
 
-export const Slider = styled.div`
+const Slider = styled.div`
   position: relative;
-  .movieList {
-    display: inline-flex;
-    position: relative;
-    padding-left: 3.125em;
-  }
   &:hover li {
     transform: translateX(-25%);
   }
@@ -91,7 +104,16 @@ export const Slider = styled.div`
   }
 `
 
-export const ContentHead = styled.div`
+const MovieList = styled.ul<{ ulOffsetX: number }>`
+  display: inline-flex;
+  position: relative;
+  padding-left: 3.125em;
+  transform: translateX(${({ ulOffsetX }) => ulOffsetX + 'vw'});
+  transition: transform 1s;
+  z-index: 2;
+`
+
+const ContentHead = styled.div`
   display: flex;
   vertical-align: center;
   justify-content: space-between;
