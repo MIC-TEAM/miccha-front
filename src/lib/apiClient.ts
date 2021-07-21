@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosResponse } from 'axios'
 
 // TODO: 로그인 기능 구현시 제거
 const tempToken =
-  'eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjpbIlJPTEVfVVNFUiJdLCJzdWIiOiJpbHV2dHJvbGxoZEBnbWFpbC5jb20iLCJpYXQiOjE2MjY3OTIyNTEsImV4cCI6MTYyNjgyMTA1MX0.DCrCIiHIdpvqV55cgvg7rH0d1LahH9Gjfnd8uIG2er15pneB2KSgi1kdsjF9C2qwlGtN8olNeIFEKqGvNyepTQ'
+  'eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjpbIlJPTEVfVVNFUiJdLCJzdWIiOiJpbHV2dHJvbGxoZEBnbWFpbC5jb20iLCJpYXQiOjE2MjY4NDIwOTMsImV4cCI6MTYyOTQzNDA5M30.0EYfJvT7r3NAlrHfVTjk0HJcjNfnJAvhQUp5Brn9Xz0uEDez0kKyfbD4ugfdQ_PhzTBpZYqu_HUQjSqSt-jb_Q'
 
 export const apiClient: AxiosInstance = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_API_URL}`,
