@@ -59,12 +59,12 @@ const MovieShow: React.FC<Props> = ({ movie }) => {
 
         {isWant ? (
           <button type="button" className="movie__want checked" onClick={toggleWant}>
-            <img src="./images/common/icon_want_check.svg" alt="보고싶어요" />
+            <img src="/images/common/icon_want_check.svg" alt="보고싶어요" />
             <i>보고싶어요</i>
           </button>
         ) : (
           <button type="button" className="movie__want" onClick={toggleWant}>
-            <img src="./images/common/icon_want.svg" alt="보고싶어요" />
+            <img src="/images/common/icon_want.svg" alt="보고싶어요" />
             <i>보고싶어요</i>
           </button>
         )}
@@ -83,7 +83,7 @@ const MovieShow: React.FC<Props> = ({ movie }) => {
           resetMovieDetails()
         }}
       >
-        <img src="./images/common/icon_close.svg" alt="닫기버튼" />
+        <img src="/images/common/icon_close.svg" alt="닫기버튼" />
       </button>
     </MovieShowBox>
   )

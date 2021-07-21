@@ -5,6 +5,8 @@ import useHomeHeader from '../../../hooks/useHomeHeader'
 import GenreMenu from './GenreMenu'
 import { useRouter } from 'next/router'
 import SearchBox from './SearchBox'
+import { useEffect } from 'react'
+import { useRef } from 'react'
 
 type Props = {
   username: string
@@ -13,9 +15,26 @@ type Props = {
 
 const HomeHeader = ({ username, className }: Props) => {
   const { scrollTop } = useHomeHeader()
-  const router = useRouter()
-
   const [searchShow, setSearchShow] = useState(false)
+  const router = useRouter()
+  const rightMenuRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside)
+    return () => {
+      document.removeEventListener('click', handleClickOutside)
+    }
+  }, [searchShow, rightMenuRef])
+
+  const handleClickOutside = (e: MouseEvent) => {
+    if (!searchShow) {
+      return
+    }
+
+    if (rightMenuRef.current && !rightMenuRef.current.contains(e.target as Node)) {
+      setSearchShow(false)
+    }
+  }
 
   const onToggleSearch = () => {
     setSearchShow((prevState) => !prevState)
@@ -40,7 +59,7 @@ const HomeHeader = ({ username, className }: Props) => {
         </NavLink>
       </LeftMenu>
 
-      <RightMenu>
+      <RightMenu ref={rightMenuRef}>
         {searchShow ? (
           <SearchBox />
         ) : (

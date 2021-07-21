@@ -18,10 +18,9 @@ const MovieMain: React.FC = () => {
         effect={'fade'}
         navigation={true}
         loop={true}
-        pagination={{
-          clickable: true,
-        }}
         className="movieMainSlider"
+        preventClicks={false}
+        preventClicksPropagation={false}
       >
         <SwiperSlide>
           <img src="/images/home/main01.jpg" alt="" className="backgroundImg" />

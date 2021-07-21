@@ -2,16 +2,22 @@ import React from 'react'
 import HomeHeader from '../components/common/HomeHeader'
 import Footer from '../components/common/Footer'
 import styled from '@emotion/styled'
+import { useRouter } from 'next/router'
+import DefaultSlider from '../components/common/DefaultSlider'
 
 const Search = () => {
+  const {
+    query: { q: query },
+  } = useRouter()
+
   return (
     <>
       <HomeHeader username="현주" className="wishes" />
 
       <SearchWrap>
-        <ContentTitle>&apos;해리포터와 마법사의 돌&apos; 검색 결과</ContentTitle>
+        <ContentTitle>&apos;{query}&apos; 검색 결과</ContentTitle>
+        <DefaultSlider />
       </SearchWrap>
-
       <Footer />
     </>
   )
