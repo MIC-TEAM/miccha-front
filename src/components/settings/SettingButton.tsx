@@ -1,12 +1,16 @@
 import styled from '@emotion/styled'
 import { useRouter } from 'next/router'
 
-const SettingButton = () => {
+interface Props {
+  active?: boolean
+}
+
+const SettingButton = ({ active }: Props) => {
   const router = useRouter()
 
   return (
     <Container>
-      <button type="button" className="save">
+      <button type="submit" className="save" disabled={!active}>
         저장
       </button>
 
@@ -30,6 +34,9 @@ const Container = styled.div`
     padding: 10px 16px;
     border-radius: 2px;
     outline: none;
+    &:disabled {
+      cursor: not-allowed;
+    }
     &.save {
       background: rgb(248, 47, 98);
       color: rgba(255, 255, 255, 0.8);

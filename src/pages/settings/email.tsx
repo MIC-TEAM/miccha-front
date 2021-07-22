@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { FormEvent } from 'react'
 import HomeHeader from '../../components/common/HomeHeader'
 import Footer from '../../components/common/Footer'
 import SettingTitle from '../../components/settings/SettingTitle'
 import SettingButton from '../../components/settings/SettingButton'
 import styled from '@emotion/styled'
+import useInput, { InputType, ValidationType } from '../../hooks/useInput'
 
 const Email = () => {
+  const email = useInput(InputType.EMAIL)
+  const password = useInput(InputType.PASSWORD)
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    console.log('submit !')
+  }
+
   return (
     <>
       <HomeHeader username="현주" className="wishes" />
@@ -22,17 +31,27 @@ const Email = () => {
             <strong>studymicteam@gmail.com</strong>
           </CurrentEmail>
 
-          <SettingInput>
-            <div>
-              <input type="text" />
-            </div>
+          <form onSubmit={onSubmit}>
+            <SettingInput>
+              <div>
+                <input className={email.validation} type="text" placeholder="새 이메일" {...email} required />
+              </div>
+              {email.validation === ValidationType.ERROR && (
+                <ValidationError>이메일 주소가 올바르지 않습니다.</ValidationError>
+              )}
 
-            <div>
-              <input type="password" />
-            </div>
-          </SettingInput>
+              <div>
+                <input className={password.validation} type="password" placeholder="비밀번호" {...password} required />
+              </div>
+              {password.validation === ValidationType.ERROR && (
+                <ValidationError>비밀번호를 정확히 입력해주세요.</ValidationError>
+              )}
+            </SettingInput>
 
-          <SettingButton />
+            <SettingButton
+              active={email.validation === ValidationType.SUCCESS && password.validation === ValidationType.SUCCESS}
+            />
+          </form>
         </div>
       </EmailWrap>
 
@@ -43,7 +62,7 @@ const Email = () => {
 
 export default Email
 
-export const SettingInput = styled.form`
+export const SettingInput = styled.div`
   div {
     background: rgb(29, 30, 31);
     border: 1px solid rgb(47, 49, 51);
@@ -62,6 +81,10 @@ export const SettingInput = styled.form`
     padding: 10px 14px;
     border: 0px;
     outline: none;
+
+    &.error {
+      outline: 1px solid rgb(219, 66, 65);
+    }
   }
 `
 
@@ -89,4 +112,13 @@ const CurrentEmail = styled.p`
     font-weight: 400;
     margin-left: 6px;
   }
+`
+
+const ValidationError = styled.p`
+  color: rgb(219, 66, 65);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  line-height: 18px;
+  padding: 0px 14px 4px;
 `
