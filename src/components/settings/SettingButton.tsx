@@ -5,7 +5,7 @@ interface Props {
   active?: boolean
 }
 
-const SettingButton = ({ active }: Props) => {
+const SettingButton = ({ active = false }: Props) => {
   const router = useRouter()
 
   return (

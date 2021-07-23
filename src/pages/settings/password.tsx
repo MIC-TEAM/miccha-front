@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ChangeEvent, useEffect } from 'react'
 import HomeHeader from '../../components/common/HomeHeader'
 import Footer from '../../components/common/Footer'
 import SettingTitle from '../../components/settings/SettingTitle'
@@ -6,8 +6,32 @@ import SettingButton from '../../components/settings/SettingButton'
 import Link from 'next/link'
 import styled from '@emotion/styled'
 import { SettingInput } from './email'
+import useInput, { InputType, ValidationType } from '../../hooks/useInput'
+import { useState } from 'react'
 
 const Password = () => {
+  const prevPassword = useInput(InputType.PASSWORD)
+  const nextPassword = useInput(InputType.PASSWORD)
+  const [passwordConfirm, setPasswordConfirm] = useState('')
+  const [passwordConfirmError, setPasswordConfirmError] = useState<null | boolean>(null)
+
+  useEffect(() => {
+    if (!passwordConfirm) {
+      setPasswordConfirmError(null)
+      return
+    }
+
+    if (nextPassword.value !== passwordConfirm) {
+      setPasswordConfirmError(true)
+    } else {
+      setPasswordConfirmError(false)
+    }
+  }, [nextPassword, passwordConfirm])
+
+  const onChangePasswordConfirm = (e: ChangeEvent<HTMLInputElement>) => {
+    setPasswordConfirm(e.target.value)
+  }
+
   return (
     <>
       <HomeHeader username="현주" className="wishes" />
@@ -21,19 +45,45 @@ const Password = () => {
 
           <SettingInput>
             <div>
-              <input type="password" placeholder="기존 비밀번호" />
+              <input
+                className={prevPassword.validation}
+                type="password"
+                placeholder="기존 비밀번호"
+                {...prevPassword}
+              />
             </div>
+            {prevPassword.validation === ValidationType.ERROR && (
+              <ValidationError>비밀번호를 정확히 입력해주세요.</ValidationError>
+            )}
 
             <div>
-              <input type="password" placeholder="새 비밀번호" />
+              <input className={nextPassword.validation} type="password" placeholder="새 비밀번호" {...nextPassword} />
             </div>
+            {nextPassword.validation === ValidationType.ERROR && (
+              <ValidationError>
+                비밀번호는 영문, 숫자, 특수문자 중 2종류 이상을 조합하여 최소 10자리 이상이여야 합니다.
+              </ValidationError>
+            )}
 
             <div>
-              <input type="password" placeholder="새 비밀번호 확인" />
+              <input
+                className={passwordConfirmError ? 'error' : ''}
+                type="password"
+                placeholder="새 비밀번호 확인"
+                value={passwordConfirm}
+                onChange={onChangePasswordConfirm}
+              />
             </div>
+            {passwordConfirmError && <ValidationError>비밀번호가 상이합니다.</ValidationError>}
           </SettingInput>
 
-          <SettingButton />
+          <SettingButton
+            active={
+              prevPassword.validation === ValidationType.SUCCESS &&
+              nextPassword.validation === ValidationType.SUCCESS &&
+              passwordConfirmError === false
+            }
+          />
 
           <PwForget>
             <Link href="/find_password">
@@ -69,4 +119,13 @@ const PasswordWrap = styled.div`
     max-width: 480px;
     margin: 0px auto;
   }
+`
+
+const ValidationError = styled.p`
+  color: rgb(219, 66, 65);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  line-height: 18px;
+  padding: 0px 14px 4px;
 `
