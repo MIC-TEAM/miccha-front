@@ -30,7 +30,7 @@ const WishesWrap = styled.main`
 `
 
 const ContentTitle = styled.h3`
-  font-size: 1.5vw;
+  font-size: 1.8vw;
   font-weight: 700;
   letter-spacing: -0.031vw;
   padding-top: 3.35938vw;

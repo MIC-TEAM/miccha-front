@@ -46,6 +46,9 @@ export const MovieItemView = styled.li`
       display: none;
     }
   }
+  @media (max-width: 768px) {
+    width: 250px;
+  }
 `
 export const Image = styled.img`
   max-width: 100%;
@@ -59,4 +62,10 @@ export const SmallTitle = styled.h4`
   white-space: pre-wrap;
   letter-spacing: -0.031vw;
   margin-left: 4px;
+  @media (max-width: 768px) {
+    font-size: 1.14em;
+  }
+  @media (max-width: 414px) {
+    font-size: 0.9em;
+  }
 `
