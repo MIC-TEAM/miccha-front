@@ -1,19 +1,14 @@
-import React, { FormEvent } from 'react'
+import React from 'react'
 import HomeHeader from '../../components/common/HomeHeader'
 import Footer from '../../components/common/Footer'
 import SettingTitle from '../../components/settings/SettingTitle'
 import SettingButton from '../../components/settings/SettingButton'
 import styled from '@emotion/styled'
-import useInput, { InputType, ValidationType } from '../../hooks/useInput'
+import { ValidationType } from '../../hooks/useInput'
+import useEmail from '../../hooks/useEmail'
 
 const Email = () => {
-  const email = useInput(InputType.EMAIL)
-  const password = useInput(InputType.PASSWORD)
-
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log('submit !')
-  }
+  const { email, password, onSubmit } = useEmail()
 
   return (
     <>
