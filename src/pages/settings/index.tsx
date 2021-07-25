@@ -59,7 +59,7 @@ const SettingsWrap = styled.div`
 `
 
 const ContentTitle = styled.h3`
-  font-size: 22px;
+  font-size: 1.8em;
   font-weight: 500;
   letter-spacing: -0.6px;
   margin-bottom: 1.01562vw;

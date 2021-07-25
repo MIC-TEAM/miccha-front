@@ -26,7 +26,7 @@ const Container = styled.div`
     font-weight: 500;
     letter-spacing: -0.3px;
     line-height: 18px;
-    min-width: 102px;
+    max-width: 102px;
     padding: 10px 16px;
     border-radius: 2px;
     outline: none;

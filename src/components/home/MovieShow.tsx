@@ -242,4 +242,76 @@ export const MovieShowBox = styled.div`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    height: 55vw;
+    margin: 25px 0;
+    .movie {
+      &__imgWrapper {
+        width: 68.5625%;
+      }
+      &__title {
+        font-size: 3.8125vw;
+      }
+      &__want {
+        font-size: 2.25vw;
+      }
+      &__genre {
+        font-size: 2vw;
+        margin-bottom: 2.15625vw;
+        margin-top: 1.7375vw;
+        td {
+          padding: 0.65vw 0;
+        }
+      }
+      &__story {
+        width: 50.8125vw;
+        font-size: 2.27188vw;
+        line-height: 2.875vw;
+        margin-top: 2.5625vw;
+      }
+      &__detail {
+        margin: 2.09375vw 0px 0.625vw;
+        &--star {
+          font-size: 1.9375vw;
+          height: 3.7vw;
+          strong {
+            font-size: 2.17188vw;
+          }
+        }
+        &--ageTime {
+          font-size: 2.09375vw;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 414px) {
+    height: 61.15vw;
+    margin: 15px 0;
+    .movie {
+      &__imgWrapper {
+        width: 100%;
+        img {
+          opacity: 0.4;
+        }
+      }
+      &__story {
+        width: 83%;
+        font-size: 2.68188vw;
+        line-height: 3.675vw;
+      }
+      &__genre {
+        line-height: 2vw;
+      }
+      &__title {
+        margin-top: 0;
+      }
+      &__detail {
+        &--star {
+          height: 5vw;
+        }
+      }
+    }
+  }
 `

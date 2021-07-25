@@ -22,6 +22,11 @@ export const RightMenu = styled.div`
       opacity: 0.8;
     }
   }
+  @media (max-width: 414px) {
+    button.search {
+      margin-right: 10px;
+    }
+  }
 `
 
 export const LeftMenu = styled.div`
@@ -53,6 +58,14 @@ export const NavLink = styled.div`
       display: block;
     }
   }
+  @media (max-width: 414px) {
+    padding-left: 6px;
+    & > a {
+      display: inline-block;
+      margin-right: 10px;
+      color: rgba(255, 255, 255, 0.88);
+    }
+  }
 `
 
 // 헤더 네비게이션
@@ -75,6 +88,9 @@ export const HeaderWrap = styled.nav<{ scrollTop: number }>`
     position: sticky;
     background: #000;
   }
+  @media (max-width: 414px) {
+    padding: 0 1em;
+  }
 `
 
 export const Logo = styled.button`
@@ -90,6 +106,10 @@ export const Logo = styled.button`
     opacity: 0;
     display: block;
   }
+  @media (max-width: 414px) {
+    width: 94px;
+    height: 72px;
+  }
 `
 
 export const Login = styled.button`
@@ -100,5 +120,8 @@ export const Login = styled.button`
     border-radius: 20px;
     font-size: 0.9em;
     font-weight: 700;
+  }
+  @media (max-width: 414px) {
+    margin-left: 10px;
   }
 `

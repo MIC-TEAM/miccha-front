@@ -79,4 +79,14 @@ export const MovieDetailBox = styled.div`
       margin-right: 4px;
     }
   }
+  @media (max-width: 414px) {
+    left: 13%;
+    h2 {
+      font-size: 5vw;
+    }
+    p {
+      font-size: 3vw;
+      margin-top: 1.8vw;
+    }
+  }
 `

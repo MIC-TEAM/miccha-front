@@ -102,6 +102,33 @@ const Slider = styled.div`
   li:hover {
     transform: scale(1.5);
   }
+
+  @media (max-width: 768px) {
+    .sliderBtn {
+      button {
+        width: 42px;
+        img {
+          width: 1.5em;
+        }
+      }
+    }
+  }
+  @media (max-width: 414px) {
+    li:hover {
+      transform: scale(1);
+    }
+    li:hover ~ li {
+      transform: translateX(0);
+    }
+
+    .sliderBtn {
+      button {
+        img {
+          width: 1em;
+        }
+      }
+    }
+  }
 `
 
 const MovieList = styled.ul<{ ulOffsetX: number }>`
@@ -111,6 +138,9 @@ const MovieList = styled.ul<{ ulOffsetX: number }>`
   transform: translateX(${({ ulOffsetX }) => ulOffsetX + 'vw'});
   transition: transform 1s;
   z-index: 2;
+  @media (max-width: 414px) {
+    padding-left: 2.565em;
+  }
 `
 
 const ContentHead = styled.div`
@@ -122,15 +152,25 @@ const ContentHead = styled.div`
   margin: 0 0 0.5vw 0;
   position: relative;
   width: 100%;
+  @media (max-width: 414px) {
+    margin: 0 0 1.5vw 0;
+    padding: 43px 20px 0;
+  }
 `
 
-export const ContentTitle = styled.h3`
-  font-size: 1.5vw;
+const ContentTitle = styled.h3`
+  font-size: 1.8vw;
   font-weight: 700;
   letter-spacing: -0.031vw;
+  @media (max-width: 768px) {
+    font-size: 3vw;
+  }
+  @media (max-width: 414px) {
+    font-size: 4vw;
+  }
 `
 
-export const AllView = styled.a`
+const AllView = styled.a`
   justify-content: center;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
