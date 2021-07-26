@@ -115,11 +115,12 @@ export const Logo = styled.button`
 export const Login = styled.button`
   color: #fff;
   margin-left: 23px;
-  a {
-    padding: 0.5em 1em;
-    border-radius: 20px;
-    font-size: 0.9em;
-    font-weight: 700;
+  border-radius: 20px;
+  font-weight: 500;
+  &:hover {
+    .mymenu__modal {
+      display: block;
+    }
   }
   @media (max-width: 414px) {
     margin-left: 10px;

@@ -30,9 +30,11 @@ const Footer = () => {
 export default Footer
 
 const FooterWrap = styled.footer`
+  position: absolute;
   width: 100vw;
   background: rgb(3, 7, 8);
   padding: 100px;
+  bottom: 0;
   P {
     color: rgba(255, 255, 255, 0.5);
     line-height: 26px;

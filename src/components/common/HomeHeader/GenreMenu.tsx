@@ -3,8 +3,8 @@ import styled from '@emotion/styled'
 import { useRecoilValueLoadable } from 'recoil'
 import { categoriesSelector } from '../../../recoil/movie/selector'
 import { mq } from '../../../styles/media-query'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { useRouter } from 'next/dist/client/router'
 
 const GenreMenu = () => {
   const categoriesLoadable = useRecoilValueLoadable(categoriesSelector)

@@ -63,7 +63,7 @@ const PasswordWrap = styled.div`
   background: rgb(20, 21, 23);
   color: #fff;
   width: 100%;
-  height: 64vh;
+  height: 100%;
   padding: 3.35938vw 50px;
   div {
     max-width: 480px;

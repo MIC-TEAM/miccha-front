@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { RightMenu, LeftMenu, HeaderWrap, Logo, Login, NavLink } from './styles'
 import useHomeHeader from '../../../hooks/useHomeHeader'
 import GenreMenu from './GenreMenu'
+import MyMenu from './MyMenu'
 import { useRouter } from 'next/router'
 import SearchBox from './SearchBox'
 import { useEffect } from 'react'
@@ -70,7 +71,11 @@ const HomeHeader = ({ username, className }: Props) => {
         )}
 
         <Link href="/wishes">보고싶어요</Link>
-        <Login type="button">{username}</Login>
+
+        <Login type="button">
+          {username}
+          <MyMenu />
+        </Login>
       </RightMenu>
     </HeaderWrap>
   )
