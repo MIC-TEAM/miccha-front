@@ -62,7 +62,7 @@ export const SettingInput = styled.div`
     background: rgb(29, 30, 31);
     border: 1px solid rgb(47, 49, 51);
     border-radius: 2px;
-    margin-bottom: 6px;
+    margin-bottom: 10px !important;
   }
 
   input {
@@ -87,7 +87,7 @@ const EmailWrap = styled.div`
   background: rgb(20, 21, 23);
   color: #fff;
   width: 100%;
-  height: 52vh;
+  height: 100%;
   padding: 3.35938vw 50px;
   div {
     max-width: 480px;

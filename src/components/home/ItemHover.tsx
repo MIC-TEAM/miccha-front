@@ -78,7 +78,7 @@ export const ItemHoverView = styled.div`
     grid-template-columns: 1fr 5fr 1fr;
     justify-content: center;
     align-items: center;
-    padding: 1.5em 1em;
+    padding: 1em;
     .save {
       width: 100%;
     }
@@ -121,5 +121,17 @@ export const ItemHoverView = styled.div`
         background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDQ0IDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGg0NHYyMEgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNGODJGNjIiIGQ9Ik0yMi4wMDQgMTYuNTk2bC0uMDAxLjAwMi0uMDA0LS4wMDJMNC42ODIgNi41OTggNi4xODIgNGwxNS44MiA5LjEzM0wzNy44MiA0bDEuNSAyLjU5OC0xNy4zMTcgOS45OTh6Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=);
       }
     }
+  }
+  @media (max-width: 768px) {
+    .desc {
+      font-size: 0.6em;
+      margin: 0 1em 0.2em;
+    }
+    .more {
+      bottom: 0em;
+    }
+  }
+  .detail {
+    font-size: 0.7em;
   }
 `
