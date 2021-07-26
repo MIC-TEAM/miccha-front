@@ -7,7 +7,7 @@ const MyMenu = () => {
     <MyMenuContainer className="mymenu__modal">
       <ul>
         <li>
-          <Link href="./settings">
+          <Link href="/settings">
             <a>설정 페이지</a>
           </Link>
         </li>
