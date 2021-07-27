@@ -10,7 +10,7 @@ const Wishes = () => {
         <title>믹챠 | 보고싶어요</title>
       </Head>
 
-      <HomeHeader username="현주" className="wishes" />
+      <HomeHeader className="wishes" />
 
       <WishesWrap>
         <ContentTitle>현주님이 보고싶어요한 작품</ContentTitle>

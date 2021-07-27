@@ -8,7 +8,7 @@ import styled from '@emotion/styled'
 const Email = () => {
   return (
     <>
-      <HomeHeader username="현주" className="wishes" />
+      <HomeHeader className="wishes" />
 
       <EmailWrap>
         <div>

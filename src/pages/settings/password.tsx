@@ -10,7 +10,7 @@ import { SettingInput } from './email'
 const Password = () => {
   return (
     <>
-      <HomeHeader username="현주" className="wishes" />
+      <HomeHeader className="wishes" />
 
       <PasswordWrap>
         <div>

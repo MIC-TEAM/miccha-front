@@ -8,17 +8,19 @@ import { useRouter } from 'next/router'
 import SearchBox from './SearchBox'
 import { useEffect } from 'react'
 import { useRef } from 'react'
+import { useRecoilValue } from 'recoil'
+import { userAtom } from '../../../recoil/user/atom'
 
 type Props = {
-  username: string
   className?: string
 }
 
-const HomeHeader = ({ username, className }: Props) => {
+const HomeHeader = ({ className }: Props) => {
   const { scrollTop } = useHomeHeader()
   const [searchShow, setSearchShow] = useState(false)
   const router = useRouter()
   const rightMenuRef = useRef<HTMLDivElement>(null)
+  const { name } = useRecoilValue(userAtom)
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside)
@@ -73,7 +75,7 @@ const HomeHeader = ({ username, className }: Props) => {
         <Link href="/wishes">보고싶어요</Link>
 
         <Login type="button">
-          {username}
+          {name}
           <MyMenu />
         </Login>
       </RightMenu>

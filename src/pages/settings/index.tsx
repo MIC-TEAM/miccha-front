@@ -7,7 +7,7 @@ import styled from '@emotion/styled'
 const Settings = () => {
   return (
     <>
-      <HomeHeader username="현주" className="wishes" />
+      <HomeHeader className="wishes" />
 
       <Setting>
         <SettingsWrap>

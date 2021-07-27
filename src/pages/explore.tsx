@@ -10,7 +10,7 @@ const Explore = () => {
 
   return (
     <>
-      <HomeHeader username="현주" className="wishes" />
+      <HomeHeader className="wishes" />
 
       <ExploreWrap>
         <ContentTitle>보고싶은 작품을 찾아보세요</ContentTitle>
