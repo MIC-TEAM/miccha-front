@@ -12,7 +12,7 @@ const Search = () => {
 
   return (
     <>
-      <HomeHeader username="현주" className="wishes" />
+      <HomeHeader className="wishes" />
 
       <SearchWrap>
         <ContentTitle>&apos;{query}&apos; 검색 결과</ContentTitle>

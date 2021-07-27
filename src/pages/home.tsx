@@ -6,6 +6,7 @@ import styled from '@emotion/styled'
 import MovieMain from '../components/home/MovieMain'
 import { useHome } from '../hooks/useHome'
 import Head from 'next/head'
+import ProtectedRoute from '../hoc/ProtectedRoute'
 
 const Home: React.FC = () => {
   const { homeMovies, inViewRef } = useHome()
@@ -17,7 +18,7 @@ const Home: React.FC = () => {
       </Head>
 
       <HomeWrap>
-        <HomeHeader username="현주" />
+        <HomeHeader />
         <MovieMain />
 
         <ul>
@@ -36,7 +37,7 @@ const Home: React.FC = () => {
   )
 }
 
-export default Home
+export default ProtectedRoute(Home)
 
 const HomeWrap = styled.main`
   background: rgb(20, 21, 23);
