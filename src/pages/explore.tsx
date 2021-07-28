@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import CategoryList from '../components/explore/CategoryList'
 import { useExplore } from '../hooks/useExplore'
 import DefaultSlider from '../components/common/DefaultSlider'
+import ProtectedRoute from '../hoc/ProtectedRoute'
 
 const Explore = () => {
   const { genreId } = useExplore()
@@ -21,7 +22,7 @@ const Explore = () => {
   )
 }
 
-export default Explore
+export default ProtectedRoute(Explore)
 
 const ExploreWrap = styled.main`
   background: rgb(20, 21, 23);

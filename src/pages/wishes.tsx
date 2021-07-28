@@ -2,6 +2,7 @@ import React from 'react'
 import HomeHeader from '../components/common/HomeHeader'
 import styled from '@emotion/styled'
 import Head from 'next/head'
+import ProtectedRoute from '../hoc/ProtectedRoute'
 
 const Wishes = () => {
   return (
@@ -19,7 +20,7 @@ const Wishes = () => {
   )
 }
 
-export default Wishes
+export default ProtectedRoute(Wishes)
 
 const WishesWrap = styled.main`
   background: rgb(20, 21, 23);

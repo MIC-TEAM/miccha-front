@@ -4,8 +4,13 @@ import Footer from '../../components/common/Footer'
 import SettingTitle from '../../components/settings/SettingTitle'
 import SettingButton from '../../components/settings/SettingButton'
 import styled from '@emotion/styled'
+import { useRecoilValue } from 'recoil'
+import { userAtom } from '../../recoil/user/atom'
+import ProtectedRoute from '../../hoc/ProtectedRoute'
 
 const Email = () => {
+  const { email } = useRecoilValue(userAtom)
+
   return (
     <>
       <HomeHeader className="wishes" />
@@ -19,7 +24,7 @@ const Email = () => {
 
           <CurrentEmail>
             현재 이메일
-            <strong>studymicteam@gmail.com</strong>
+            <strong>{email}</strong>
           </CurrentEmail>
 
           <SettingInput>
@@ -41,7 +46,7 @@ const Email = () => {
   )
 }
 
-export default Email
+export default ProtectedRoute(Email)
 
 export const SettingInput = styled.form`
   div {

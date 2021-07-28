@@ -6,6 +6,7 @@ import SettingButton from '../../components/settings/SettingButton'
 import Link from 'next/link'
 import styled from '@emotion/styled'
 import { SettingInput } from './email'
+import ProtectedRoute from '../../hoc/ProtectedRoute'
 
 const Password = () => {
   return (
@@ -48,7 +49,7 @@ const Password = () => {
   )
 }
 
-export default Password
+export default ProtectedRoute(Password)
 
 const PwForget = styled.div`
   color: rgba(255, 255, 255, 0.4);

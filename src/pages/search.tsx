@@ -4,6 +4,7 @@ import Footer from '../components/common/Footer'
 import styled from '@emotion/styled'
 import { useRouter } from 'next/router'
 import DefaultSlider from '../components/common/DefaultSlider'
+import ProtectedRoute from '../hoc/ProtectedRoute'
 
 const Search = () => {
   const {
@@ -23,7 +24,7 @@ const Search = () => {
   )
 }
 
-export default Search
+export default ProtectedRoute(Search)
 
 const SearchWrap = styled.main`
   background: rgb(20, 21, 23);

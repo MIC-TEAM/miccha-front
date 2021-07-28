@@ -3,8 +3,13 @@ import HomeHeader from '../../components/common/HomeHeader'
 import Footer from '../../components/common/Footer'
 import Link from 'next/link'
 import styled from '@emotion/styled'
+import { useRecoilValue } from 'recoil'
+import { userAtom } from '../../recoil/user/atom'
+import ProtectedRoute from '../../hoc/ProtectedRoute'
 
 const Settings = () => {
+  const { email } = useRecoilValue(userAtom)
+
   return (
     <>
       <HomeHeader className="wishes" />
@@ -18,7 +23,7 @@ const Settings = () => {
             <ul>
               <li>
                 <div>이메일</div>
-                <div>studymicteam@gmail.com</div>
+                <div>{email}</div>
                 <div>
                   <Link href="/settings/email">
                     <a>
@@ -43,7 +48,7 @@ const Settings = () => {
   )
 }
 
-export default Settings
+export default ProtectedRoute(Settings)
 
 const Setting = styled.main`
   background: rgb(20, 21, 23);
