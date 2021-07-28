@@ -3,8 +3,12 @@ import HomeHeader from '../components/common/HomeHeader'
 import styled from '@emotion/styled'
 import Head from 'next/head'
 import ProtectedRoute from '../hoc/ProtectedRoute'
+import { useRecoilValue } from 'recoil'
+import { userAtom } from '../recoil/user/atom'
 
 const Wishes = () => {
+  const { name } = useRecoilValue(userAtom)
+
   return (
     <>
       <Head>
@@ -14,7 +18,7 @@ const Wishes = () => {
       <HomeHeader className="wishes" />
 
       <WishesWrap>
-        <ContentTitle>현주님이 보고싶어요한 작품</ContentTitle>
+        <ContentTitle>{name}님이 보고싶어요한 작품</ContentTitle>
       </WishesWrap>
     </>
   )
